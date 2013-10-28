@@ -14,7 +14,7 @@ PDF: <br>
 <a href='/carga_pdf/dos'>Dos</a>
 
 <form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
-  {{ formulario.as_p }}
+   {{formulario.pdf.label}}{{formulario.pdf}}
 <input type="submit"/>
 
 

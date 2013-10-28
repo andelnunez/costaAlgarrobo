@@ -15,7 +15,11 @@ Planos: <br>
 <a href='/planos/tres'>Tres</a>
 
 <form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
-  {{ formulario.as_p }}
+ {{formulario.imagen.label}}{{formulario.imagen}}
+  {{ formulario.alineacion1.label }}{{formulario.alineacion1}}
+  {{ formulario.alineacion2.label }}{{formulario.alineacion2}}
+  {{ formulario.size1.label }}{{formulario.size1}}
+  {{ formulario.size2.label }}{{formulario.size2}}
 <input type="submit"/>
 
 
