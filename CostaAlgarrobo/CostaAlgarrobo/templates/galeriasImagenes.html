@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script>
+  function Agregar() {
+   document.getElementById('formulario_imagenes').style.display = 'block';
+  }
+</script>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+Galerias Imagenes: <br>
+<a href='/galeriasImagenes/mar'>Mar</a> <br>
+<a href='/galeriasImagenes/montana'>Montana</a> <br><br><br>
+
+{% if galeria %}
+  Imagenes:
+  {% for galerias in galeria.imagenes.all %}
+    <div >
+        {{galerias.imagen}}
+        <!-- <img id="post-image" src="{{galerias.imagen.url}}"> -->
+    </div>
+  {% endfor %}
+{% else %}
+   No hay ninguna imagen en esta galeria
+{% endif %}
+
+ <a id="boton_agregar" href="#" onClick="Agregar()" >Agregar Una Imagen</a> <br>
+
+<div id="formulario_imagenes" hidden>
+    <form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+      {{ formulario.as_p }}
+      <input type="submit"/>
+    </form>
+</div>
+</body>
+</html>

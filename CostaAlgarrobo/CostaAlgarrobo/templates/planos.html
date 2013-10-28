@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+
+
+
+Planos: <br>
+<a href='/planos/uno'>Uno</a>
+<a href='/planos/dos'>Dos</a>
+<a href='/planos/tres'>Tres</a>
+
+<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+  {{ formulario.as_p }}
+<input type="submit"/>
+
+
+
+
+</form>
+</body>
+</html>
