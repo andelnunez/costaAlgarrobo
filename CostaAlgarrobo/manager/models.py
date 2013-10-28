@@ -45,7 +45,7 @@ class GaleriasImagenes(models.Model):
 class Videos(models.Model):
   video = models.FileField(upload_to='carga')
 
-class GaleriasViedos(models.Model):
+class GaleriasVideos(models.Model):
   def __unicode__(self):
     return self.nombreGaleria
   nombreGaleria = models.CharField(max_length=100)

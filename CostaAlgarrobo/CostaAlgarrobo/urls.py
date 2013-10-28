@@ -22,4 +22,5 @@ urlpatterns = patterns('',
     url(r'^planos/(?P<edif>.*)$', 'manager.views.planos'),
     url(r'^galeriasImagenes/(?P<gale>.*)$', 'manager.views.galeriasImagenes'),
     url(r'^carga_pdf/(?P<pdf>.*)$', 'manager.views.carga_pdf'),
+    url(r'^galeriasVideos/(?P<video>.*)$', 'manager.views.galeriasVideos'),
 )

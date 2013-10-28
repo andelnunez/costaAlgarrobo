@@ -7,3 +7,6 @@ admin.site.register(Imagenes)
 admin.site.register(GaleriasImagenes)
 admin.site.register(GaleriasPdf)
 admin.site.register(Pdf)
+admin.site.register(Videos)
+admin.site.register(GaleriasVideos)
+

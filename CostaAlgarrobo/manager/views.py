@@ -139,3 +139,36 @@ def carga_pdf(request,pdf):
     formulario = PdfForm()
 
   return render_to_response('carga_pdf.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def galeriasVideos(request,video):
+  # Secciones
+  try:
+    galeria_video = GaleriasVideos.objects.get(nombreGaleria=video)
+  except:
+    galeria_video = None
+  if request.method == 'POST':
+    formulario = VideoForm(request.POST,request.FILES)
+    if formulario.is_valid():
+      archivo_video = formulario.cleaned_data['video']
+      if galeria_video == None:
+        galeria_video = GaleriasVideos.objects.create(nombreGaleria=video)
+        galeria_video.save()
+
+      else:
+        for galeria in galeria_video.videos.all():
+          galeria.delete()
+
+      video_creado = Videos.objects.create(video=archivo_video)
+      galeria_video.videos.add(video_creado)
+      video_creado.save()
+      galeria_video.save()
+
+  if galeria_video != None:
+    for galeria in galeria_video.videos.all():
+      gale_video = galeria
+
+    formulario = VideoForm(initial={'video':gale_video.video})
+  else:
+    formulario = VideoForm()
+
+  return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))

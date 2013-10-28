@@ -31,3 +31,6 @@ class GaleriasImagenesForm(forms.Form):
 
 class PdfForm(forms.Form):
   pdf = forms.FileField()
+
+class VideoForm(forms.Form):
+  video = forms.FileField()
