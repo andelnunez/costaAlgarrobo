@@ -24,6 +24,9 @@ def background(request,seccion):
       if sec == None:
         sec = Background.objects.create(seccion=seccion,imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
         sec.save()
+        sec.ancho = sec.imagen.width 
+        sec.alto = sec.imagen.height
+        sec.save()
       else:
         if request.POST.get('imagen-clear') == 'on':
           imagen = None
@@ -35,6 +38,10 @@ def background(request,seccion):
         sec.size1 = size1
         sec.size2 = size2
         sec.save()
+        if imagen != None:
+          sec.ancho = sec.imagen.width 
+          sec.alto = sec.imagen.height
+          sec.save()
   if sec != None:
     formulario = BackgroundForm(initial={'imagen':sec.imagen,'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
   else:
@@ -58,6 +65,9 @@ def planos(request,edif):
       if edificio == None:
         edificio = Planos.objects.create(edificio=edif,imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
         edificio.save()
+        edificio.ancho = edificio.imagen.width 
+        edificio.alto = edificio.imagen.height
+        edificio.save()
       else:
         if request.POST.get('imagen-clear') == 'on':
           imagen = None
@@ -69,6 +79,10 @@ def planos(request,edif):
         edificio.size1 = size1
         edificio.size2 = size2
         edificio.save()
+        if imagen != None:
+          edificio.ancho = edificio.imagen.width 
+          edificio.alto = edificio.imagen.height
+          edificio.save()
   if edificio != None:
     formulario = PlanosForm(initial={'imagen':edificio.imagen,'alineacion1':edificio.alineacion1,'alineacion2':edificio.alineacion2,'size1':edificio.size1,'size2':edificio.size2})
   else:
@@ -94,12 +108,20 @@ def galeriasImagenes(request,gale):
         imagenes = Imagenes.objects.create(imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
         galeria.save()
         imagenes.save()
+        imagenes.ancho = imagenes.imagen.width 
+        imagenes.alto = imagenes.imagen.height
+        imagenes.save()
+
         #Agregando ManyToMany
         galeria.imagenes.add(imagenes)
         galeria.save()
       else:
         imagenes = Imagenes.objects.create(imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
         imagenes.save()
+        imagenes.ancho = imagenes.imagen.width 
+        imagenes.alto = imagenes.imagen.height
+        imagenes.save()
+
         #Agregando ManyToMany
         galeria.imagenes.add(imagenes)
         galeria.save()
