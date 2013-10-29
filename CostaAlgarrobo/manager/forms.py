@@ -9,7 +9,6 @@ from django.contrib.admin.widgets import AdminDateWidget
 from django.forms.extras.widgets import SelectDateWidget
 
 class BackgroundForm(forms.Form):
-  imagen = forms.ImageField(required=False)
   alineacion1 = forms.CharField(max_length=20)
   alineacion2 = forms.CharField(max_length=20)
   size1 = forms.CharField(max_length=20)
@@ -34,3 +33,9 @@ class PdfForm(forms.Form):
 
 class VideoForm(forms.Form):
   video = forms.FileField()
+  
+class ImageBackgroundForm(forms.ModelForm):
+    class Meta:
+        model = ImageBackground
+        exclude = ['background']
+

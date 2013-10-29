@@ -31,7 +31,7 @@ Galerias Imagenes: <br>
 
 <div id="formulario_imagenes" hidden>
     <form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
-       {{formulario.imagenes.label}}{{formulario.imagenes}}
+  {{formulario.imagenes.label}}{{formulario.imagenes}}
   {{ formulario.alineacion1.label }}{{formulario.alineacion1}}
   {{ formulario.alineacion2.label }}{{formulario.alineacion2}}
   {{ formulario.size1.label }}{{formulario.size1}}

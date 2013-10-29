@@ -6,6 +6,9 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext, loader
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
+import Image
+from easy_thumbnails.files import get_thumbnailer
+from django.http import HttpResponse, HttpResponseRedirect
 
 def background(request,seccion):
   # Secciones
@@ -15,8 +18,9 @@ def background(request,seccion):
     sec = None
   if request.method == 'POST':
     formulario = BackgroundForm(request.POST,request.FILES)
-    if formulario.is_valid():
-      imagen = formulario.cleaned_data['imagen']
+    formimagen = ImageBackgroundForm(request.POST,request.FILES)
+    if formulario.is_valid() and formimagen.is_valid():
+      imagen = formimagen.cleaned_data['image_field']
       alineacion1 = formulario.cleaned_data['alineacion1']
       alineacion2 = formulario.cleaned_data['alineacion2']
       size1 = formulario.cleaned_data['size1']
@@ -42,11 +46,40 @@ def background(request,seccion):
           sec.ancho = sec.imagen.width 
           sec.alto = sec.imagen.height
           sec.save()
+      # Crop
+      imagencrop = ImageBackground.objects.create(background=sec,image_field = formimagen.cleaned_data['image_field'])
+      imagencrop.save()
+
+      return HttpResponseRedirect('/image_background/' + str(imagencrop.id))  
   if sec != None:
-    formulario = BackgroundForm(initial={'imagen':sec.imagen,'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
+    formulario = BackgroundForm(initial={'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
+    formimagen = ImageBackgroundForm(initial={'image_field':sec.imagen})
   else:
     formulario = BackgroundForm()
-  return render_to_response('background.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    formimagen = ImageBackgroundForm()
+  return render_to_response('background.html',{'formulario':formulario,'formimagen':formimagen}, context_instance=RequestContext(request))
+
+def image_background(request,id_back):
+  image = ImageBackground.objects.get(id=id_back)
+  if request.method == "POST":
+    form = ImageBackgroundForm(request.POST, request.FILES,instance=image)
+    if form.is_valid():
+      prueba = form.save(commit=False)
+      im = Image.open(prueba.image_field)
+      aux = str(prueba.cropping).split(",")
+      box = (int(aux[0]),int(aux[1]),int(aux[2]),int(aux[3]))
+      cropiado = im.crop(box)
+      back = Background.objects.get(id=image.background.id)
+      cortado = cropiado.resize((300, 300), Image.ANTIALIAS)
+      cortado.save("CostaAlgarrobo/carga/" + str(prueba.image_field))
+      back.imagen = prueba.image_field
+      back.ancho = back.imagen.width
+      back.alto = back.imagen.height
+      back.save()
+      return HttpResponseRedirect('/background/home') 
+  else: 
+    form = ImageBackgroundForm(instance=image)
+  return render_to_response('image_background.html', {'form': form, 'image': image}, context_instance=RequestContext(request))
 
 def planos(request,edif):
   # Secciones
