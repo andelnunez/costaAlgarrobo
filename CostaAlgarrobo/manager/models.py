@@ -64,7 +64,7 @@ class GaleriasPdf(models.Model):
 class ImageBackground(models.Model):
     background = models.ForeignKey(Background)
     image_field = ImageCropField(upload_to='cargas',verbose_name = "Imagen")
-    cropping = ImageRatioField('image_field', '400x300')
+    cropping = ImageRatioField('image_field', '300x300')
 
     class Meta:
         app_label = 'manager'
