@@ -2,6 +2,7 @@ from manager.models import *
 from manager.forms import *
 import Image
 from django.shortcuts import render_to_response
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext, loader
 from django.contrib.auth.forms import UserCreationForm
@@ -9,7 +10,9 @@ from django.contrib.auth.forms import AuthenticationForm
 import Image
 from easy_thumbnails.files import get_thumbnailer
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/')
 def background(request,seccion):
   # Secciones
   try:
@@ -59,6 +62,7 @@ def background(request,seccion):
     formimagen = ImageBackgroundForm()
   return render_to_response('background.html',{'formulario':formulario,'formimagen':formimagen}, context_instance=RequestContext(request))
 
+@login_required(login_url='/')
 def image_background(request,id_back):
   image = ImageBackground.objects.get(id=id_back)
   if request.method == "POST":
@@ -81,6 +85,7 @@ def image_background(request,id_back):
     form = ImageBackgroundForm(instance=image)
   return render_to_response('image_background.html', {'form': form, 'image': image}, context_instance=RequestContext(request))
 
+@login_required(login_url='/')
 def planos(request,edif):
   # Secciones
   try:
@@ -122,6 +127,7 @@ def planos(request,edif):
     formulario = PlanosForm()
   return render_to_response('planos.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
+@login_required(login_url='/')
 def galeriasImagenes(request,gale):
   # Secciones
   try:
@@ -162,6 +168,7 @@ def galeriasImagenes(request,gale):
   formulario = GaleriasImagenesForm()
   return render_to_response('galeriasImagenes.html',{'formulario':formulario,'galeria':galeria}, context_instance=RequestContext(request))
 
+@login_required(login_url='/')
 def carga_pdf(request,pdf):
   # Secciones
   try:
@@ -195,6 +202,7 @@ def carga_pdf(request,pdf):
 
   return render_to_response('carga_pdf.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
+@login_required(login_url='/')
 def galeriasVideos(request,video):
   # Secciones
   try:
@@ -227,3 +235,27 @@ def galeriasVideos(request,video):
     formulario = VideoForm()
 
   return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def login_admin(request):
+  if request.method == 'POST':
+    formulario = AuthenticationForm(request.POST)
+    if formulario.is_valid:
+      usuario = request.POST['username']
+      clave = request.POST['password']
+      usuario = usuario.lower()
+      acceso = authenticate(username=usuario, password=clave)
+      if acceso is not None:
+        if acceso.is_superuser:
+          login(request,acceso)
+          return HttpResponseRedirect('/background/home')
+        else:
+          formulario = AuthenticationForm()
+          error_log = "Error"
+          return render_to_response('index.html',{'formulario':formulario,'error_log':error_log}, context_instance=RequestContext(request))
+      else:
+        formulario = AuthenticationForm()
+        error_log = "Username o contrasena incorrectos"
+        return render_to_response('index.html',{'formulario':formulario,'error_log':error_log}, context_instance=RequestContext(request))
+  else:
+    formulario = AuthenticationForm()
+  return render_to_response('index.html',{'formulario':formulario}, context_instance=RequestContext(request))
