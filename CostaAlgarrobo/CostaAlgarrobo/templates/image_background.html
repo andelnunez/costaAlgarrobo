@@ -4,6 +4,7 @@
           $("#esconde").hide();
 				})
     </script>
+
   {{ form.media }}
   <form id='formulario' enctype='multipart/form-data' method='post' action=''>{% csrf_token %}
     <div id="esconde">
@@ -11,5 +12,8 @@
 		</div>
     {{ form.cropping.errors }}{{ form.cropping.label }}{{ form.cropping }}
     <input class="btn btn-primary btn-lg" type="submit" value="Save"/>
+
   </form>
+
+
 
