@@ -27,7 +27,7 @@ Galerias Imagenes: <br>
   Imagenes:
   {% for galerias in galeria.imagenes.all %}
     <div >
-        {{galerias.imagen}}
+       <a href='{{galerias.imagen.url}}'>{{galerias.imagen}}</a>
         <!-- <img id="post-image" src="{{galerias.imagen.url}}"> -->
     </div>
   {% endfor %}

@@ -50,10 +50,7 @@ def background(request,seccion):
           sec.alto = sec.imagen.height
           sec.save()
       # Crop
-      imagencrop = ImageBackground.objects.create(background=sec,image_field = formimagen.cleaned_data['image_field'])
-      imagencrop.save()
-
-      return HttpResponseRedirect('/image_background/' + str(imagencrop.id))  
+      return HttpResponseRedirect('/crop_background/' + str(sec.id))  
   if sec != None:
     formulario = BackgroundForm(initial={'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
     formimagen = ImageBackgroundForm(initial={'image_field':sec.imagen})
@@ -63,21 +60,19 @@ def background(request,seccion):
   return render_to_response('background.html',{'formulario':formulario,'formimagen':formimagen}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
-def image_background(request,id_back):
-  image = ImageBackground.objects.get(id=id_back)
+def crop_background(request,id_back):
+  image = Background.objects.get(id=id_back)
   if request.method == "POST":
-    im = Image.open(image.image_field)
+    im = Image.open(image.imagen)
     box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
     cropiado = im.crop(box)
-    back = Background.objects.get(id=image.background.id)
-    cropiado.save("CostaAlgarrobo/carga/" + str(image.image_field))
-    back.imagen = image.image_field
-    back.ancho = back.imagen.width
-    back.alto = back.imagen.height
-    back.save()
+    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    image.ancho = image.imagen.width
+    image.alto = image.imagen.height
+    image.save()
+
     return HttpResponseRedirect('/background/home') 
-  
-  return render_to_response('image_background.html', {'image': image}, context_instance=RequestContext(request))
+  return render_to_response('crop.html', {'image': image}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def planos(request,edif):
