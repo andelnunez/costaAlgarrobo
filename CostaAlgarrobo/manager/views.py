@@ -21,9 +21,8 @@ def background(request,seccion):
     sec = None
   if request.method == 'POST':
     formulario = BackgroundForm(request.POST,request.FILES)
-    formimagen = ImageBackgroundForm(request.POST,request.FILES)
-    if formulario.is_valid() and formimagen.is_valid():
-      imagen = formimagen.cleaned_data['image_field']
+    if formulario.is_valid():
+      imagen = formulario.cleaned_data['imagen']
       alineacion1 = formulario.cleaned_data['alineacion1']
       alineacion2 = formulario.cleaned_data['alineacion2']
       size1 = formulario.cleaned_data['size1']
@@ -52,12 +51,10 @@ def background(request,seccion):
       # Crop
       return HttpResponseRedirect('/crop_background/' + str(sec.id))  
   if sec != None:
-    formulario = BackgroundForm(initial={'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
-    formimagen = ImageBackgroundForm(initial={'image_field':sec.imagen})
+    formulario = BackgroundForm(initial={'imagen':sec.imagen,'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
   else:
     formulario = BackgroundForm()
-    formimagen = ImageBackgroundForm()
-  return render_to_response('background.html',{'formulario':formulario,'formimagen':formimagen}, context_instance=RequestContext(request))
+  return render_to_response('background.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def crop_background(request,id_back):

@@ -12,7 +12,7 @@ Seccion: <br>
 <a href='/background/contacto'>Contactos</a>
 
 <form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
-  {{formimagen.image_field.label}}{{formimagen.image_field}}
+  {{formulario.imagen.label}}{{formulario.imagen}}
 
   {{ formulario.alineacion1.label }}{{formulario.alineacion1}}
   {{ formulario.alineacion2.label }}{{formulario.alineacion2}}
