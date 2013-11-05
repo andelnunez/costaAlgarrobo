@@ -2,7 +2,6 @@
 from django.db.models.fields.related import ManyToManyField
 from django.db import models
 from django.contrib.auth.models import User
-from image_cropping.fields import ImageRatioField, ImageCropField
 
 class Background(models.Model):
   def __unicode__(self):
@@ -61,10 +60,3 @@ class GaleriasPdf(models.Model):
   nombreGaleria = models.CharField(max_length=100)
   pdf = ManyToManyField(Pdf)
 
-class ImageBackground(models.Model):
-    background = models.ForeignKey(Background)
-    image_field = ImageCropField(upload_to='cargas',verbose_name = "Imagen")
-    cropping = ImageRatioField('image_field', '300x300')
-
-    class Meta:
-        app_label = 'manager'
