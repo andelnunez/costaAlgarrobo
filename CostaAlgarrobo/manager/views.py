@@ -66,24 +66,18 @@ def background(request,seccion):
 def image_background(request,id_back):
   image = ImageBackground.objects.get(id=id_back)
   if request.method == "POST":
-    form = ImageBackgroundForm(request.POST, request.FILES,instance=image)
-    if form.is_valid():
-      prueba = form.save(commit=False)
-      im = Image.open(prueba.image_field)
-      aux = str(prueba.cropping).split(",")
-      box = (int(aux[0]),int(aux[1]),int(aux[2]),int(aux[3]))
-      cropiado = im.crop(box)
-      back = Background.objects.get(id=image.background.id)
-      cortado = cropiado.resize((300, 300), Image.ANTIALIAS)
-      cortado.save("CostaAlgarrobo/carga/" + str(prueba.image_field))
-      back.imagen = prueba.image_field
-      back.ancho = back.imagen.width
-      back.alto = back.imagen.height
-      back.save()
-      return HttpResponseRedirect('/background/home') 
-  else: 
-    form = ImageBackgroundForm(instance=image)
-  return render_to_response('image_background.html', {'form': form, 'image': image}, context_instance=RequestContext(request))
+    im = Image.open(image.image_field)
+    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+    cropiado = im.crop(box)
+    back = Background.objects.get(id=image.background.id)
+    cropiado.save("CostaAlgarrobo/carga/" + str(image.image_field))
+    back.imagen = image.image_field
+    back.ancho = back.imagen.width
+    back.alto = back.imagen.height
+    back.save()
+    return HttpResponseRedirect('/background/home') 
+  
+  return render_to_response('image_background.html', {'image': image}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def planos(request,edif):
@@ -121,11 +115,26 @@ def planos(request,edif):
           edificio.ancho = edificio.imagen.width 
           edificio.alto = edificio.imagen.height
           edificio.save()
+      return HttpResponseRedirect('/crop_planos/' + str(edificio.id))
   if edificio != None:
     formulario = PlanosForm(initial={'imagen':edificio.imagen,'alineacion1':edificio.alineacion1,'alineacion2':edificio.alineacion2,'size1':edificio.size1,'size2':edificio.size2})
   else:
     formulario = PlanosForm()
   return render_to_response('planos.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+@login_required(login_url='/')
+def crop_planos(request,id_plano):
+  image = Planos.objects.get(id=id_plano)
+  if request.method == "POST":
+    im = Image.open(image.imagen)
+    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+    cropiado = im.crop(box)
+    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    image.ancho = image.imagen.width
+    image.alto = image.imagen.height
+    image.save()
+    return HttpResponseRedirect('/planos/' + image.edificio)   
+  return render_to_response('crop.html', {'cortar':'planos','image': image}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def galeriasImagenes(request,gale):
@@ -164,9 +173,24 @@ def galeriasImagenes(request,gale):
         #Agregando ManyToMany
         galeria.imagenes.add(imagenes)
         galeria.save()
-
+      return HttpResponseRedirect('/crop_galeriasImagenes/' + gale + '/' + str(imagenes.id))
   formulario = GaleriasImagenesForm()
   return render_to_response('galeriasImagenes.html',{'formulario':formulario,'galeria':galeria}, context_instance=RequestContext(request))
+
+@login_required(login_url='/')
+def crop_galeriasImagenes(request,galeria,id_imagen):
+  print galeria
+  image = Imagenes.objects.get(id=id_imagen)
+  if request.method == "POST":
+    im = Image.open(image.imagen)
+    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+    cropiado = im.crop(box)
+    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    image.ancho = image.imagen.width
+    image.alto = image.imagen.height
+    image.save()
+    return HttpResponseRedirect('/galeriasImagenes/' + galeria)   
+  return render_to_response('crop.html', {'cortar':'galeriasImagenes','image': image}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def carga_pdf(request,pdf):

@@ -10,6 +10,10 @@ _ruta_db = RUTA_PROYECTO.split("/")
 _ruta_db = _ruta_db[0:len(_ruta_db)-2] + ["base","base.db"]
 _ruta_db = "/".join(_ruta_db)
 
+_ruta_static = RUTA_PROYECTO.split("/")
+_ruta_static = _ruta_static[0:len(_ruta_static)-2] + ["CostaAlgarrobo","static"]
+_ruta_static = "/".join(_ruta_static)
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
