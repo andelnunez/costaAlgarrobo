@@ -25,6 +25,11 @@ Textos: <br>
 </ul>
 
 <h4>Crear Texto</h4>
-
+<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+   {{formulario.seccion.label}}{{formulario.seccion}}<br>
+   {{formulario.titulo.label}}{{formulario.titulo}}<br>
+   {{formulario.texto.label}}{{formulario.texto}}
+<input type="submit"/>
+</form>
 </body>
 </html>

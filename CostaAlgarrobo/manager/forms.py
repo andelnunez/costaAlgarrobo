@@ -35,4 +35,7 @@ class PdfForm(forms.Form):
 class VideoForm(forms.Form):
   video = forms.FileField()
 
+class TextoForm(ModelForm):
+  class Meta:
+    model = Texto
 

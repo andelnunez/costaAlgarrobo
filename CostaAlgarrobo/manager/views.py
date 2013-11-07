@@ -279,4 +279,11 @@ def login_admin(request):
 @login_required(login_url='/')
 def texto(request):
   textos = Texto.objects.all()
-  return render_to_response('texto.html',{'textos':textos}, context_instance=RequestContext(request))
+  if request.method == 'POST':
+    formulario = TextoForm(request.POST)
+    if formulario.is_valid():
+      formulario.save()
+      return HttpResponseRedirect('/texto')
+  else:
+    formulario = TextoForm()
+  return render_to_response('texto.html',{'textos':textos, 'formulario':formulario}, context_instance=RequestContext(request))

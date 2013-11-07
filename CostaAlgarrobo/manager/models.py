@@ -62,6 +62,8 @@ class GaleriasPdf(models.Model):
 
 class Seccion(models.Model):
   nombre = models.CharField(max_length=100)
+  def __unicode__(self):
+    return self.nombre
 
 class Texto(models.Model):
   seccion = models.ForeignKey(Seccion)
