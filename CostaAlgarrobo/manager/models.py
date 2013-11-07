@@ -60,3 +60,10 @@ class GaleriasPdf(models.Model):
   nombreGaleria = models.CharField(max_length=100)
   pdf = ManyToManyField(Pdf)
 
+class Seccion(models.Model):
+  nombre = models.CharField(max_length=100)
+
+class Texto(models.Model):
+  seccion = models.ForeignKey(Seccion)
+  titulo = models.CharField(max_length=100)
+  texto = models.TextField(max_length=1000)

@@ -4,8 +4,6 @@
     <title></title>
 </head>
 <body>
-
-
 <ul>
     <li><a href='/background/home'> Background </a></li>
     <li><a href='/galeriasImagenes/mar'> Galerias Imagenes </a></li>
@@ -16,16 +14,17 @@
 </ul>
 
 
-PDF: <br>
-<a href='/galeriasVideos/video1'>Video1</a>
-
-<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
-   {{formulario.video.label}}{{formulario.video}}
-<input type="submit"/>
 
 
+Textos: <br>
 
+<ul>
+    {% for texto in textos %}
+    <li>Titulo: {{texto.titulo}} Seccion: {{texto.seccion.nombre}}</li>
+    {%endfor%}
+</ul>
 
-</form>
+<h4>Crear Texto</h4>
+
 </body>
 </html>

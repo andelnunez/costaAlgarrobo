@@ -275,3 +275,8 @@ def login_admin(request):
   else:
     formulario = AuthenticationForm()
   return render_to_response('index.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+@login_required(login_url='/')
+def texto(request):
+  textos = Texto.objects.all()
+  return render_to_response('texto.html',{'textos':textos}, context_instance=RequestContext(request))

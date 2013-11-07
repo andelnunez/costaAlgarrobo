@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^galeriasVideos/(?P<video>.*)$', 'manager.views.galeriasVideos'),
     url(r'^crop_background/(?P<id_back>.*)$', 'manager.views.crop_background'),
     url(r'^crop_planos/(?P<id_plano>.*)$', 'manager.views.crop_planos'), 
-    url(r'^crop_galeriasImagenes/(?P<galeria>.*)/(?P<id_imagen>.*)$', 'manager.views.crop_galeriasImagenes'), 
+    url(r'^crop_galeriasImagenes/(?P<galeria>.*)/(?P<id_imagen>.*)$', 'manager.views.crop_galeriasImagenes'),
+    url(r'^texto$', 'manager.views.texto'),
         
 )
