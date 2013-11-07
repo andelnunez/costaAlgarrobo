@@ -182,7 +182,7 @@ def crop_galeriasImagenes(request,galeria,id_imagen):
     image.alto = image.imagen.height
     image.save()
     return HttpResponseRedirect('/galeriasImagenes/' + galeria)   
-  return render_to_response('crop.html', {'cortar':'galeriasImagenes','image': image}, context_instance=RequestContext(request))
+  return render_to_response('crop.html', {'image': image}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def carga_pdf(request,pdf):
