@@ -277,8 +277,10 @@ def login_admin(request):
   return render_to_response('index.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
-def texto(request):
-  textos = Texto.objects.all()
+def texto(request, id_seccion):
+  seccion = Seccion.objects.get(pk=id_seccion)
+  textos = Texto.objects.filter(seccion__seccion=seccion)
+  subsecciones = SubSeccion.objects.filter(seccion=seccion)
   if request.method == 'POST':
     formulario = TextoForm(request.POST)
     if formulario.is_valid():

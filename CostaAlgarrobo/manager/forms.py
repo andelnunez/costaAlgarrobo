@@ -38,4 +38,5 @@ class VideoForm(forms.Form):
 class TextoForm(ModelForm):
   class Meta:
     model = Texto
+    exclude = ['seccion']
 

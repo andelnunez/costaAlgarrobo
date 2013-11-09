@@ -65,7 +65,13 @@ class Seccion(models.Model):
   def __unicode__(self):
     return self.nombre
 
-class Texto(models.Model):
+class SubSeccion(models.Model):
+  nombre = models.CharField(max_length=100)
   seccion = models.ForeignKey(Seccion)
+  def __unicode__(self):
+    return self.nombre
+
+class Texto(models.Model):
+  seccion = models.ForeignKey(SubSeccion)
   titulo = models.CharField(max_length=100)
   texto = models.TextField(max_length=1000)
