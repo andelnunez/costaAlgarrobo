@@ -137,39 +137,24 @@ def galeriasImagenes(request,gale):
     galeria = GaleriasImagenes.objects.get(nombreGaleria=gale)
   except:
     galeria = None
+  galerias = GaleriasImagenes.objects.all()
   if request.method == 'POST':
     formulario = GaleriasImagenesForm(request.POST,request.FILES)
     if formulario.is_valid():
+      nombre = formulario.cleaned_data['nombre']
       imagen = formulario.cleaned_data['imagenes']
       alineacion1 = formulario.cleaned_data['alineacion1']
       alineacion2 = formulario.cleaned_data['alineacion2']
       size1 = formulario.cleaned_data['size1']
       size2 = formulario.cleaned_data['size2']
-      if galeria == None:
-        galeria = GaleriasImagenes.objects.create(nombreGaleria=gale)
-        imagenes = Imagenes.objects.create(imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
-        galeria.save()
-        imagenes.save()
-        imagenes.ancho = imagenes.imagen.width 
-        imagenes.alto = imagenes.imagen.height
-        imagenes.save()
-
-        #Agregando ManyToMany
-        galeria.imagenes.add(imagenes)
-        galeria.save()
-      else:
-        imagenes = Imagenes.objects.create(imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
-        imagenes.save()
-        imagenes.ancho = imagenes.imagen.width 
-        imagenes.alto = imagenes.imagen.height
-        imagenes.save()
-
-        #Agregando ManyToMany
-        galeria.imagenes.add(imagenes)
-        galeria.save()
+      imagenes = Imagenes.objects.create(galeria=galeria, nombre=nombre, imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
+      imagenes.save()
+      #Agregando ManyToMany
+      galeria.save()
       return HttpResponseRedirect('/crop_galeriasImagenes/' + gale + '/' + str(imagenes.id))
-  formulario = GaleriasImagenesForm()
-  return render_to_response('galeriasImagenes.html',{'formulario':formulario,'galeria':galeria}, context_instance=RequestContext(request))
+  else:
+    formulario = GaleriasImagenesForm()
+  return render_to_response('galeriasImagenes.html', {'galerias': galerias, 'formulario':formulario,'galeria':galeria}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def crop_galeriasImagenes(request,galeria,id_imagen):
@@ -183,7 +168,7 @@ def crop_galeriasImagenes(request,galeria,id_imagen):
     image.ancho = image.imagen.width
     image.alto = image.imagen.height
     image.save()
-    return HttpResponseRedirect('/galeriasImagenes/' + galeria)   
+    return HttpResponseRedirect('/admin/manager/imagenes/')
   return render_to_response('crop.html', {'image': image}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')

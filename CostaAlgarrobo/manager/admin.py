@@ -2,6 +2,7 @@ from manager.models import *
 from django.contrib import admin
 from django.shortcuts import redirect
 from admin_views.admin import AdminViews
+from django.core.exceptions import ValidationError
 
 class BackgroundAdmin(AdminViews):
     exclude = ['imagen']
@@ -9,10 +10,15 @@ class BackgroundAdmin(AdminViews):
       ('Subir Background', '/background/home'),
     )
 
+class ImagenAdmin(AdminViews):
+    exclude = ['imagen']
+    admin_views = (
+      ('Subir Imagen', '/galeriasImagenes/home'),
+    )
 
 admin.site.register(Background, BackgroundAdmin)
 admin.site.register(Planos)
-admin.site.register(Imagenes)
+admin.site.register(Imagenes, ImagenAdmin)
 admin.site.register(GaleriasImagenes)
 admin.site.register(GaleriasPdf)
 admin.site.register(Pdf)

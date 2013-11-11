@@ -9,37 +9,20 @@
     <title></title>
 </head>
 <body>
-
-<ul>
-    <li><a href='/background/home'> Background </a></li>
-    <li><a href='/galeriasImagenes/mar'> Galerias Imagenes </a></li>
-    <li><a href='/planos/uno'> Planos </a></li>
-    <li><a href='/galeriasVideos/video1'> Galerias Videos </a></li>
-    <li><a href='/carga_pdf/uno'> Pdf </a></li>
-    <li><a href='/texto'> Agregar Textos </a></li>
-</ul>
-
-
 Galerias Imagenes: <br>
-<a href='/galeriasImagenes/mar'>Mar</a> <br>
-<a href='/galeriasImagenes/montana'>Montana</a> <br><br><br>
+{%for gal in galerias%}
+<a href='/galeriasImagenes/{{gal.nombreGaleria}}'>{{gal.nombreGaleria}}</a> <br>
+{%empty%}
+<p>Aun no existen galerias</p>
+<p>para crear una galeria entre <a href='/admin/manager/galeriasimagenes/'>aqui</a></p>
+{%endfor%}
+<br><br><br>
 
-{% if galeria %}
-  Imagenes:
-  {% for galerias in galeria.imagenes.all %}
-    <div >
-       <a href='{{galerias.imagen.url}}'>{{galerias.imagen}}</a>
-        <!-- <img id="post-image" src="{{galerias.imagen.url}}"> -->
-    </div>
-  {% endfor %}
-{% else %}
-   No hay ninguna imagen en esta galeria
-{% endif %}
-
- <a id="boton_agregar" href="#" onClick="Agregar()" >Agregar Una Imagen</a> <br>
-
-<div id="formulario_imagenes" hidden>
+{%if galeria == None%}
+<p>Seleccione una galeria</p>
+{%else%}
     <form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+  {{formulario.nombre.label}}{{formulario.nombre}}
   {{formulario.imagenes.label}}{{formulario.imagenes}}
   {{ formulario.alineacion1.label }}{{formulario.alineacion1}}
   {{ formulario.alineacion2.label }}{{formulario.alineacion2}}
@@ -47,6 +30,6 @@ Galerias Imagenes: <br>
   {{ formulario.size2.label }}{{formulario.size2}}
       <input type="submit"/>
     </form>
-</div>
+{%endif%}
 </body>
 </html>

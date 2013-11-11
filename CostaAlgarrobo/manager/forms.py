@@ -24,6 +24,7 @@ class PlanosForm(forms.Form):
   size2 = forms.CharField(max_length=20)
 
 class GaleriasImagenesForm(forms.Form):
+  nombre = forms.CharField(max_length=100)
   imagenes = forms.ImageField()
   alineacion1 = forms.CharField(max_length=20)
   alineacion2 = forms.CharField(max_length=20)

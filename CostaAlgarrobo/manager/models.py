@@ -2,6 +2,9 @@
 from django.db.models.fields.related import ManyToManyField
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+
+
 
 class Background(models.Model):
   def __unicode__(self):
@@ -28,7 +31,15 @@ class Planos(models.Model):
   size1 = models.CharField(max_length=20)
   size2 = models.CharField(max_length=20)
 
+class GaleriasImagenes(models.Model):
+  def __unicode__(self):
+    return self.nombreGaleria
+  nombreGaleria = models.CharField(max_length=100)
+
 class Imagenes(models.Model):
+  def __unicode__(self):
+    return self.nombre
+  nombre = models.CharField(max_length=100)
   imagen = models.ImageField(upload_to='carga')
   alto = models.CharField(max_length=20)
   ancho = models.CharField(max_length=20)
@@ -36,12 +47,8 @@ class Imagenes(models.Model):
   alineacion2 = models.CharField(max_length=20)
   size1 = models.CharField(max_length=20)
   size2 = models.CharField(max_length=20)
+  galeria = models.ForeignKey(GaleriasImagenes)
 
-class GaleriasImagenes(models.Model):
-  def __unicode__(self):
-    return self.nombreGaleria
-  nombreGaleria = models.CharField(max_length=100)
-  imagenes = ManyToManyField(Imagenes)
 
 class Videos(models.Model):
   video = models.FileField(upload_to='carga')
