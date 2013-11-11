@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Background(models.Model):
   def __unicode__(self):
     return self.seccion
+  nombre = models.CharField(max_length=100)
   seccion = models.CharField(max_length=100)
   imagen = models.ImageField(upload_to='carga')
   alto = models.CharField(max_length=20)

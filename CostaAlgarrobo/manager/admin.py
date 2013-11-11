@@ -1,7 +1,16 @@
 from manager.models import *
 from django.contrib import admin
+from django.shortcuts import redirect
+from admin_views.admin import AdminViews
 
-admin.site.register(Background)
+class BackgroundAdmin(AdminViews):
+    exclude = ['imagen']
+    admin_views = (
+      ('Subir Background', '/background/home'),
+    )
+
+
+admin.site.register(Background, BackgroundAdmin)
 admin.site.register(Planos)
 admin.site.register(Imagenes)
 admin.site.register(GaleriasImagenes)

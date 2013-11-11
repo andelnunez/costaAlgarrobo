@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'easy_thumbnails',
     'manager',
+    'admin_views',
 )
 
 # A sample logging configuration. The only tangible logging

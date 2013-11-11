@@ -1,18 +1,12 @@
-<ul>
-    <li><a href='/background/home'> Background </a></li>
-    <li><a href='/galeriasImagenes/mar'> Galerias Imagenes </a></li>
-    <li><a href='/planos/uno'> Planos </a></li>
-    <li><a href='/galeriasVideos/video1'> Galerias Videos </a></li>
-    <li><a href='/carga_pdf/uno'> Pdf </a></li>
-    <li><a href='/texto'> Agregar Textos </a></li>
-</ul>
+<h2>Nuevo background para la seccion: {{actual}}</h2>
 
-
-Seccion: <br>
-<a href='/background/home'>Home</a>
-<a href='/background/contacto'>Contactos</a>
+Secciones: <br>
+{% for seccion in secciones %}
+<a href='/background/{{seccion.nombre}}'>{{seccion.nombre}}</a>
+{%endfor%}
 
 <form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+  {{formulario.nombre.label}}{{formulario.nombre}}
   {{formulario.imagen.label}}{{formulario.imagen}}
 
   {{ formulario.alineacion1.label }}{{formulario.alineacion1}}

@@ -16,45 +16,47 @@ from django.contrib.auth.decorators import login_required
 def background(request,seccion):
   # Secciones
   try:
-    sec = Background.objects.get(seccion=seccion)
+    secciones = Seccion.objects.all()
   except:
-    sec = None
+    secciones = None
   if request.method == 'POST':
     formulario = BackgroundForm(request.POST,request.FILES)
     if formulario.is_valid():
+      nombre = formulario.cleaned_data['nombre']
       imagen = formulario.cleaned_data['imagen']
       alineacion1 = formulario.cleaned_data['alineacion1']
       alineacion2 = formulario.cleaned_data['alineacion2']
       size1 = formulario.cleaned_data['size1']
       size2 = formulario.cleaned_data['size2']
-      if sec == None:
-        sec = Background.objects.create(seccion=seccion,imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
-        sec.save()
-        sec.ancho = sec.imagen.width 
-        sec.alto = sec.imagen.height
-        sec.save()
-      else:
-        if request.POST.get('imagen-clear') == 'on':
-          imagen = None
-          sec.imagen = None
-        if imagen != None:
-          sec.imagen = imagen
-        sec.alineacion1 = alineacion1
-        sec.alineacion2 = alineacion2
-        sec.size1 = size1
-        sec.size2 = size2
-        sec.save()
-        if imagen != None:
-          sec.ancho = sec.imagen.width 
-          sec.alto = sec.imagen.height
-          sec.save()
+#      if sec == None:
+      sec = Background.objects.create(nombre=nombre, seccion=seccion,imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
+      sec.save()
+#      sec.ancho = sec.imagen.width
+#      sec.alto = sec.imagen.height
+#      sec.save()
+#      else:
+#        if request.POST.get('imagen-clear') == 'on':
+#          imagen = None
+#          sec.imagen = None
+#        if imagen != None:
+#          sec.imagen = imagen
+#      sec.alineacion1 = alineacion1
+#      sec.alineacion2 = alineacion2
+#      sec.size1 = size1
+#      sec.size2 = size2
+#      sec.save()
+#        if imagen != None:
+#      sec.ancho = sec.imagen.width
+#      sec.alto = sec.imagen.height
+#      sec.save()
       # Crop
       return HttpResponseRedirect('/crop_background/' + str(sec.id))  
-  if sec != None:
-    formulario = BackgroundForm(initial={'imagen':sec.imagen,'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
+#  if sec != None:
+#    formulario = BackgroundForm(initial={'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
+
   else:
     formulario = BackgroundForm()
-  return render_to_response('background.html',{'formulario':formulario}, context_instance=RequestContext(request))
+  return render_to_response('background.html', {'actual': seccion, 'secciones': secciones, 'formulario': formulario}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def crop_background(request,id_back):
