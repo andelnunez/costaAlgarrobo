@@ -70,7 +70,7 @@ def crop_background(request,id_back):
     image.alto = image.imagen.height
     image.save()
 
-    return HttpResponseRedirect('/background/home') 
+    return HttpResponseRedirect('/admin/manager/background/')
   return render_to_response('crop.html', {'image': image}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')

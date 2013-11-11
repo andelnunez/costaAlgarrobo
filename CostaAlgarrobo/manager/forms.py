@@ -9,10 +9,20 @@ from django.contrib.admin.widgets import AdminDateWidget
 from django.forms.extras.widgets import SelectDateWidget
 
 class BackgroundForm(forms.Form):
+  aligV = (
+    ('Top','Arriba'),
+    ('Middle','Medio'),
+    ('Bottom','Abajo'),
+  )
+  aligH = (
+    ('Left','Izquierda'),
+    ('Center','Centro'),
+    ('Right','Derecha'),
+  )
   nombre = forms.CharField(max_length=100)
   imagen = forms.ImageField(required=False)
-  alineacion1 = forms.CharField(max_length=20)
-  alineacion2 = forms.CharField(max_length=20)
+  alineacion1 = forms.ChoiceField(choices=aligV)
+  alineacion2 = forms.ChoiceField(choices=aligH)
   size1 = forms.CharField(max_length=20)
   size2 = forms.CharField(max_length=20)
 
