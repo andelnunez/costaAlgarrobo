@@ -291,3 +291,39 @@ def texto(request, id_seccion):
   else:
     formulario = TextoForm()
   return render_to_response('texto.html',{'textos':textos, 'formulario':formulario}, context_instance=RequestContext(request))
+
+def descripcion(request):
+  return render_to_response('descripcion.html',context_instance=RequestContext(request))
+
+def departamentos(request):
+  return render_to_response('departamentos.html',context_instance=RequestContext(request))
+
+def equipamento(request):
+  return render_to_response('equipamento.html',context_instance=RequestContext(request))
+
+def infraestructura(request):
+  return render_to_response('infraestructura.html',context_instance=RequestContext(request))
+
+def fotos_piloto(request):
+  return render_to_response('fotos_piloto.html',context_instance=RequestContext(request))
+
+def plantas(request):
+  return render_to_response('plantas.html',context_instance=RequestContext(request))
+
+def foto(request):
+  return render_to_response('foto.html',context_instance=RequestContext(request))
+
+def video(request):
+  return render_to_response('video.html',context_instance=RequestContext(request))
+
+def contactanos(request):
+  return render_to_response('contactanos.html',context_instance=RequestContext(request))
+
+def etapa1(request):
+  return render_to_response('etapa1.html',context_instance=RequestContext(request))
+
+def etapa2(request):
+  return render_to_response('etapa2.html',context_instance=RequestContext(request))
+
+def ubicacion(request):
+  return render_to_response('ubicacion.html',context_instance=RequestContext(request))
