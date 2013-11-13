@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 class BackgroundAdmin(AdminViews):
     exclude = ['imagen']
     admin_views = (
-      ('Subir Background', '/background/home'),
+      ('Subir Background', '/admin/background/home'),
     )
 
 class ImagenAdmin(AdminViews):

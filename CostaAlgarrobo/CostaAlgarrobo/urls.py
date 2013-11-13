@@ -9,6 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'manager.views.login_admin'),
+    url(r'^admin/background/(?P<seccion>.*)$', 'manager.views.background'),
     # url(r'^CostaAlgarrobo/', include('CostaAlgarrobo.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
