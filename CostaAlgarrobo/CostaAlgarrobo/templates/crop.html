@@ -1,4 +1,8 @@
+{% extends "admin/base_site.html" %}
 
+{% block content %}
+<div id="content-main">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/imgareaselect-default.css" />
   <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.min.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.imgareaselect.pack.js"></script>
@@ -16,7 +20,7 @@ $(document).ready(function () {
 });
 
 
-    
+
 </script>
 
   <form id='formulario' enctype='multipart/form-data' method='post' action=''>{% csrf_token %}
@@ -27,9 +31,13 @@ $(document).ready(function () {
   <input type="hidden" name="y1" value="" />
   <input type="hidden" name="x2" value="" />
   <input type="hidden" name="y2" value="" />
-  <input class="btn btn-primary btn-lg" type="submit" value="Save"/>
+
+  <div class="submit-row">
+    <input type="submit" value="Grabar" class="default" name="_save">
+  </div>
 
   </form>
 
-
+</div>
+{% endblock %}
 

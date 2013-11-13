@@ -34,10 +34,20 @@ class PlanosForm(forms.Form):
   size2 = forms.CharField(max_length=20)
 
 class GaleriasImagenesForm(forms.Form):
+  aligV = (
+    ('Top','Arriba'),
+    ('Middle','Medio'),
+    ('Bottom','Abajo'),
+  )
+  aligH = (
+    ('Left','Izquierda'),
+    ('Center','Centro'),
+    ('Right','Derecha'),
+  )
   nombre = forms.CharField(max_length=100)
   imagenes = forms.ImageField()
-  alineacion1 = forms.CharField(max_length=20)
-  alineacion2 = forms.CharField(max_length=20)
+  alineacion1 = forms.ChoiceField(choices=aligV)
+  alineacion2 = forms.ChoiceField(choices=aligH)
   size1 = forms.CharField(max_length=20)
   size2 = forms.CharField(max_length=20)
 

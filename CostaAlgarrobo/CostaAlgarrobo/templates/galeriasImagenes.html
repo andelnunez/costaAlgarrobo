@@ -31,7 +31,7 @@
     <div id="header">
         <div id="branding">
 
-<h1 id="site-name">Administración de Django</h1>
+<h1 id="site-name">Costa Algarrobo</h1>
 
         </div>
 
@@ -69,14 +69,19 @@
         <h1>Añadir Imagen</h1>
         <div id="content-main">
 
-Galerias Imagenes: <br>
-{%for gal in galerias%}
-<a href='/galeriasImagenes/{{gal.nombreGaleria}}'>{{gal.nombreGaleria}}</a> <br>
-{%empty%}
-<p>Aun no existen galerias</p>
-<p>para crear una galeria entre <a href='/admin/manager/galeriasimagenes/'>aqui</a></p>
-{%endfor%}
-<br><br><br>
+
+
+<div class="module" id="recent-actions-module">
+        <h2>Añadir Imagen</h2>
+        <h3>Galerias Imagenes:</h3>
+        <p>{%for gal in galerias%}
+                <a href='/galeriasImagenes/{{gal.nombreGaleria}}'>{{gal.nombreGaleria}}</a> <br>
+            {%empty%}
+                <p>Aun no existen galerias</p>
+                <p>para crear una galeria entre <a href='/admin/manager/galeriasimagenes/'>aqui</a></p>
+            {%endfor%}
+        </p>
+</div>
 
 {%if galeria == None%}
 <p>Seleccione una galeria</p>
@@ -105,14 +110,14 @@ Galerias Imagenes: <br>
         <div class="form-row field-alineacion1">
                 <div>
                         <label for="id_alineacion1" class="required">Alineacion1:</label>
-                            <input class="vTextField" id="id_alineacion1" maxlength="20" name="alineacion1" type="text" />
+                         {{formulario.alineacion1}}
                 </div>
         </div>
 
         <div class="form-row field-alineacion2">
                 <div>
                         <label for="id_alineacion2" class="required">Alineacion2:</label>
-                            <input class="vTextField" id="id_alineacion2" maxlength="20" name="alineacion2" type="text" />
+                         {{formulario.alineacion2}}
                 </div>
         </div>
 
