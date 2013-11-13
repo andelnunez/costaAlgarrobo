@@ -13,9 +13,23 @@ class BackgroundAdmin(AdminViews):
 class ImagenAdmin(AdminViews):
     exclude = ['imagen']
     admin_views = (
-      ('Subir Imagen', '/galeriasImagenes/home'),
+      ('Subir Imagen a Galeria', '/galeriasImagenes/home'),
+    )
+    list_display = ('nombre', 'galeria')
+    search_fields = ['nombre', 'galeria__nombreGaleria']
+
+class PlanosAdmin(AdminViews):
+    exclude = ['imagen']
+    admin_views = (
+      ('Subir Plano', '/galeriasImagenes/home'),
     )
 
+class TipoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'edificio')
+    search_fields = ['nombre', 'edificio__nombre']
+
+admin.site.register(Edificio)
+admin.site.register(Tipo, TipoAdmin)
 admin.site.register(Background, BackgroundAdmin)
 admin.site.register(Planos)
 admin.site.register(Imagenes, ImagenAdmin)

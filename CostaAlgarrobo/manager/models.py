@@ -31,11 +31,28 @@ class Background(models.Model):
   class Meta:
         verbose_name = "Fondo"
 
+class Edificio(models.Model):
+  def __unicode__(self):
+    return self.nombre
+  nombre = models.CharField(max_length=100)
+
+class Tipo(models.Model):
+  edificio = models.ForeignKey(Edificio)
+  nombre = models.CharField(max_length=100)
+  def __unicode__(self):
+    salida = self.nombre + " - " + self.edificio.nombre
+    return salida
+  class Meta:
+        ordering = ['edificio']
+
 class Planos(models.Model):
   def __unicode__(self):
     return self.edificio
-  edificio = models.CharField(max_length=100)
+
+  tipo = models.ForeignKey(Tipo)
+  nombre = models.CharField(max_length=100)
   imagen = models.ImageField(upload_to='carga')
+  miniplano = models.ImageField(upload_to='carga',verbose_name='Plano Miniatura')
   alto = models.CharField(max_length=20)
   ancho = models.CharField(max_length=20)
   alineacion1 = models.CharField(max_length=20)
@@ -65,7 +82,7 @@ class Imagenes(models.Model):
   size2 = models.CharField(max_length=20)
   galeria = models.ForeignKey(GaleriasImagenes)
   class Meta:
-        verbose_name = "Imagene"
+        verbose_name = "Imagenes de Galeria"
 
 class ImagenesTransparente(models.Model):
   def __unicode__(self):
@@ -113,7 +130,6 @@ class SubSeccion(models.Model):
   seccion = models.ForeignKey(Seccion)
   def __unicode__(self):
     return self.nombre
-
 
 class Texto(models.Model):
   seccion = models.ForeignKey(SubSeccion)
