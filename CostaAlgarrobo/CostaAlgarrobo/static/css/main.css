@@ -1,0 +1,382 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+html {
+    height: 100%;
+}
+
+/* Header */
+
+header{
+	text-align: center;
+	background: url(../img/header.png) center center;
+	height: 108px;
+	z-index: 100;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+header img#logo{
+	margin-top: 3px;
+}
+
+header a {
+	text-decoration: none;
+}
+
+header a:hover {
+	text-decoration: none;
+}
+
+/*header a div.promo {
+	text-align: left;
+	background: url(../img/promBackground.png) no-repeat center;
+	width: 210px;
+	height: 95px;
+	font-size: 12px;
+	color: #76A9DA;
+	float: right;
+	padding-left: 10px;
+}
+
+header a div.promo a #exit {
+	float: right;
+}
+
+header a div.promo h4 {
+	font-size: 12px;
+}
+
+header a div.promo p {
+	color: #B3B3B3;
+	padding-right: 20px;
+	line-height: 12px
+}
+
+header a div.promo img {
+	padding-right: 10px;
+	float: left;
+}*/
+
+
+/* Carousel */
+#carruselFondo {
+	z-index: -20;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-bottom: 	77px;
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	background-color: gray; /* !!! */
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: -10;
+}
+
+.carousel-inner{
+	min-height: 100%;
+	
+}
+
+.carousel-indicators{
+	bottom: 175px;
+}
+/* Declare heights because of positioning of img element */
+
+.carousel .item {
+	position: absolute;
+	min-height: 100%;
+	width: 100%;
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-color: white; /* !!! */
+}
+
+.bg-right {
+	
+}
+
+.bg-left {
+	
+}
+
+.bg-center {
+	
+}
+
+.bg-top {
+	
+}
+
+.bg-middle {
+	
+}
+
+.bg-bottom {
+	
+}
+
+/* Main-nav */
+
+nav#main-nav {
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 160px;
+	background: rgba(56, 111, 134, 0.7); /* #759aac transparente */
+	min-height: 400px;
+	height: 100%;
+	padding-top: 109px;
+	z-index: 10;
+}
+
+.nav {
+	margin-top: 20px;
+}
+
+nav#main-nav ul {
+
+}
+
+nav#main-nav ul.nav li a {
+	color: white;
+}
+
+nav#main-nav ul.nav li a:hover {
+	background-color: #c9ce33;
+}
+.dropdown{
+	color: transparent;
+}
+
+nav#main-nav ul.nav li a {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: white;
+	width: 80%;
+	float: left;
+	margin-left: 5px;
+	padding-left: 5px;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+
+.arrow {
+	color: inherit;
+	padding-top: 1px;
+	padding-bottom: 2px;
+	width: 10%;
+	float: left;
+	margin-left: 2%;
+}
+.nav .open>.arrow {
+	color:  #c9ce33;
+}
+.dropdown:hover {
+	color:  #c9ce33;
+}
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	background-color: #c9ce33;
+	border-color: #428bca;
+}
+.dropdown-menu {
+	position: absolute;
+	top: 0%;
+	left: 162px;
+	z-index: 1000;
+	display: none;
+	float: left;
+	min-width: 100px;
+	padding: 0px 0;
+	margin: 0px 0 0;
+	font-size: 14px;
+	list-style: none;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	-webkit-box-shadow: 0 6px 12px transparent;
+	box-shadow: 0 6px 12px transparent;
+	background-clip: padding-box;
+}
+nav#main-nav ul.dropdown-menu li a{
+	padding-top: 0px;
+	padding-bottom: 2px;
+	color: white;
+	width: 100%;
+	float: left;
+	margin-left: 5%;
+	padding-left: 5%;
+	margin-top: 0px;
+	margin-bottom: 2px;
+	background-color: #c9ce33; 
+}
+.nav>li {
+  text-align: left;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+
+/* Content */
+#content {
+	margin-top: 107px;
+	margin-left: 160px;
+}
+
+
+
+/* Contain */
+.botonTwitter {
+	position: absolute;
+	bottom: 77px;
+	right: 0;
+}
+
+/* Main */
+
+
+.info-section{
+	background: rgba(255,252,252,0.9);
+	margin-top: 20px;
+	padding-bottom: 12px;
+	padding-right: 40px;
+}
+
+
+.info-section .alt{
+	background:rgba(0,100,125,0.4);
+color: white;
+text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	font-weight: 300;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+
+
+/* Footer */
+
+
+footer{
+	border-top: 6px solid #547bb4;
+	background-color: #e2eaf5;
+	height: 77px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+	color: #39748e;
+	font-size: 10px;
+	overflow: hidden;
+}
+
+footer #info div.row div{
+	margin-top: 5px;
+	
+}
+footer #info address, footer #info p{
+	margin: 0;
+}
+footer #disclamer p{
+	text-align: center;
+	font-size: 10px;
+	line-height: 8px;
+	margin: 2px;
+	
+}
+footer #info div.row div.empresas{
+	margin-top: 0px;
+}
+footer #info address{
+	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 12px;
+	font-weight: 300;
+}
+footer #info address .glyphicon{
+	position: relative;
+	top: -2px;
+	color: #749bb3;
+}
+footer #info label{
+		font-size: 10px;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 10px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+footer #info p>a{
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 12px;
+	font-weight: 300;
+		color: #39748e;
+	
+}
+
+footer .footBorder {
+	border-right: #849AAF solid 1px;
+}
+
+footer .footHeight {
+	height: 31px;
+}
+
+
+/* Desplegable */
+
+
+#footerDesplegable{
+	min-height: 77px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 99;
+}
+.desplegable{
+	background-color: #cadee9;
+	border-top: 1px solid #846954;
+	min-height: 76px;
+	width: 100%;
+}
+.baseDesplegable{
+	background-color: #DDD;
+}
+.botonDesplegable{
+	bottom: 0px;
+	text-align: center;
+cursor: pointer;
+}
+.botonDesplegable1{
+	bottom: 0px;
+	text-align: center;
+	cursor: pointer;
+}
+.click{
+
+}
+.desplegableContent{
+	font-size: 12px;
+}
+
+
+
+
+
+
+
