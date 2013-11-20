@@ -240,28 +240,10 @@ def galeriasVideos(request,video):
   return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 def login_admin(request):
-  if request.method == 'POST':
-    formulario = AuthenticationForm(request.POST)
-    if formulario.is_valid:
-      usuario = request.POST['username']
-      clave = request.POST['password']
-      usuario = usuario.lower()
-      acceso = authenticate(username=usuario, password=clave)
-      if acceso is not None:
-        if acceso.is_superuser:
-          login(request,acceso)
-          return HttpResponseRedirect('/background/home')
-        else:
-          formulario = AuthenticationForm()
-          error_log = "Error"
-          return render_to_response('index.html',{'formulario':formulario,'error_log':error_log}, context_instance=RequestContext(request))
-      else:
-        formulario = AuthenticationForm()
-        error_log = "Username o contrasena incorrectos"
-        return render_to_response('index.html',{'formulario':formulario,'error_log':error_log}, context_instance=RequestContext(request))
-  else:
-    formulario = AuthenticationForm()
-  return render_to_response('index.html',{'formulario':formulario}, context_instance=RequestContext(request))
+  background = "soy el background"
+  main = "soy el main"
+  footer = "soy el footer"
+  return render_to_response('index.html',{'background':background, 'main': main, 'footer': footer}, context_instance=RequestContext(request))
 
 @login_required(login_url='/')
 def texto(request, id_seccion):
