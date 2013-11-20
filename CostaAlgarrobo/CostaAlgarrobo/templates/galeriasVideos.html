@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<ul>
+    <li><a href='/background/home'> Background </a></li>
+    <li><a href='/galeriasImagenes/mar'> Galerias Imagenes </a></li>
+    <li><a href='/planos/uno'> Planos </a></li>
+    <li><a href='/galeriasVideos/video1'> Galerias Videos </a></li>
+    <li><a href='/carga_pdf/uno'> Pdf </a></li>
+    <li><a href='/texto'> Agregar Textos </a></li>
+</ul>
+
+
+PDF: <br>
+<a href='/galeriasVideos/video1'>Video1</a>
+
+<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+   {{formulario.video.label}}{{formulario.video}}
+<input type="submit"/>
+
+
+
+
+</form>
+</body>
+</html>

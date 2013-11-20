@@ -1,0 +1,43 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div id="content-main">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/imgareaselect-default.css" />
+  <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.imgareaselect.pack.js"></script>
+
+<script language="Javascript">
+$(document).ready(function () {
+    $('#jcrop_target').imgAreaSelect({
+     onSelectEnd: function (img, selection) {
+            $('input[name="x1"]').val(selection.x1);
+            $('input[name="y1"]').val(selection.y1);
+            $('input[name="x2"]').val(selection.x2);
+            $('input[name="y2"]').val(selection.y2);            
+        }
+    });
+});
+
+
+
+</script>
+
+  <form id='formulario' enctype='multipart/form-data' method='post' action=''>{% csrf_token %}
+
+    <img id="jcrop_target" src="{{image.imagen.url}}" >
+
+  <input type="hidden" name="x1" value="" />
+  <input type="hidden" name="y1" value="" />
+  <input type="hidden" name="x2" value="" />
+  <input type="hidden" name="y2" value="" />
+
+  <div class="submit-row">
+    <input type="submit" value="Grabar" class="default" name="_save">
+  </div>
+
+  </form>
+
+</div>
+{% endblock %}
+

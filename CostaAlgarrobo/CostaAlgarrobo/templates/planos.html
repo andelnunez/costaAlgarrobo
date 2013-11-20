@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li><a href='/background/home'> Background </a></li>
+    <li><a href='/galeriasImagenes/mar'> Galerias Imagenes </a></li>
+    <li><a href='/planos/uno'> Planos </a></li>
+    <li><a href='/galeriasVideos/video1'> Galerias Videos </a></li>
+    <li><a href='/carga_pdf/uno'> Pdf </a></li>
+    <li><a href='/texto'> Agregar Textos </a></li>
+</ul>
+
+
+
+
+Planos: <br>
+<a href='/planos/uno'>Uno</a>
+<a href='/planos/dos'>Dos</a>
+<a href='/planos/tres'>Tres</a>
+
+<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+ {{formulario.imagen.label}}{{formulario.imagen}}
+  {{ formulario.alineacion1.label }}{{formulario.alineacion1}}
+  {{ formulario.alineacion2.label }}{{formulario.alineacion2}}
+  {{ formulario.size1.label }}{{formulario.size1}}
+  {{ formulario.size2.label }}{{formulario.size2}}
+<input type="submit"/>
+
+
+
+
+</form>
+</body>
+</html>

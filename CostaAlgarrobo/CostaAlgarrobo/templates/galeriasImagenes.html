@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html lang="es-ve" >
+<head>
+<title>Nueva Imagen</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/static/admin/css/ie.css" /><![endif]-->
+
+<script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="manager-background change-form">
+
+<!-- Container -->
+<div id="container">
+
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+
+<h1 id="site-name">Costa Algarrobo</h1>
+
+        </div>
+
+        <div id="user-tools">
+            Bienvenido/a,
+            <strong>{{user.username}}</strong>.
+
+                    <a href="/admin/doc/">Documentación</a> /
+
+                <a href="/admin/password_change/">Cambiar contraseña</a> /
+
+                <a href="/admin/logout/">Terminar sesión</a>
+
+        </div>
+
+
+    </div>
+    <!-- END Header -->
+
+<div class="breadcrumbs">
+<a href="/admin/">Inicio</a>
+&rsaquo; <a href="/admin/manager/">Manager</a>
+&rsaquo; Añadir Imagen
+</div>
+
+
+
+
+
+
+
+    <!-- Content -->
+    <div id="content" class="colM">
+
+        <h1>Añadir Imagen</h1>
+        <div id="content-main">
+
+
+
+<div class="module" id="recent-actions-module">
+        <h2>Añadir Imagen</h2>
+        <h3>Galerias Imagenes:</h3>
+        <p>{%for gal in galerias%}
+                <a href='/galeriasImagenes/{{gal.nombreGaleria}}'>{{gal.nombreGaleria}}</a> <br>
+            {%empty%}
+                <p>Aun no existen galerias</p>
+                <p>para crear una galeria entre <a href='/admin/manager/galeriasimagenes/'>aqui</a></p>
+            {%endfor%}
+        </p>
+</div>
+
+{%if galeria == None%}
+<p>Seleccione una galeria</p>
+{%else%}
+
+
+<form enctype="multipart/form-data" action="" method="post" id="background_form"><input type='hidden' name='csrfmiddlewaretoken' value='t69AmE2XlpRrMROcXEdCAF5IBfbsKjvc' />
+<div>
+
+  <fieldset class="module aligned ">
+        <div class="form-row field-nombre">
+                <div>
+                        <label for="id_nombre" class="required">Nombre:</label>
+                        <input class="vTextField" id="id_nombre" maxlength="100" name="nombre" type="text" />
+                </div>
+
+        </div>
+        <div class="form-row field-imagenes">
+                <div>
+                        <label for="id_imagenes" class="required">Imagenes:</label>
+                        <input class="vTextField" id="id_imagenes" maxlength="100" name="imagenes" type="file" />
+                </div>
+
+        </div>
+
+        <div class="form-row field-alineacion1">
+                <div>
+                        <label for="id_alineacion1" class="required">Alineacion1:</label>
+                         {{formulario.alineacion1}}
+                </div>
+        </div>
+
+        <div class="form-row field-alineacion2">
+                <div>
+                        <label for="id_alineacion2" class="required">Alineacion2:</label>
+                         {{formulario.alineacion2}}
+                </div>
+        </div>
+
+        <div class="form-row field-size1">
+                <div>
+                        <label for="id_size1" class="required">Size1:</label>
+                            <input class="vTextField" id="id_size1" maxlength="20" name="size1" type="text" />
+                </div>
+        </div>
+
+        <div class="form-row field-size2">
+                <div>
+                        <label for="id_size2" class="required">Size2:</label>
+                            <input class="vTextField" id="id_size2" maxlength="20" name="size2" type="text" />
+                </div>
+
+        </div>
+
+</fieldset>
+
+
+<div class="submit-row">
+<input type="submit" value="Grabar" class="default" name="_save" />
+
+</div>
+
+   <script type="text/javascript">document.getElementById("id_nombre").focus();</script>
+
+<script type="text/javascript">
+(function($) {
+    var field;
+
+
+})(django.jQuery);
+</script>
+
+
+</div>
+</form>
+{%endif%}
+</div>
+
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

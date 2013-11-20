@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<ul>
+    <li><a href='/background/home'> Background </a></li>
+    <li><a href='/galeriasImagenes/mar'> Galerias Imagenes </a></li>
+    <li><a href='/planos/uno'> Planos </a></li>
+    <li><a href='/galeriasVideos/video1'> Galerias Videos </a></li>
+    <li><a href='/carga_pdf/uno'> Pdf </a></li>
+    <li><a href='/texto'> Agregar Textos </a></li>
+</ul>
+
+
+
+
+Textos: <br>
+
+<ul>
+    {% for texto in textos %}
+    <li>Titulo: {{texto.titulo}} Seccion: {{texto.seccion.nombre}}</li>
+    {%endfor%}
+</ul>
+
+<h4>Crear Texto</h4>
+<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+   {{formulario.seccion.label}}{{formulario.seccion}}<br>
+   {{formulario.titulo.label}}{{formulario.titulo}}<br>
+   {{formulario.texto.label}}{{formulario.texto}}
+<input type="submit"/>
+</form>
+</body>
+</html>
