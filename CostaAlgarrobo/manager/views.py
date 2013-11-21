@@ -12,6 +12,9 @@ from easy_thumbnails.files import get_thumbnailer
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
+
+
+
 @login_required(login_url='/')
 def background(request,seccion):
   # Secciones
@@ -240,10 +243,20 @@ def galeriasVideos(request,video):
   return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 def login_admin(request):
+  if 'oferta' in request.session:
+    print "holaaaa"
+  else:
+    print "chaooo"
+    request.session['oferta'] = True
   background = "soy el background"
   main = "soy el main"
   footer = "soy el footer"
+ # print current_url
   return render_to_response('index.html',{'background':background, 'main': main, 'footer': footer}, context_instance=RequestContext(request))
+
+def oferta(request):
+  request.session['oferta'] = False
+  return HttpResponseRedirect(request.session['url'])
 
 @login_required(login_url='/')
 def texto(request, id_seccion):
