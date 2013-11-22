@@ -68,7 +68,7 @@
 	
 	<div id="content">
 	    <section class="main container">
-	    	{% block main_content%}{% endblock %}
+	    	{% block main%}{% endblock %}
 		</section><!-- Fin Main -->
 		<div class="botonTwitter">
 			<a target="_blank" href="https://twitter.com/Costalgarrobo"><img id="twitter" src="{{STATIC_URL}}/img/twitter.png"></a>
@@ -94,7 +94,7 @@
                </div>
             </div>
 	
-	{% block fondo%}
+	{% block background%}
 	<div id="fondo" class="estatico bg-{{vertical}} bg-{{horizontal}}">
 	</div>
 	{% endblock %}
