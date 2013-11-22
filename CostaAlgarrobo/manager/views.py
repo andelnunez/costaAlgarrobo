@@ -31,8 +31,14 @@ def background(request,seccion):
       alineacion2 = formulario.cleaned_data['alineacion2']
       size1 = formulario.cleaned_data['size1']
       size2 = formulario.cleaned_data['size2']
+      secciones = formulario.cleaned_data['seccion']
+      print alineacion1
+
+
 #      if sec == None:
-      sec = Background.objects.create(nombre=nombre, seccion=seccion,imagen=imagen,alineacion1=alineacion1,alineacion2=alineacion2,size1=size1,size2=size2)
+      sec = Background.objects.create(nombre=nombre,imagen=imagen,vertical=alineacion1,horizontal=alineacion2,size1=size1,size2=size2)
+      for seccion in secciones:
+        sec.seccion.add(seccion)
       sec.save()
 #      sec.ancho = sec.imagen.width
 #      sec.alto = sec.imagen.height
@@ -53,7 +59,7 @@ def background(request,seccion):
 #      sec.alto = sec.imagen.height
 #      sec.save()
       # Crop
-      return HttpResponseRedirect('/crop_background/' + str(sec.id))  
+      return HttpResponseRedirect('/crop_background/' + str(sec.id))
 #  if sec != None:
 #    formulario = BackgroundForm(initial={'alineacion1':sec.alineacion1,'alineacion2':sec.alineacion2,'size1':sec.size1,'size2':sec.size2})
 

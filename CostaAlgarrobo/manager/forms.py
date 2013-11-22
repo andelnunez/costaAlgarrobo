@@ -6,19 +6,20 @@ from django import forms
 from django.contrib.auth.models import User
 from manager.models import *
 from django.contrib.admin.widgets import AdminDateWidget
-from django.forms.extras.widgets import SelectDateWidget
+from django.forms.extras.widgets import *
 
 class BackgroundForm(forms.Form):
   aligV = (
-    ('Top','Arriba'),
-    ('Middle','Medio'),
-    ('Bottom','Abajo'),
+    ('top','Arriba'),
+    ('middle','Medio'),
+    ('bottom','Abajo'),
   )
   aligH = (
-    ('Left','Izquierda'),
-    ('Center','Centro'),
-    ('Right','Derecha'),
+    ('left','Izquierda'),
+    ('center','Centro'),
+    ('right','Derecha'),
   )
+  seccion = forms.ModelMultipleChoiceField(queryset=Seccion.objects.all())
   nombre = forms.CharField(max_length=100)
   imagen = forms.ImageField(required=False)
   alineacion1 = forms.ChoiceField(choices=aligV)

@@ -4,28 +4,39 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
+class Seccion(models.Model):
+  nombre = models.CharField(max_length=100)
+  def __unicode__(self):
+    return self.nombre
+  class Meta:
+        verbose_name = "Seccione"
 
+class SubSeccion(models.Model):
+  nombre = models.CharField(max_length=100)
+  seccion = models.ForeignKey(Seccion)
+  def __unicode__(self):
+    return self.nombre
 
 class Background(models.Model):
   def __unicode__(self):
     return self.nombre
   aligV = (
-    ('Top','Arriba'),
-    ('Middle','Medio'),
-    ('Bottom','Abajo'),
+    ('top','Arriba'),
+    ('center','Medio'),
+    ('bottom','Abajo'),
   )
   aligH = (
-    ('Left','Izquierda'),
-    ('Center','Centro'),
-    ('Right','Derecha'),
+    ('left','Izquierda'),
+    ('center','Centro'),
+    ('right','Derecha'),
   )
   nombre = models.CharField(max_length=100)
-  seccion = models.CharField(max_length=100)
+  seccion = models.ManyToManyField(Seccion)
   imagen = models.ImageField(upload_to='carga')
   alto = models.CharField(max_length=20)
   ancho = models.CharField(max_length=20)
-  alineacion1 = models.CharField(max_length=20, choices=aligV)
-  alineacion2 = models.CharField(max_length=20, choices=aligH)
+  vertical = models.CharField(max_length=20, choices=aligV)
+  horizontal = models.CharField(max_length=20, choices=aligH)
   size1 = models.CharField(max_length=20)
   size2 = models.CharField(max_length=20)
   class Meta:
@@ -117,19 +128,6 @@ class GaleriasPdf(models.Model):
   pdf = ManyToManyField(Pdf)
   class Meta:
         verbose_name = "Galerias de Pdf"
-
-class Seccion(models.Model):
-  nombre = models.CharField(max_length=100)
-  def __unicode__(self):
-    return self.nombre
-  class Meta:
-        verbose_name = "Seccione"
-
-class SubSeccion(models.Model):
-  nombre = models.CharField(max_length=100)
-  seccion = models.ForeignKey(Seccion)
-  def __unicode__(self):
-    return self.nombre
 
 class Texto(models.Model):
   seccion = models.ForeignKey(SubSeccion)
