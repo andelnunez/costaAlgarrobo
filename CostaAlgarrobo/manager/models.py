@@ -37,8 +37,6 @@ class Background(models.Model):
   ancho = models.CharField(max_length=20)
   vertical = models.CharField(max_length=20, choices=aligV)
   horizontal = models.CharField(max_length=20, choices=aligH)
-  size1 = models.CharField(max_length=20)
-  size2 = models.CharField(max_length=20)
   class Meta:
         verbose_name = "Fondo"
 

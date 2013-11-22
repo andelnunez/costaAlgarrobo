@@ -24,8 +24,6 @@ class BackgroundForm(forms.Form):
   imagen = forms.ImageField(required=False)
   alineacion1 = forms.ChoiceField(choices=aligV)
   alineacion2 = forms.ChoiceField(choices=aligH)
-  size1 = forms.CharField(max_length=20)
-  size2 = forms.CharField(max_length=20)
 
 class PlanosForm(forms.Form):
   imagen = forms.ImageField(required=False)

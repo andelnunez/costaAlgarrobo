@@ -14,7 +14,10 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import resolve
 
 def cookie_oferta(request):
-  oferta = request.session['oferta']
+  if 'oferta' in request.session:
+    oferta = request.session['oferta']
+  else:
+    oferta = request.session['oferta'] = True
   current_url = request.path
   if current_url == "/oferta/":
     pass

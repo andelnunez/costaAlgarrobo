@@ -29,14 +29,12 @@ def background(request,seccion):
       imagen = formulario.cleaned_data['imagen']
       alineacion1 = formulario.cleaned_data['alineacion1']
       alineacion2 = formulario.cleaned_data['alineacion2']
-      size1 = formulario.cleaned_data['size1']
-      size2 = formulario.cleaned_data['size2']
       secciones = formulario.cleaned_data['seccion']
       print alineacion1
 
 
 #      if sec == None:
-      sec = Background.objects.create(nombre=nombre,imagen=imagen,vertical=alineacion1,horizontal=alineacion2,size1=size1,size2=size2)
+      sec = Background.objects.create(nombre=nombre,imagen=imagen,vertical=alineacion1,horizontal=alineacion2)
       for seccion in secciones:
         sec.seccion.add(seccion)
       sec.save()
@@ -249,11 +247,6 @@ def galeriasVideos(request,video):
   return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 def login_admin(request):
-  if 'oferta' in request.session:
-    print "holaaaa"
-  else:
-    print "chaooo"
-    request.session['oferta'] = True
   background = "soy el background"
   main = "soy el main"
   footer = "soy el footer"
