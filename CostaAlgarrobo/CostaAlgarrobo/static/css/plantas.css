@@ -1,0 +1,300 @@
+#content {
+	margin-top: 10px;
+	font-size: 10px;
+
+}
+#carruselFondo {
+	z-index: 0;
+	position: absolute;
+	top: 107px;
+	left: 0px;
+	padding-bottom: 0px;
+	bottom: 77px;
+	height: auto;
+	min-height: 100px;
+	width: auto;
+	background-color: red;
+	right: 0px;
+}
+.carousel .item {
+	position: absolute;
+	min-height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-size: auto 510px;
+	background-color: white;
+}
+.desplegableContent{
+	margin-right: 3%;
+	margin-right: 3%;
+	color: #547bb4;
+}
+.shape {
+    width:400px;
+    margin:0 auto;
+}
+.top {
+    height:0;
+    border-width:0 0 150px 400px;
+    border-style:solid;
+    border-color:transparent #d71f55 #d71f55 transparent;
+}
+.bottom {
+    height: 50px;
+    background-color:#d71f55;
+}
+.botonAlgarrobo{
+	position: absolute;
+	top: 120px;
+	right: 80px;
+	height: 23px;
+	border-width: 0 0 20px 20px;
+	border-style: solid;
+	border-color: transparent #FFF #FFF transparent;
+	width: 120px;
+	color: #c9ce33;
+	height: 20px;
+	z-index: 300;
+cursor: pointer;
+}
+.botonAromo{
+	position: absolute;
+	top: 310px;
+	right: 10px;
+	height: 23px;
+	border-width: 0 0 20px 20px;
+	border-style: solid;
+	border-color: transparent #FFF #FFF transparent;
+	width: 120px;
+	color: #c9ce33;
+	height: 20px;
+	z-index: 300;
+cursor: pointer;
+}
+.botonPinares{
+	position: absolute;
+	top: 190px;
+	right: 280px;
+	height: 23px;
+	border-width: 0 20px 20px 0;
+	border-style: solid;
+	border-color: transparent transparent #FFF transparent;
+	width: 120px;
+	color: #c9ce33;
+	height: 20px;
+}
+.botonEucaliptus{
+	position: absolute;
+	top: 280px;
+	right: 260px;
+	height: 23px;
+	border-width: 0 20px 20px 0;
+	border-style: solid;
+	border-color: transparent transparent #FFF transparent;
+	width: 120px;
+	color: #c9ce33;
+	height: 20px;
+cursor: pointer;
+}
+.ventas{
+position: absolute;
+top: 220px;
+right: 360px;
+}
+.ventasTit{
+margin-top: 10px;
+color: #8eabd5;
+font-weight: bold;
+}
+.ventasBot{
+width: 400px;
+margin-top: 10px;
+}
+.ventasBot1{
+width: 170px;
+height: 50px;
+background-color: #77a7d8;
+display: inline-block;
+padding: 8px;
+color: #fff;
+font-size: 12px;
+font-weight: bold;
+cursor: pointer;
+
+}
+.ventasBot2{
+width: 170px;
+height: 50px;
+background-color: #b1b1b1;
+display: inline-block;
+padding: 8px;
+color: #fff;
+font-size: 12px;
+font-weight: bold;
+}
+
+.ventasTex{
+color: #919191;
+}
+.textoPlantas{
+	font-size: 90%;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.sombra{
+position: absolute;
+height: 100%;
+background-color: #000;
+opacity: 0.4;
+filter: alpha(opacity=40);
+z-index: 200;
+width: 100%;
+}
+.cuadroSombra{
+position: absolute;
+top: 108px;
+bottom: 77px;
+width: 60%;
+background-color: #FFF;
+z-index: 201;
+margin-left: 20%;
+}
+.tituloCuadroSombra {
+margin-left: 20px;
+}
+.tituloDptsCuadroSombra, .lineaCuadroSombra, .titulo2DptsCuadroSombra, .descDptsCuadroSombra, .imgDptsCuadroSombra
+{
+
+margin-left: 30px;
+}
+.lineaCuadroSombra{
+margin-top: 5px;
+}
+.tituloCuadroSombra{
+margin-top: 30px;
+}
+.tituloDptsCuadroSombra{
+margin-top: 10px;
+font-weight: bold;
+color: #587988;
+margin-bottom: 5px;
+}
+.titulo2DptsCuadroSombra
+{
+color: #808080;
+margin-bottom: 4px;
+}
+.descDptsCuadroSombra{
+color: #919191;
+border-top: solid #e4e4e4 1px;
+margin-top: 5px;
+padding-top: 3px;
+width: 235px;
+}
+.plantaCuadroSombra{
+color: #8eabd5;
+margin-left: 35px;
+margin-top: 5px;
+padding-left: 10px;
+width: 230px;
+}
+.botonCuadroSombra{
+margin-top: 15px;
+margin-left: 0;
+}
+.botonICuadroSombra{
+padding: 8px;
+width: 170px;
+margin-left: auto;
+margin-right: auto;
+background-color: #84a4d3;
+color: #fff;
+text-align: center;
+height: 50px;
+}
+.seleccionado{
+font-weight: bold;
+background-color: #e9eef4;
+border: solid #c9cace 1px;
+}
+.plano{
+
+	float: left;
+	width: 60%;
+	height: 100%;
+}
+.masterplan{
+width: 100%;
+height: 90%;
+background-image: url(../img/masterplan.jpg);
+background-size: contain;
+background-position: center center;
+background-repeat: no-repeat;
+}
+.izquierdaSombra{
+	float: left;
+	width: 40%;
+}
+.planoimg{
+width: 90%;
+height: 90%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 5%;
+background-size: contain;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.sin{
+text-align: left;
+width: 50%;
+display: inline-block;
+}
+.sin1{
+text-align: right;
+width: 50%;
+display: inline-block;
+}
+.down{
+	display: none;
+}
+.cerrar{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+.modal-dialog, .modal-content{
+height: 100%;
+}
+.modal-dialog{
+width: 700px;
+}
+.close{
+ margin-right: 10px;
+ margin-top: 10px;
+}
+.anchomayor{
+	width: 90%;
+}
+.modal-header {
+padding: 0px;
+border-bottom: 0px solid #e5e5e5;
+}
+.modal-body {
+position: relative;
+padding: 0px;
+height: 100%;
+}
+@media  screen and (min-height: 680px) {
+  
+.carousel .item {
+
+	background-size: auto 700px;
+
+}
+
+}
+

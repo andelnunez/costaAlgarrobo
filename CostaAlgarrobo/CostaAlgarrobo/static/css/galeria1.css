@@ -1,0 +1,53 @@
+.menuizq {
+	height: 23px;
+	border-width: 0 0 23px 23px;
+	border-style: solid;
+	border-color: transparent #c9ce33 #c9ce33 transparent;
+	width: 150px;
+	float: left;
+	text-align: right;
+	color: #FFF;
+	text-align: center;
+}
+.menuder {
+	height: 23px;
+	border-width: 0 23px 23px 0;
+	border-style: solid;
+	border-color: #c9ce33 transparent #c9ce33 #c9ce33;
+	width: 150px;
+	float: left;
+	text-align: left;
+	color: #FFF;
+	text-align: center;
+}
+.menuder1, .menuder2, .menuizq1, .menuizq2 {
+	height: 23px;
+	width: 100px;
+	float: left;
+	text-align: left;
+	color: #FFF;
+	background-color: #c9ce33;
+	text-align: center;
+}
+.upDesplegable{
+	vertical-align: none;
+	float: left;
+	background-color: #c9ce33;
+}
+.menuDesplegable{
+	height: 23px;
+	max-width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.seleccionado{
+	color: #846954;
+	font-weight: bold;
+}
+.video{
+text-align: center;
+padding-top: 150px;
+}
+.video1{
+border: solid #bdddf4 10px;
+}

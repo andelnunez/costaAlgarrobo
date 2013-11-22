@@ -1,0 +1,47 @@
+#content {
+	margin-top: 10px;
+	font-size: 10px;
+
+}
+#carruselFondo {
+	z-index: -20;
+	position: absolute;
+	top: 107px;
+	left: 162px;
+	padding-bottom: 0px;
+	bottom: 77px;
+	height: auto;
+	min-height: 100px;
+	width: auto;
+	background-color: red;
+	right: 0px;
+}
+.carousel .item {
+	position: absolute;
+	min-height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size:contain;
+	background-color: white;
+}
+.desplegableContent{
+	margin-right: 3%;
+	margin-right: 3%;
+	color: #547bb4;
+}
+.shape {
+    width:400px;
+    margin:0 auto;
+}
+.top {
+    height:0;
+    border-width:0 0 150px 400px;
+    border-style:solid;
+    border-color:transparent #d71f55 #d71f55 transparent;
+}
+.bottom {
+    height: 50px;
+    background-color:#d71f55;
+}
+

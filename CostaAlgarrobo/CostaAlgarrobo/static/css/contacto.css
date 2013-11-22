@@ -1,0 +1,49 @@
+.info-section.contacto h2{
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	color: #574234;
+}
+
+form.info-section.contacto label{
+	color:#745844;
+		font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	line-height: 7px;
+}
+form.info-section.contacto input.form-control, form.info-section.contacto textarea.form-control{
+	border-radius: 0;
+	-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+			-ms-border-radius: 0;
+
+
+}
+
+.info-section .alt h4{
+	font-size: 11px;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #1a5f76;
+	margin-bottom: 5px;
+	margin-top: 17px;
+}
+
+.direccion{
+	font-size: 11px;
+}
+.celular, .telefono{
+	font-size: 25px;
+	line-height: 20px;
+}
+
+.form-submit{
+	padding-top: 10px;
+	padding-bottom: 10px;	
+}
+
+#mensajeerror {
+	font-family: 'Open Sans', sans-serif;
+}
