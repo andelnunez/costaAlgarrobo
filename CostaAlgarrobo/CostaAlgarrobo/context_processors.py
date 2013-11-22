@@ -23,7 +23,6 @@ def cookie_oferta(request):
     pass
   else:
     request.session['url'] = current_url
-  print current_url
   return {
         'oferta': oferta,
     }
