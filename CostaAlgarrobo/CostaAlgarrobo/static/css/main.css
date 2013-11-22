@@ -20,53 +20,14 @@ header{
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: Arial, Helvetica, sans-serif;
 }
-header img#logo{
+hrader img#logo{
 	margin-top: 3px;
 }
 
-header a {
-	text-decoration: none;
-}
-
-header a:hover {
-	text-decoration: none;
-}
-
-/*header a div.promo {
-	text-align: left;
-	background: url(../img/promBackground.png) no-repeat center;
-	width: 210px;
-	height: 95px;
-	font-size: 12px;
-	color: #76A9DA;
-	float: right;
-	padding-left: 10px;
-}
-
-header a div.promo a #exit {
-	float: right;
-}
-
-header a div.promo h4 {
-	font-size: 12px;
-}
-
-header a div.promo p {
-	color: #B3B3B3;
-	padding-right: 20px;
-	line-height: 12px
-}
-
-header a div.promo img {
-	padding-right: 10px;
-	float: left;
-}*/
-
 
 /* Carousel */
-#carruselFondo {
+#fondo.carruselFondo {
 	z-index: -20;
 	position: absolute;
 	top: 0;
@@ -134,7 +95,7 @@ nav#main-nav {
 	left: 0;
 	top:0;
 	width: 160px;
-	background: rgba(56, 111, 134, 0.7); /* #759aac transparente */
+	background: rgba(117, 154, 172, 0.7); /* #759aac transparente */
 	min-height: 400px;
 	height: 100%;
 	padding-top: 109px;
@@ -249,7 +210,7 @@ nav#main-nav ul.dropdown-menu li a{
 
 
 .info-section{
-	background: rgba(255,252,252,0.9);
+	background: rgba(255,252,252,0.8);
 	margin-top: 20px;
 	padding-bottom: 12px;
 	padding-right: 40px;
@@ -257,7 +218,7 @@ nav#main-nav ul.dropdown-menu li a{
 
 
 .info-section .alt{
-	background:rgba(0,100,125,0.4);
+	background:rgba(0,182,202,0.7);
 color: white;
 text-align: center;
 	font-family: 'Open Sans', sans-serif;
@@ -329,14 +290,6 @@ footer #info p>a{
 	
 }
 
-footer .footBorder {
-	border-right: #849AAF solid 1px;
-}
-
-footer .footHeight {
-	height: 31px;
-}
-
 
 /* Desplegable */
 
@@ -370,13 +323,52 @@ cursor: pointer;
 .click{
 
 }
-.desplegableContent{
-	font-size: 12px;
+
+
+/* PROMO */
+
+#promo{
+	width: 210px;
+	height: 95px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-family: 'Open Sans', sans-serif;
+	position: absolute;
+	top: 0px;
+	right: 20px;
+	background: url(../img/promBackground.png) no-repeat center top;
+	padding-left: 5px;
 }
 
+#promo h3{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #76A9DA;
+	text-align: left;
+	margin: 5px;
+}
+#promo img.promo-image{
+	float: left;
+}
 
+#promo p{
+	float: left;
+	width: 120px;
+	font-size: 11px;
+	text-align: left;
+	padding-left: 5px;
+	color: #B3B3B3;
 
+}
 
-
-
-
+.button-close{
+ 	background: url(../img/close.png) no-repeat left top;
+ 	height: 22px;
+ 	width: 47px;
+ 	border: none;
+ 	position: absolute;
+ 	bottom: 4px;
+ 	right: 10px;
+ 	z-index: 10;
+}
