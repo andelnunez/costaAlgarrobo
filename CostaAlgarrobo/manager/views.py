@@ -247,11 +247,10 @@ def galeriasVideos(request,video):
   return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 def login_admin(request):
-  background = "soy el background"
-  main = "soy el main"
-  footer = "soy el footer"
+  seccion = Seccion.objects.get(nombre="Home")
+  fondos = Background.objects.filter(seccion=seccion)
  # print current_url
-  return render_to_response('index.html',{'background':background, 'main': main, 'footer': footer}, context_instance=RequestContext(request))
+  return render_to_response('index.html',{'fondos': fondos}, context_instance=RequestContext(request))
 
 def oferta(request):
   request.session['oferta'] = False
