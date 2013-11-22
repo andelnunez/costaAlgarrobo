@@ -15,7 +15,7 @@
 				<div class="imageDiv">
 					<ol class="carousel-indicators">
         			{% for fondo in fondos %}
-						<li data-target="#fondo" data-slide-to="{{forloop.counter0}}" class="fotoGaleria {% if forloop.first %}active{% endif %}" style="background-image: url({{fondo.url}});"></li>
+						<li data-target="#fondo" data-slide-to="{{forloop.counter0}}" class="fotoGaleria {% if forloop.first %}active{% endif %}" style="background-image: url({{fondo.imagen.url}});"></li>
 					{% endfor %}
 					</ol>
 				</div>
