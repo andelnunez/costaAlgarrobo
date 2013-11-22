@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
-{% block background %}
-        {{background}}
- <p>backgorund dinamico</p>
+{% block fondo %}
+        	<div id="fondo" class="carousel slide">
+        		<div class="carousel-inner">
+        			{% for fondo in fondos %}
+	        			<div id="slide-{{forloop.counter0}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
+{% block dentro_item %}
 {% endblock %}
-{% block footer_slide %}{% endblock %}
+	        			</div>	
+					{% endfor %}
+        	</div><!-- Fin Carrusel -->
+{% endblock %}
+{% block deplegable %}
+			<div class="scrolls bosque encendido">
+				<div class="imageDiv">
+					<ol class="carousel-indicators">
+        			{% for fondo in fondos %}
+						<li data-target="#fondo" data-slide-to="{{forloop.counter0}}" class="fotoGaleria {% if forloop.first %}active{% endif %}" style="background-image: url({{fondo.url}});"></li>
+					{% endfor %}
+					</ol>
+				</div>
+			</div>
+{% endblock %}

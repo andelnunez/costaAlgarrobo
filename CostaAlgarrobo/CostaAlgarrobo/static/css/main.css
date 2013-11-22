@@ -64,29 +64,46 @@ hrader img#logo{
 	background-color: white; /* !!! */
 }
 
-.bg-right {
-	
+.bg-h-right.bg-h-center{
+	background-position: right; 
 }
 
-.bg-left {
-	
+.bg-h-left.bg-h-center{
+	background-position: left;	
 }
 
-.bg-center {
-	
+.bg-h-center.bg-v-center {
+	background-position: center;
 }
 
-.bg-top {
-	
+.bg-v-top.bg-h-center. {
+	background-position: top;	
 }
 
-.bg-middle {
-	
+.bg-v-center.bg-v-center {
+	background-position: center center;	
 }
 
-.bg-bottom {
-	
+.bg-v-bottom.bg-h-center. {
+	background-position: bottom;	
 }
+
+.bg-v-bottom.bg-h-right{
+	background-position: right bottom ;
+}
+.bg-v-bottom.bg-h-left{
+	background-position: left bottom;
+}
+
+.bg-v-top.bg-h-right{
+	background-position: right top ;
+}
+.bg-v-top.bg-h-left{
+	background-position: left top;
+}
+
+
+
 
 /* Main-nav */
 
