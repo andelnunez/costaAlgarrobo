@@ -283,9 +283,19 @@ def descripcion(request):
   return render_to_response('descripcion.html',context_instance=RequestContext(request))
 
 def departamentos(request):
+  try:
+    seccion = Seccion.objects.get(nombre="Departamentos")
+    fondos = Background.objects.filter(seccion=seccion)
+  except:
+    fondos = ""
   return render_to_response('departamentos.html',context_instance=RequestContext(request))
 
 def equipamento(request):
+  try:
+    seccion = Seccion.objects.get(nombre="Equipamiento")
+    fondos = Background.objects.filter(seccion=seccion)
+  except:
+    fondos = ""
   return render_to_response('equipamento.html',context_instance=RequestContext(request))
 
 def infraestructura(request):
