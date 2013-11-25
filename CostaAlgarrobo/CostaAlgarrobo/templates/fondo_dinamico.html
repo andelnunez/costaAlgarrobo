@@ -5,14 +5,14 @@
         		<div class="carousel-inner">
         			{% for fondo in fondos %}
 	        			<div id="slide{{forloop.counter}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
-							{% block dentro_item %}
+								{% block dentro_item %}
 							{% endblock %}
 	        			</div>	
 					{% endfor %}
         		</div>
         	</div><!-- Fin Carrusel -->
 {% endblock %}
-{% block desplegable %}
+{% block deplegable %}
 			<div class="scrolls bosque encendido">
 				<div class="imageDiv">
 					<ol class="carousel-indicators">
