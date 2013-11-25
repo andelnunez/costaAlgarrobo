@@ -247,8 +247,12 @@ def galeriasVideos(request,video):
   return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 def login_admin(request):
-  seccion = Seccion.objects.get(nombre="Home")
-  fondos = Background.objects.filter(seccion=seccion)
+  try:
+    seccion = Seccion.objects.get(nombre="Home")
+    fondos = Background.objects.filter(seccion=seccion)
+  except:
+    fondos = ""
+
  # print current_url
   return render_to_response('index.html',{'fondos': fondos}, context_instance=RequestContext(request))
 
