@@ -275,6 +275,11 @@ def texto(request, id_seccion):
   return render_to_response('texto.html',{'textos':textos, 'formulario':formulario}, context_instance=RequestContext(request))
 
 def descripcion(request):
+  try:
+    seccion = Seccion.objects.get(nombre="Descripcion")
+    fondos = Background.objects.filter(seccion=seccion)
+  except:
+    fondos = ""
   return render_to_response('descripcion.html',context_instance=RequestContext(request))
 
 def departamentos(request):
