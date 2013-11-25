@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Costa Algarrobo -  </title>
+        <title>Costa Algarrobo - section </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -20,20 +20,22 @@
         <script src="{{STATIC_URL}}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         
     </head><!-- Fin Head -->
-    <header>
-		<a href="./"><img src="{{STATIC_URL}}/img/logo-can.jpg" class="logo" id="logo" alt="Costa Algarrobo Norte" width="247" height="98" /></a>
-		{% if oferta %}
-			<aside class="promo" id="promo">
-				<a href="{{STATIC_URL}}/img/promo.jpg" target="_blank"><h3>Promoci&oacute;n del mes</h3>
-				<img src="{{STATIC_URL}}/img/promImage.png" alt="imagen-promo" class="promo-image"  />
-				<p>Agosto: 5% de<br/>descuento en el pago<br/>de contado...</p></a>
-				<a href="/oferta" class="button-close" onclick="$('aside#promo').fadeOut(1000)"></a>
-			</aside>
-		{% endif %}
-	</header>
-	
-	<nav id="main-nav">
-			<ul class="nav nav-stacked">
+	<body class="{{section}} {{view}}">
+		<div>
+		    <header>
+			<a href="./"><img src="{{STATIC_URL}}/img/logo-can.jpg" class="logo" id="logo" alt="Costa Algarrobo Norte" width="247" height="98" /></a>
+			{% if oferta %}
+				<aside class="promo" id="promo">
+					<a href="{{STATIC_URL}}/img/promo.jpg" target="_blank"><h3>Promoci&oacute;n del mes</h3>
+					<img src="{{STATIC_URL}}/img/promImage.png" alt="imagen-promo" class="promo-image"  />
+					<p>Agosto: 5% de<br/>descuento en el pago<br/>de contado...</p></a>
+					<a href="/oferta" class="button-close" onclick="$('aside#promo').fadeOut(1000)"></a>
+				</aside>
+			{% endif %}
+		</header>
+			
+			<nav id="main-nav">
+				<ul class="nav nav-stacked">
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">PROYECTO</a>
 					<span class="glyphicon glyphicon-play arrow"></span>
@@ -63,127 +65,127 @@
 				<li class="dropdown"><a href="contacto.php">CONT&Aacute;CTENOS</a></li>
 				<li class="dropdown"><a href="cotizacion.php">COTIZACI&Oacute;N</a></li>
 			</ul>
-	</nav><!-- Fin Nav -->
+		</nav><!-- Fin Nav -->
+			
+			
+			<div id="content">
+		    <section class="main container">
+	<div>	    	{% block main%}{% endblock %}</div>
+			</section><!-- Fin Main -->
+			<div class="botonTwitter">
+				<a target="_blank" href="https://twitter.com/Costalgarrobo"><img id="twitter" src="{{STATIC_URL}}/img/twitter.png"></a>
+	        </div>
+	    </div><!-- Fin Content -->
+		
+		
+		            <div id="footerDesplegable">
+	                <div class="botonDesplegable">
+	                    <div class="menuDesplegable">
+	                    </div>
+	                </div>
 	
-	
-	<div id="content">
-	    <section class="main container">
-<div>	    	{% block main%}{% endblock %}</div>
-		</section><!-- Fin Main -->
-		<div class="botonTwitter">
-			<a target="_blank" href="https://twitter.com/Costalgarrobo"><img id="twitter" src="{{STATIC_URL}}/img/twitter.png"></a>
-        </div>
-    </div><!-- Fin Content -->
-
-
-            <div id="footerDesplegable">
-                <div class="botonDesplegable">
-                    <div class="menuDesplegable">
-                    </div>
-                </div>
-
-                <div class="desplegable">
-                    <div id="content">
-                        <section class="main container">
-                            <div class="desplegableContent">
-                            </div>
-                        </section><!-- Fin Main -->
-                    </div><!-- Fin Content -->
-               </div>
-               <div class="baseDesplegable">
-               </div>
-            </div>
-	
-	{% block fondo%}
-	<div id="fondo" class="estatico bg-{{vertical}} bg-{{horizontal}}">
-	</div>
-	{% endblock %}
-	
-	<footer>
-		<div id="info" class="container">
-			<div class="row">
-				<div class="col-xs-4">
-					<address class="footBorder footHeight"><span class="glyphicon glyphicon-map-marker"></span> Camino Algarrobo Norte Esquina Camino del Medio, <br />al lado de la Iglesia Mirasol. Algarrobo, Chile.</address>
-				</div>
-				<div class="col-xs-2 footBorder">
-					<label>
-						<span class="hidden-md hidden-lg"> sala de ventas</span>
-						<span class="hidden-sm hidden-xs">Fono sala de ventas</span>	
-					</label>
-					<p itemprop="telephone"><a href="tel:+560352488424">
-(035) 2488 424</a></p>
-				</div>
-				<div class="col-xs-2 footBorder">
-					<label>Celular</label>
-					<p itemprop="telephone"><a href="tel:+569 2539616">
-09 2539616</a></p>
-				</div>
-				<div class="col-xs-4 empresas"><img src="{{STATIC_URL}}/img/empresas.png"  class="img-responsive" alt="STITCHKIN" /></div>
-			</div>
-		</div>	
-		<div id="disclamer" class="container">
-			<p>Las im&aacute;genes contenidas en este sitio web fueron elaboradas con fines ilustrativos y todas las dimensiones son aproximadas, no constituyendo necesariamente una representaci&oacute;n exacta de la realidad.</p>
-			<p>Su &uacute;nico objetivo es mostrar una caracterizaci&oacute;n general del proyecto y no de cada uno de sus detalles ni su emplazamiento. Lo anterior se informa en virtud de lo se&ntilde;alado en la ley n&deg; 19.472.</p>
+	                <div class="desplegable">
+	                    <div id="content">
+	                        <section class="main container">
+	                            <div class="desplegableContent">
+	                            </div>
+	                        </section><!-- Fin Main -->
+	                    </div><!-- Fin Content -->
+	               </div>
+	               <div class="baseDesplegable">
+	               </div>
+	            </div>
+			
+			{% block fondo%}
+			<div id="fondo" class="estatico bg-{{vertical}} bg-{{horizontal}}">
 		</div>
-	</footer>
-
+			{% endblock %}
+			
+			<footer>
+			<div id="info" class="container">
+				<div class="row">
+					<div class="col-xs-4">
+						<address class="footBorder footHeight"><span class="glyphicon glyphicon-map-marker"></span> Camino Algarrobo Norte Esquina Camino del Medio, <br />al lado de la Iglesia Mirasol. Algarrobo, Chile.</address>
+					</div>
+					<div class="col-xs-2 footBorder">
+						<label>
+							<span class="hidden-md hidden-lg"> sala de ventas</span>
+							<span class="hidden-sm hidden-xs">Fono sala de ventas</span>	
+						</label>
+						<p itemprop="telephone"><a href="tel:+560352488424">
+	(035) 2488 424</a></p>
+					</div>
+					<div class="col-xs-2 footBorder">
+						<label>Celular</label>
+						<p itemprop="telephone"><a href="tel:+569 2539616">
+	09 2539616</a></p>
+					</div>
+					<div class="col-xs-4 empresas"><img src="{{STATIC_URL}}/img/empresas.png"  class="img-responsive" alt="STITCHKIN" /></div>
+				</div>
+			</div>	
+			<div id="disclamer" class="container">
+				<p>Las im&aacute;genes contenidas en este sitio web fueron elaboradas con fines ilustrativos y todas las dimensiones son aproximadas, no constituyendo necesariamente una representaci&oacute;n exacta de la realidad.</p>
+				<p>Su &uacute;nico objetivo es mostrar una caracterizaci&oacute;n general del proyecto y no de cada uno de sus detalles ni su emplazamiento. Lo anterior se informa en virtud de lo se&ntilde;alado en la ley n&deg; 19.472.</p>
+			</div>
+		</footer>
+		
 		    <div id="footerDesplegable">
-			   <div class="botonDesplegable">
-			   	<img src="{{STATIC_URL}}/img/up.png">
-			   </div>
-			   <div class="desplegable">
-			   	<div id="content">
-    		    <section class="main container">
-    		    	<div class="desplegableContent">
-	    		    	{% block desplegable%}
-							<p>Costa Algarrobo Norte es un exclusivo y entretenido proyecto especialmente concebido para quienes gustan salir de la ciudad en familia, disfrutando la cercanía del mar y el encanto del bosque. Con accesos expeditos desde Santiago, Costa Algarrobo Norte rescata lo mejor de este lugar generoso en árboles, senderos, aire puro y un agradable ambiente costero. Estarás a pasos de supermercados, locomoción y todos los servicios necesarios para tu descanso.</p>
-	    		    	{% endblock %}
-    		    	</div>
-    		    </section><!-- Fin Main -->
-            </div><!-- Fin Content -->
-			   </div>
-			   <div class="baseDesplegable">
-			   </div>
-
-			</div><!-- Fin Content -->
-
-
+				   <div class="botonDesplegable">
+				   	<img src="{{STATIC_URL}}/img/up.png">
+				   </div>
+				   <div class="desplegable">
+				   	<div id="content">
+	    		    <section class="main container">
+	    		    	<div class="desplegableContent">
+		    		    	{% block desplegable%}
+								<p>Costa Algarrobo Norte es un exclusivo y entretenido proyecto especialmente concebido para quienes gustan salir de la ciudad en familia, disfrutando la cercanía del mar y el encanto del bosque. Con accesos expeditos desde Santiago, Costa Algarrobo Norte rescata lo mejor de este lugar generoso en árboles, senderos, aire puro y un agradable ambiente costero. Estarás a pasos de supermercados, locomoción y todos los servicios necesarios para tu descanso.</p>
+		    		    	{% endblock %}
+	    		    	</div>
+	    		    </section><!-- Fin Main -->
+	            </div><!-- Fin Content -->
+				   </div>
+				   <div class="baseDesplegable">
+				   </div>
+	
+				</div><!-- Fin footerDesplegable -->
+		
+	
 		</div><!-- Fin Wrapper -->
-		<?php 
-
-        	include 'footer.php';
-
-        ?>
-
-	<!-- Fin Footer -->
-	    
-
-	    <!-- Scripts para cargas finales -->
-		<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>-->
-	    <script src="{{STATIC_URL}}/js/vendor/jquery-1.10.1.min.js"></script>
-	    <script src="{{STATIC_URL}}/js/vendor/bootstrap.min.js"></script>
-	    <script src="{{STATIC_URL}}/js/main.js"></script>
-		<script> 
-		  $(document).ready(function(){
-		    $(".botonDesplegable").click(function(){
-		      if($(".baseDesplegable").hasClass('click')) {
-		        $(".baseDesplegable").animate({height:0},200).removeClass('click');
-		      } else { 
-		        $(".baseDesplegable").animate({height:77},200);
-		        $(".baseDesplegable").addClass('click');
-		      }
-		    });
-		  });
-		</script>
-		
-		{% block js %}{% endblock %}
-		
-	    <!--<script>
-	        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-	        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	        g.src='//www.google-analytics.com/ga.js';
-	        s.parentNode.insertBefore(g,s)}(document,'script'));
-	    </script>-->
-    </body><!-- Fin Body -->
+			<?php 
+	
+	        	include 'footer.php';
+	
+	        ?>
+	
+		<!-- Fin Footer -->
+		    
+	
+		    <!-- Scripts para cargas finales -->
+			<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>-->
+		    <script src="{{STATIC_URL}}/js/vendor/jquery-1.10.1.min.js"></script>
+		    <script src="{{STATIC_URL}}/js/vendor/bootstrap.min.js"></script>
+		    <script src="{{STATIC_URL}}/js/main.js"></script>
+			<script> 
+			  $(document).ready(function(){
+			    $(".botonDesplegable").click(function(){
+			      if($(".baseDesplegable").hasClass('click')) {
+			        $(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+			        $(".baseDesplegable").animate({height:77},200);
+			        $(".baseDesplegable").addClass('click');
+			      }
+			    });
+			  });
+			</script>
+			
+			{% block js %}{% endblock %}
+			
+		    <!--<script>
+		        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+		        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		        g.src='//www.google-analytics.com/ga.js';
+		        s.parentNode.insertBefore(g,s)}(document,'script'));
+		    </script>-->
+	</body><!-- Fin Body -->
 </html><!-- Fin Pagina -->
