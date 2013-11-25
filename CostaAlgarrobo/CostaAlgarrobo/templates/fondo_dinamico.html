@@ -2,9 +2,9 @@
 {% block fondo %}
 
         	<div id="fondo" class="carousel slide">
-        		<div class="carousel-inner">
+        		<div class="carRousel-inner">
         			{% for fondo in fondos %}
-	        			<div id="slide-{{forloop.counter0}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
+	        			<div id="slide{{forloop.counter}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
 							{% block dentro_item %}
 							{% endblock %}
 	        			</div>	
