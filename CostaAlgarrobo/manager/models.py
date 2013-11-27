@@ -17,6 +17,15 @@ class SubSeccion(models.Model):
   def __unicode__(self):
     return self.nombre
 
+class ImagenesTransparente(models.Model):
+  def __unicode__(self):
+    return self.nombre
+  nombre = models.CharField(max_length=100)
+  imagen = models.ImageField(upload_to='carga')
+  class Meta:
+        verbose_name = "Imagenes Transparente"
+
+
 class Background(models.Model):
   def __unicode__(self):
     return self.nombre
@@ -37,6 +46,7 @@ class Background(models.Model):
   ancho = models.CharField(max_length=20)
   vertical = models.CharField(max_length=20, choices=aligV)
   horizontal = models.CharField(max_length=20, choices=aligH)
+  asociada = models.ForeignKey(ImagenesTransparente, null=True)
   class Meta:
         verbose_name = "Fondo"
 
@@ -92,16 +102,6 @@ class Imagenes(models.Model):
   galeria = models.ForeignKey(GaleriasImagenes)
   class Meta:
         verbose_name = "Imagenes de Galeria"
-
-class ImagenesTransparente(models.Model):
-  def __unicode__(self):
-    return self.nombre
-  nombre = models.CharField(max_length=100)
-  imagen = models.ImageField(upload_to='carga')
-  asociada = models.ForeignKey(Background)
-  class Meta:
-        verbose_name = "Imagenes Transparente"
-
 
 class Videos(models.Model):
   video = models.FileField(upload_to='carga')
