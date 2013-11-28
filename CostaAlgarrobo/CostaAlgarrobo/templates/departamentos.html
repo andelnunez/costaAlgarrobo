@@ -1,9 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'fondo_dinamico.html' %}
+{%block dentro_item%}
+<br><br><br><br><br><br>
+    <div id="content">
+        <section class="main container">
+        <div class="info-section pull-left">
+                <a id="close" href="#"><img src="img/close.png"></a>
+                <h4>{{titulo}}</h4>
+                <p>{{texto|linebreaksbr}}</p>
 
-</body>
-</html>
+            </div>
+        </section><!-- Fin Main -->
+    </div><!-- Fin Content -->
+
+
+{% endblock %}	
+
+
+
