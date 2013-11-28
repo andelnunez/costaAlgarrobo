@@ -277,10 +277,12 @@ def texto(request, id_seccion):
 def descripcion(request):
   try:
     seccion = Seccion.objects.get(nombre="Descripcion")
+    subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
+    texto = Texto.objects.get(seccion = subseccion)
     fondos = Background.objects.filter(seccion=seccion)
   except:
     fondos = ""
-  return render_to_response('descripcion.html',context_instance=RequestContext(request))
+  return render_to_response('descripcion.html', {'texto': texto}, context_instance=RequestContext(request))
 
 def departamentos(request):
   try:
@@ -294,12 +296,21 @@ def equipamento(request):
   try:
     seccion = Seccion.objects.get(nombre="Equipamiento")
     fondos = Background.objects.filter(seccion=seccion)
+    subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamiento")
+    texto = Texto.objects.get(seccion = subseccion)
   except:
     fondos = ""
-  return render_to_response('equipamento.html',context_instance=RequestContext(request))
+  return render_to_response('equipamento.html', {'texto': texto}, context_instance=RequestContext(request))
 
 def infraestructura(request):
-  return render_to_response('infraestructura.html',context_instance=RequestContext(request))
+  try:
+    seccion = Seccion.objects.get(nombre="Infraestructura")
+    fondos = Background.objects.filter(seccion=seccion)
+    subseccion = SubSeccion.objects.get(nombre="Proyecto Infraestructura")
+    texto = Texto.objects.get(seccion = subseccion)
+  except:
+    fondos = ""
+  return render_to_response('infraestructura.html', {'texto': texto}, context_instance=RequestContext(request))
 
 def fotos_piloto(request):
   return render_to_response('fotos_piloto.html',context_instance=RequestContext(request))
