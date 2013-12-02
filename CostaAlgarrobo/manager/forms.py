@@ -68,4 +68,4 @@ class ContactoForm(forms.Form):
   telefono = forms.IntegerField()
   celular = forms.IntegerField()
   email = forms.EmailField()
-  consulta = forms.Textarea()
+  consulta = forms.CharField(widget=forms.Textarea)
