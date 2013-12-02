@@ -291,7 +291,7 @@ def departamentos(request):
     seccion = Seccion.objects.get(nombre="Departamentos")
     fondos = Background.objects.filter(seccion=seccion)
     #########################################3
-    subSeccion = SubSeccion.objects.get(seccion=seccion)
+    subSeccion = SubSeccion.objects.get(nombre="Proyecto Departamento")
     textos = Texto.objects.filter(seccion=subSeccion)
     if len(textos) > 0:
       for tex in textos:
