@@ -373,3 +373,6 @@ def equipo(request):
 
 def avance(request):
   return render_to_response('equipo.html',context_instance=RequestContext(request))
+
+def cotizacion(request):
+  return render_to_response('cotizacion.html',context_instance=RequestContext(request))
