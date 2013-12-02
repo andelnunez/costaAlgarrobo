@@ -183,3 +183,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
   "django.contrib.messages.context_processors.messages",
   "CostaAlgarrobo.context_processors.cookie_oferta",
 )
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.turpialdevelopment.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'lgutierrez@turpialdevelopment.com'
+EMAIL_HOST_PASSWORD = 'endthen53662736'

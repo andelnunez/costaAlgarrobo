@@ -11,6 +11,7 @@ import Image
 from easy_thumbnails.files import get_thumbnailer
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMessage, EmailMultiAlternatives
 
 
 
@@ -343,6 +344,17 @@ def video(request):
 def contactanos(request):
   if request.method == 'POST':
     formulario = ContactoForm(request.POST)
+    if formulario.is_valid():
+      titulo = 'Contacto'
+      contenido = 'Nombre: ' + formulario.cleaned_data['nombre'] + '\n'
+      contenido += 'Rut: ' + formulario.cleaned_data['rut'] + '\n'
+      contenido += 'Direccion: ' + formulario.cleaned_data['direccion'] + '\n'
+      contenido += 'Telefono: ' + str(formulario.cleaned_data['telefono']) + '\n'
+      contenido += 'Celular: ' + str(formulario.cleaned_data['celular']) + '\n'
+      contenido += 'Email: ' + formulario.cleaned_data['email'] + '\n'
+      contenido += 'Consulta: ' + formulario.cleaned_data['consulta'] + '\n'
+      correo = EmailMessage(titulo, contenido, to=['leonardogutierrezh@gmail.com'])
+      correo.send()
   else:
     formulario = ContactoForm()
   return render_to_response('contactanos.html', {'formulario': formulario}, context_instance=RequestContext(request))
