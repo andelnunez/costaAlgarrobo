@@ -288,12 +288,21 @@ def descripcion(request):
   return render_to_response('descripcion.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def departamentos(request):
+  texto = ""
+  titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Departamentos")
     fondos = Background.objects.filter(seccion=seccion)
+    #########################################3
+    subSeccion = SubSeccion.objects.get(nombre="Proyecto Departamento")
+    textos = Texto.objects.filter(seccion=subSeccion)
+    if len(textos) > 0:
+      for tex in textos:
+        texto = tex.texto
+        titulo = tex.titulo
   except:
     fondos = ""
-  return render_to_response('departamentos.html',context_instance=RequestContext(request))
+  return render_to_response('departamentos.html',{'texto':texto,'titulo':titulo},context_instance=RequestContext(request))
 
 def equipamento(request):
   try:
