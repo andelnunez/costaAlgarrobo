@@ -97,8 +97,8 @@
 	            </div>
 			
 			{% block fondo%}
-			<div id="fondo" class="estatico bg-{{vertical}} bg-{{horizontal}}">
-		</div>
+	        			<div id="fondo" class="estatico bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
+	        			</div>
 			{% endblock %}
 			
 			<footer>
