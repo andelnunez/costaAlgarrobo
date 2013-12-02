@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{%block dentro_item%}
+    			    <div class="info-section pull-left">
+                        <a id="close" href="#"><img src="{{STATIC_URL}}img/close.png"></a>
+                        <h4>{{titulo}}</h4>
+						<p>{{texto|linebreaksbr}}</p>
+                    </div>
+{% endblock %}
+{% block menuFooter%}
+	
+{% endblock %}
