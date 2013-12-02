@@ -280,9 +280,12 @@ def descripcion(request):
     subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
     texto = Texto.objects.get(seccion = subseccion)
     fondos = Background.objects.filter(seccion=seccion)
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
+    titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('descripcion.html', {'texto': texto}, context_instance=RequestContext(request))
+  return render_to_response('descripcion.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def departamentos(request):
   try:
@@ -297,20 +300,24 @@ def equipamento(request):
     seccion = Seccion.objects.get(nombre="Equipamiento")
     fondos = Background.objects.filter(seccion=seccion)
     subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamiento")
-    texto = Texto.objects.get(seccion = subseccion)
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
+    titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('equipamento.html', {'texto': texto}, context_instance=RequestContext(request))
+  return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def infraestructura(request):
   try:
     seccion = Seccion.objects.get(nombre="Infraestructura")
     fondos = Background.objects.filter(seccion=seccion)
     subseccion = SubSeccion.objects.get(nombre="Proyecto Infraestructura")
-    texto = Texto.objects.get(seccion = subseccion)
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
+    titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('infraestructura.html', {'texto': texto}, context_instance=RequestContext(request))
+  return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def fotos_piloto(request):
   return render_to_response('fotos_piloto.html',context_instance=RequestContext(request))
@@ -325,7 +332,11 @@ def video(request):
   return render_to_response('video.html',context_instance=RequestContext(request))
 
 def contactanos(request):
-  return render_to_response('contactanos.html',context_instance=RequestContext(request))
+  if request.method == 'POST':
+    formulario = ContactoForm(request.POST)
+  else:
+    formulario = ContactoForm()
+  return render_to_response('contactanos.html', {'formulario': formulario}, context_instance=RequestContext(request))
 
 def etapa1(request):
   return render_to_response('etapa1.html',context_instance=RequestContext(request))
