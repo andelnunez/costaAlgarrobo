@@ -11,6 +11,7 @@ import Image
 from easy_thumbnails.files import get_thumbnailer
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMessage, EmailMultiAlternatives
 
 
 
@@ -280,9 +281,12 @@ def descripcion(request):
     subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
     texto = Texto.objects.get(seccion = subseccion)
     fondos = Background.objects.filter(seccion=seccion)
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
+    titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('descripcion.html', {'texto': texto}, context_instance=RequestContext(request))
+  return render_to_response('descripcion.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def departamentos(request):
   texto = ""
@@ -306,20 +310,24 @@ def equipamento(request):
     seccion = Seccion.objects.get(nombre="Equipamiento")
     fondos = Background.objects.filter(seccion=seccion)
     subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamiento")
-    texto = Texto.objects.get(seccion = subseccion)
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
+    titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('equipamento.html', {'texto': texto}, context_instance=RequestContext(request))
+  return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def infraestructura(request):
   try:
     seccion = Seccion.objects.get(nombre="Infraestructura")
     fondos = Background.objects.filter(seccion=seccion)
     subseccion = SubSeccion.objects.get(nombre="Proyecto Infraestructura")
-    texto = Texto.objects.get(seccion = subseccion)
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
+    titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('infraestructura.html', {'texto': texto}, context_instance=RequestContext(request))
+  return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def fotos_piloto(request):
   return render_to_response('fotos_piloto.html',context_instance=RequestContext(request))
@@ -334,7 +342,22 @@ def video(request):
   return render_to_response('video.html',context_instance=RequestContext(request))
 
 def contactanos(request):
-  return render_to_response('contactanos.html',context_instance=RequestContext(request))
+  if request.method == 'POST':
+    formulario = ContactoForm(request.POST)
+    if formulario.is_valid():
+      titulo = 'Contacto'
+      contenido = 'Nombre: ' + formulario.cleaned_data['nombre'] + '\n'
+      contenido += 'Rut: ' + formulario.cleaned_data['rut'] + '\n'
+      contenido += 'Direccion: ' + formulario.cleaned_data['direccion'] + '\n'
+      contenido += 'Telefono: ' + str(formulario.cleaned_data['telefono']) + '\n'
+      contenido += 'Celular: ' + str(formulario.cleaned_data['celular']) + '\n'
+      contenido += 'Email: ' + formulario.cleaned_data['email'] + '\n'
+      contenido += 'Consulta: ' + formulario.cleaned_data['consulta'] + '\n'
+      correo = EmailMessage(titulo, contenido, to=['leonardogutierrezh@gmail.com'])
+      correo.send()
+  else:
+    formulario = ContactoForm()
+  return render_to_response('contactanos.html', {'formulario': formulario}, context_instance=RequestContext(request))
 
 def etapa1(request):
   return render_to_response('etapa1.html',context_instance=RequestContext(request))
@@ -344,3 +367,9 @@ def etapa2(request):
 
 def ubicacion(request):
   return render_to_response('ubicacion.html',context_instance=RequestContext(request))
+
+def equipo(request):
+  return render_to_response('avance.html',context_instance=RequestContext(request))
+
+def avance(request):
+  return render_to_response('equipo.html',context_instance=RequestContext(request))

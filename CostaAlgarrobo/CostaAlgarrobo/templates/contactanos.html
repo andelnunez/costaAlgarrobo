@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'fondo_dinamico.html' %}
+{%block dentro_item%}
+        <div class="info-section pull-left">
+    <form id='formulario' enctype='multipart/form-data' method='post' action=''>{% csrf_token %}
+        {{formulario.nombre.errors}}{{formulario.nombre.label}}{{formulario.nombre}}
+        {{formulario.rut.errors}}{{formulario.rut.label}}{{formulario.rut}}
+        {{formulario.direccion.errors}}{{formulario.direccion.label}}{{formulario.direccion}}
+        {{formulario.telefono.errors}}{{formulario.telefono.label}}{{formulario.telefono}}
+        {{formulario.celular.errors}}{{formulario.celular.label}}{{formulario.celular}}
+        {{formulario.email.errors}}{{formulario.email.label}}{{formulario.email}}
+        {{formulario.consulta.errors}}{{formulario.consulta.label}}{{formulario.consulta}}
+        <input type='submit' class="btn btn-primary pull-right" value='enviar'/>
+    </form>
+            </div>
+{% endblock %}

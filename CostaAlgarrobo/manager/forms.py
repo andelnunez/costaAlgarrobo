@@ -61,3 +61,11 @@ class TextoForm(ModelForm):
     model = Texto
     exclude = ['seccion']
 
+class ContactoForm(forms.Form):
+  nombre = forms.CharField(min_length=2, max_length=50)
+  rut = forms.CharField(min_length=2, max_length=100)
+  direccion = forms.CharField(min_length=2, max_length=400)
+  telefono = forms.IntegerField()
+  celular = forms.IntegerField()
+  email = forms.EmailField()
+  consulta = forms.CharField(widget=forms.Textarea)

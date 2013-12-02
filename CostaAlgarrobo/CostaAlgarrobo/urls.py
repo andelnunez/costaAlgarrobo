@@ -41,4 +41,6 @@ urlpatterns = patterns('',
     url(r'^etapa2/$', 'manager.views.etapa2'),
     url(r'^ubicacion/$', 'manager.views.ubicacion'),
     url(r'^oferta/$', 'manager.views.oferta'),
+    url(r'^avance/$', 'manager.views.avance'),
+    url(r'^equipo/$', 'manager.views.equipo'),
 )
