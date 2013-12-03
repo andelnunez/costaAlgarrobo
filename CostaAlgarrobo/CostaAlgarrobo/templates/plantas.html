@@ -5,10 +5,26 @@
 
 {% block menuFooter%}
 	<img src="{{STATIC_URL}}img/up.png">
+     <div id="footerDesplegable">
+
+			   <div class="desplegable">
+			   	<div id="content">
+    		    <section class="main container">
+    		    	<div class="desplegableContent">
+    		    	{{texto}}
+                    </div>
+    		    </section><!-- Fin Main -->
+            </div><!-- Fin Content -->
+			   </div>
+			   <div class="baseDesplegable">
+			   </div>
+
+	</div><!-- Fin Content -->
 {% endblock %}
 
 
 {% block js %}
+
 
 
 
