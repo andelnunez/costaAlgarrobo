@@ -335,8 +335,20 @@ def fotos_piloto(request):
 def plantas(request):
   return render_to_response('plantas.html',context_instance=RequestContext(request))
 
-def foto(request):
-  return render_to_response('foto.html',context_instance=RequestContext(request))
+def foto(request, id_galeria):
+  galerias = GaleriasImagenes.objects.all()
+  imagenes = []
+  try:
+    galeria = GaleriasImagenes.objects.get(id=id_galeria)
+    imagenes = Imagenes.objects.filter(galeria=galeria)
+  except:
+    if galerias.count() == 0:
+      pass
+    else:
+      galeria = galerias[0].id
+      imagenes = Imagenes.objects.filter(galeria=galeria)
+
+  return render_to_response('foto.html', {'imagenes': imagenes, 'galerias': galerias}, context_instance=RequestContext(request))
 
 def video(request):
   return render_to_response('video.html',context_instance=RequestContext(request))
