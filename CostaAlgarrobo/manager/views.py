@@ -353,7 +353,17 @@ def foto(request, id_galeria):
     else:
       galeria = galerias[0].id
       imagenes = Imagenes.objects.filter(galeria=galeria)
-
+      if galerias.count() > 6:
+        print "mayor que 6"
+        lista = []
+        contador = 0
+        for galeria in galerias:
+          if contador < 6:
+            lista.append(galeria)
+          contador += 1
+        galerias = lista
+    for galeria in galerias:
+      print galeria.nombreGaleria
   return render_to_response('foto.html', {'imagenes': imagenes, 'galerias': galerias}, context_instance=RequestContext(request))
 
 def video(request):
