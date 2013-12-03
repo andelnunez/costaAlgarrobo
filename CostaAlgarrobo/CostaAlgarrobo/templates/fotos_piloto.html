@@ -1,9 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'fondo_dinamico.html' %}
+{%block dentro_item%}
 
-</body>
-</html>
+{% endblock %}
+
+{% block menuFooter%}
+
+				<div class="menuDesplegable">
+					<div class="menuizq seleccionado">MAR</div>
+				   	<img src="{{STATIC_URL}}img/up.png" class="upDesplegable">
+					<div class="menuder">BOSQUE</div>
+				</div>
+
+{% endblock %}
+
+
+{% block js-footerSlider %}
+
+<script> 
+		  $(document).ready(function(){
+		    $(".upDesplegable").click(function(){
+		      if($(".baseDesplegable").hasClass('click')) {
+		        $(".baseDesplegable").animate({height:0},200).removeClass('click');
+		      } else { 
+		        $(".baseDesplegable").animate({height:77},200);
+		        $(".baseDesplegable").addClass('click');
+		      }
+		    });
+		    $(".menuizq").click(function(){
+			if($(".mar").hasClass('encendido')) {
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+		     	} else { 
+				window.location ="/fotos_piloto";
+			}
+		    });
+		    $(".menuder").click(function(){
+			if($(".bosque").hasClass('encendido')) {
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+		        	
+		     	} else { 
+				window.location ="fotospilotobosque.php";
+			}
+
+		    });
+		  });
+		</script>
+
+{% endblock %}

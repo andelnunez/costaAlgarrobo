@@ -16,6 +16,10 @@
         <link rel="stylesheet" href="{{STATIC_URL}}/css/galeria.css">
         <link rel="stylesheet" href="{{STATIC_URL}}/css/home.css">
 
+	{% block css_costa %}{% endblock %}
+
+	
+
 
         <script src="{{STATIC_URL}}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         
@@ -23,7 +27,7 @@
 	<body class="{{section}} {{view}}">
 		<div>
 		    <header>
-			<a href="./"><img src="{{STATIC_URL}}/img/logo-can.jpg" class="logo" id="logo" alt="Costa Algarrobo Norte" width="247" height="98" /></a>
+			<a href="/"><img src="{{STATIC_URL}}/img/logo-can.jpg" class="logo" id="logo" alt="Costa Algarrobo Norte" width="247" height="98" /></a>
 			{% if oferta %}
 				<aside class="promo" id="promo">
 					<a href="{{STATIC_URL}}/img/promo.jpg" target="_blank"><h3>Promoci&oacute;n del mes</h3>
@@ -58,8 +62,8 @@
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">GALER&Iacute;AS</a>
 					<span class="glyphicon glyphicon-play arrow"></span>
 					<ul class="dropdown-menu">
-				      <li><a href="galeria1.php">FOTOS</a></li>
-				      <li><a href="galeriav1.php">VIDEOS</a></li>
+				      <li><a href="/foto/0">FOTOS</a></li>
+				      <li><a href="/video">VIDEOS</a></li>
 				    </ul>
 				</li>
 				<li class="dropdown"><a href="/contactanos">CONT&Aacute;CTENOS</a></li>
@@ -129,35 +133,7 @@
 			</div>
 		</footer>
 		
-		    <div id="footerDesplegable">
-				   <div class="botonDesplegable">
-				   	<img src="{{STATIC_URL}}/img/up.png">
-				   </div>
-				   <div class="desplegable">
-				   	<div id="content">
-	    		    <section class="main container">
-	    		    	<div class="desplegableContent">
-		    		    	{% block desplegable%}
-								<p>Costa Algarrobo Norte es un exclusivo y entretenido proyecto especialmente concebido para quienes gustan salir de la ciudad en familia, disfrutando la cercanía del mar y el encanto del bosque. Con accesos expeditos desde Santiago, Costa Algarrobo Norte rescata lo mejor de este lugar generoso en árboles, senderos, aire puro y un agradable ambiente costero. Estarás a pasos de supermercados, locomoción y todos los servicios necesarios para tu descanso.</p>
-		    		    	{% endblock %}
-	    		    	</div>
-	    		    </section><!-- Fin Main -->
-	            </div><!-- Fin Content -->
-				   </div>
-				   <div class="baseDesplegable">
-				   </div>
-	
-				</div><!-- Fin footerDesplegable -->
-		
-	
-		</div><!-- Fin Wrapper -->
-			<?php 
-	
-	        	include 'footer.php';
-	
-	        ?>
-	
-		<!-- Fin Footer -->
+		   
 		    
 	
 		    <!-- Scripts para cargas finales -->
@@ -166,6 +142,9 @@
 		    <script src="{{STATIC_URL}}/js/vendor/jquery-1.10.1.min.js"></script>
 		    <script src="{{STATIC_URL}}/js/vendor/bootstrap.min.js"></script>
 		    <script src="{{STATIC_URL}}/js/main.js"></script>
+
+			{% block js-footerSlider %}
+
 			<script> 
 			  $(document).ready(function(){
 			    $(".botonDesplegable").click(function(){
@@ -178,8 +157,11 @@
 			    });
 			  });
 			</script>
-			
-			{% block js %}{% endblock %}
+
+			{% endblock %}
+			{% block js %}
+
+			{% endblock %}
 			
 		    <!--<script>
 		        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

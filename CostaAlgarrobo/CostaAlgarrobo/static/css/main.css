@@ -258,6 +258,8 @@ nav#main-nav ul.dropdown-menu li a{
 	position: absolute;
 	bottom: 77px;
 	right: 0;
+	z-index: 500;
+	cursor: pointer;
 }
 
 /* Main */
@@ -342,6 +344,9 @@ footer #info p>a{
 	font-weight: 300;
 		color: #39748e;
 	
+}
+footer .footBorder {
+border-right: #849AAF solid 1px;
 }
 
 

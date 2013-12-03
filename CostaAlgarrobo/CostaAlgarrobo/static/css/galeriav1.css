@@ -1,0 +1,13 @@
+.video1 {
+	width: 420px;
+	height: 315px;
+}
+@media  screen and (min-height: 680px) {
+
+.video1 {
+	width: 630px;
+	height: 475px;
+}
+
+}
+
