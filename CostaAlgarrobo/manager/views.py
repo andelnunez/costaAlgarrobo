@@ -354,12 +354,35 @@ def fotos_piloto(request):
 
 def plantas(request):
   try:
+    seccion = Seccion.objects.get(nombre="Plantas")
     fondos = Background.objects.filter(seccion=seccion)
+    subseccion = SubSeccion.objects.get(nombre="Plantas Menu Desplegable")
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
 
+    algarrobo = Edificio.objects.get(nombre="Algarrobo")
+    pinares = Edificio.objects.get(nombre="Pinares")
+    eucaliptus = Edificio.objects.get(nombre="Eucaliptus")
+    aromo = Edificio.objects.get(nombre="Aromo")
 
+    tipo_algarrobo = Tipo.objects.get(edificio=algarrobo)
+    tipo_pinares = Tipo.objects.get(edificio=pinares)
+    tipo_eucaliptus = Tipo.objects.get(edificio=eucaliptus)
+    tipo_aromo = Tipo.objects.get(edificio=aromo)
+
+    planos_algarrobo = Planos.objects.get(tipo=tipo_algarrobo)
+    planos_pinares = Planos.objects.get(tipo=tipo_pinares)
+    planos_eucaliptus = Planos.objects.get(tipo=tipo_eucaliptus)
+    planos_aromo = Planos.objects.get(tipo=tipo_aromo)
   except:
     fondos = ""
-  return render_to_response('plantas.html',context_instance=RequestContext(request))
+    texto = ""
+    planos_algarrobo = ""
+    planos_pinares = ""
+    planos_eucaliptus = ""
+    planos_aromo = ""
+  return render_to_response('plantas.html', {'texto': texto, 'planos_algarrobo':planos_algarrobo,'planos_pinares':planos_pinares,
+                                            'planos_eucaliptus':planos_eucaliptus,'planos_aromo':planos_aromo},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
   galerias = GaleriasImagenes.objects.all()
