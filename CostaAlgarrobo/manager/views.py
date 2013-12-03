@@ -382,7 +382,7 @@ def plantas(request):
     planos_pinares = ""
     planos_eucaliptus = ""
     planos_aromo = ""
-  return render_to_response('plantas.html', {'texto': texto,'planos_algarrobo':planos_algarrobo,'planos_pinares':planos_pinares,
+  return render_to_response('plantas.html', {'texto': texto,'seccion':seccion,'planos_algarrobo':planos_algarrobo,'planos_pinares':planos_pinares,
                                             'planos_eucaliptus':planos_eucaliptus,'planos_aromo':planos_aromo},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
@@ -466,7 +466,19 @@ def avance(request):
   return render_to_response('equipo.html',context_instance=RequestContext(request))
 
 def cotizacion(request):
-  return render_to_response('cotizacion.html',context_instance=RequestContext(request))
+  texto = ""
+  titulo = ""
+  try:
+    seccion = Seccion.objects.get(nombre="Cotizacion")
+    fondos = Background.objects.filter(seccion=seccion)
+    subseccion = SubSeccion.objects.get(nombre="Cotizacion Menu Desplegable")
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
+    titulo = text.titulo
+  except:
+    fondos = ""
+  return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
+
 
 def mar(request):
   return render_to_response('mar.html',context_instance=RequestContext(request))
