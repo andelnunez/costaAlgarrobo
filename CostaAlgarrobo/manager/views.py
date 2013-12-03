@@ -71,9 +71,10 @@ def crop_background(request,id_back):
   image = Background.objects.get(id=id_back)
   if request.method == "POST":
     im = Image.open(image.imagen)
-    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
-    cropiado = im.crop(box)
-    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    if not((request.POST.get('x1') == "") or (request.POST.get('y1') == "") or (request.POST.get('x2') == "") or (request.POST.get('y2') == "")):
+      box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+      cropiado = im.crop(box)
+      cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
     image.ancho = image.imagen.width
     image.alto = image.imagen.height
     image.save()
@@ -129,9 +130,10 @@ def crop_planos(request,id_plano):
   image = Planos.objects.get(id=id_plano)
   if request.method == "POST":
     im = Image.open(image.imagen)
-    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
-    cropiado = im.crop(box)
-    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    if not((request.POST.get('x1') == "") or (request.POST.get('y1') == "") or (request.POST.get('x2') == "") or (request.POST.get('y2') == "")):
+      box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+      cropiado = im.crop(box)
+      cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
     image.ancho = image.imagen.width
     image.alto = image.imagen.height
     image.save()
@@ -170,9 +172,10 @@ def crop_galeriasImagenes(request,galeria,id_imagen):
   image = Imagenes.objects.get(id=id_imagen)
   if request.method == "POST":
     im = Image.open(image.imagen)
-    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
-    cropiado = im.crop(box)
-    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    if not((request.POST.get('x1') == "") or (request.POST.get('y1') == "") or (request.POST.get('x2') == "") or (request.POST.get('y2') == "")):
+      box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+      cropiado = im.crop(box)
+      cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
     image.ancho = image.imagen.width
     image.alto = image.imagen.height
     image.save()
@@ -336,9 +339,26 @@ def infraestructura(request):
   return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def fotos_piloto(request):
-  return render_to_response('fotos_piloto.html',context_instance=RequestContext(request))
+  imagenes_mar = []
+  imagenes_bosque = []
+  try:
+    seccion = Seccion.objects.get(nombre="Fotos Piloto")
+    fondos = Background.objects.filter(seccion=seccion)
+    galeria_mar = GaleriasImagenes.objects.get(nombreGaleria="Mar")
+    galeria_bosque = GaleriasImagenes.objects.get(nombreGaleria="Bosque")
+    imagenes_mar = Imagenes.objects.filter(galeria=galeria_mar)
+    imagenes_bosque = Imagenes.objects.filter(galeria=galeria_bosque)
+  except:
+    fondos = ""
+  return render_to_response('fotos_piloto.html',{'imagenes_mar':imagenes_mar,'imagenes_bosque':imagenes_bosque},context_instance=RequestContext(request))
 
 def plantas(request):
+  try:
+    fondos = Background.objects.filter(seccion=seccion)
+
+
+  except:
+    fondos = ""
   return render_to_response('plantas.html',context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
