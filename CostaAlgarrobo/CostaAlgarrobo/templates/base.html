@@ -129,35 +129,7 @@
 			</div>
 		</footer>
 		
-		    <div id="footerDesplegable">
-				   <div class="botonDesplegable">
-				   	<img src="{{STATIC_URL}}/img/up.png">
-				   </div>
-				   <div class="desplegable">
-				   	<div id="content">
-	    		    <section class="main container">
-	    		    	<div class="desplegableContent">
-		    		    	{% block desplegable%}
-								<p>Costa Algarrobo Norte es un exclusivo y entretenido proyecto especialmente concebido para quienes gustan salir de la ciudad en familia, disfrutando la cercanía del mar y el encanto del bosque. Con accesos expeditos desde Santiago, Costa Algarrobo Norte rescata lo mejor de este lugar generoso en árboles, senderos, aire puro y un agradable ambiente costero. Estarás a pasos de supermercados, locomoción y todos los servicios necesarios para tu descanso.</p>
-		    		    	{% endblock %}
-	    		    	</div>
-	    		    </section><!-- Fin Main -->
-	            </div><!-- Fin Content -->
-				   </div>
-				   <div class="baseDesplegable">
-				   </div>
-	
-				</div><!-- Fin footerDesplegable -->
-		
-	
-		</div><!-- Fin Wrapper -->
-			<?php 
-	
-	        	include 'footer.php';
-	
-	        ?>
-	
-		<!-- Fin Footer -->
+		   
 		    
 	
 		    <!-- Scripts para cargas finales -->
@@ -166,7 +138,8 @@
 		    <script src="{{STATIC_URL}}/js/vendor/jquery-1.10.1.min.js"></script>
 		    <script src="{{STATIC_URL}}/js/vendor/bootstrap.min.js"></script>
 		    <script src="{{STATIC_URL}}/js/main.js"></script>
-			<script> 
+
+			<!--<script> 
 			  $(document).ready(function(){
 			    $(".botonDesplegable").click(function(){
 			      if($(".baseDesplegable").hasClass('click')) {
@@ -177,8 +150,7 @@
 			      }
 			    });
 			  });
-			</script>
-			
+			</script>-->
 			{% block js %}{% endblock %}
 			
 		    <!--<script>
