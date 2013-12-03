@@ -374,6 +374,7 @@ def plantas(request):
     planos_pinares = Planos.objects.get(tipo=tipo_pinares)
     planos_eucaliptus = Planos.objects.get(tipo=tipo_eucaliptus)
     planos_aromo = Planos.objects.get(tipo=tipo_aromo)
+
   except:
     fondos = ""
     texto = ""
@@ -381,7 +382,7 @@ def plantas(request):
     planos_pinares = ""
     planos_eucaliptus = ""
     planos_aromo = ""
-  return render_to_response('plantas.html', {'texto': texto, 'planos_algarrobo':planos_algarrobo,'planos_pinares':planos_pinares,
+  return render_to_response('plantas.html', {'texto': texto,'planos_algarrobo':planos_algarrobo,'planos_pinares':planos_pinares,
                                             'planos_eucaliptus':planos_eucaliptus,'planos_aromo':planos_aromo},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):

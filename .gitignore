@@ -1,3 +1,6 @@
 *.pyc
 *.db
 base/base.db
+CostaAlgarrobo/env
+CostaAlgarrobo/env2
+.pyc

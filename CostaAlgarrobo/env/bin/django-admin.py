@@ -1,4 +1,4 @@
-#!/Users/nano/code/turpial/costaAlgarrobo/django/costaAlgarrobo/CostaAlgarrobo/env/bin/python
+#!/Users/nano/code/turpial/costaAlgarrobo/sistema/costaAlgarrobo/CostaAlgarrobo/env/bin/python
 from django.core import management
 
 if __name__ == "__main__":
