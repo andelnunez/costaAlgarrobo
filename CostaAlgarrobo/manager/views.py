@@ -374,6 +374,7 @@ def plantas(request):
     planos_pinares = Planos.objects.get(tipo=tipo_pinares)
     planos_eucaliptus = Planos.objects.get(tipo=tipo_eucaliptus)
     planos_aromo = Planos.objects.get(tipo=tipo_aromo)
+
   except:
     fondos = ""
     texto = ""
