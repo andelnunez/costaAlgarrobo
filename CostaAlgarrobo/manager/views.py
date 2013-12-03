@@ -71,9 +71,10 @@ def crop_background(request,id_back):
   image = Background.objects.get(id=id_back)
   if request.method == "POST":
     im = Image.open(image.imagen)
-    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
-    cropiado = im.crop(box)
-    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    if not((request.POST.get('x1') == "") or (request.POST.get('y1') == "") or (request.POST.get('x2') == "") or (request.POST.get('y2') == "")):
+      box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+      cropiado = im.crop(box)
+      cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
     image.ancho = image.imagen.width
     image.alto = image.imagen.height
     image.save()
@@ -129,9 +130,10 @@ def crop_planos(request,id_plano):
   image = Planos.objects.get(id=id_plano)
   if request.method == "POST":
     im = Image.open(image.imagen)
-    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
-    cropiado = im.crop(box)
-    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    if not((request.POST.get('x1') == "") or (request.POST.get('y1') == "") or (request.POST.get('x2') == "") or (request.POST.get('y2') == "")):
+      box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+      cropiado = im.crop(box)
+      cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
     image.ancho = image.imagen.width
     image.alto = image.imagen.height
     image.save()
@@ -170,9 +172,10 @@ def crop_galeriasImagenes(request,galeria,id_imagen):
   image = Imagenes.objects.get(id=id_imagen)
   if request.method == "POST":
     im = Image.open(image.imagen)
-    box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
-    cropiado = im.crop(box)
-    cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
+    if not((request.POST.get('x1') == "") or (request.POST.get('y1') == "") or (request.POST.get('x2') == "") or (request.POST.get('y2') == "")):
+      box = (int(request.POST.get('x1')),int(request.POST.get('y1')),int(request.POST.get('x2')),int(request.POST.get('y2')))
+      cropiado = im.crop(box)
+      cropiado.save("CostaAlgarrobo/carga/" + str(image.imagen))
     image.ancho = image.imagen.width
     image.alto = image.imagen.height
     image.save()
@@ -276,6 +279,8 @@ def texto(request, id_seccion):
   return render_to_response('texto.html',{'textos':textos, 'formulario':formulario}, context_instance=RequestContext(request))
 
 def descripcion(request):
+  texto = ""
+  titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Descripcion")
     subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
@@ -306,6 +311,8 @@ def departamentos(request):
   return render_to_response('departamentos.html',{'texto':texto,'titulo':titulo},context_instance=RequestContext(request))
 
 def equipamento(request):
+  texto = ""
+  titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Equipamiento")
     fondos = Background.objects.filter(seccion=seccion)
@@ -318,6 +325,8 @@ def equipamento(request):
   return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def infraestructura(request):
+  texto = ""
+  titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Infraestructura")
     fondos = Background.objects.filter(seccion=seccion)
@@ -330,15 +339,97 @@ def infraestructura(request):
   return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def fotos_piloto(request):
-  return render_to_response('fotos_piloto.html',context_instance=RequestContext(request))
+  imagenes_mar = []
+  imagenes_bosque = []
+  try:
+    seccion = Seccion.objects.get(nombre="Fotos Piloto")
+    fondos = Background.objects.filter(seccion=seccion)
+    galeria_mar = GaleriasImagenes.objects.get(nombreGaleria="Mar")
+    galeria_bosque = GaleriasImagenes.objects.get(nombreGaleria="Bosque")
+    imagenes_mar = Imagenes.objects.filter(galeria=galeria_mar)
+    imagenes_bosque = Imagenes.objects.filter(galeria=galeria_bosque)
+  except:
+    fondos = ""
+  return render_to_response('fotos_piloto.html',{'imagenes_mar':imagenes_mar,'imagenes_bosque':imagenes_bosque},context_instance=RequestContext(request))
 
 def plantas(request):
-  return render_to_response('plantas.html',context_instance=RequestContext(request))
+  try:
+    seccion = Seccion.objects.get(nombre="Plantas")
+    fondos = Background.objects.filter(seccion=seccion)
+    subseccion = SubSeccion.objects.get(nombre="Plantas Menu Desplegable")
+    text = Texto.objects.get(seccion = subseccion)
+    texto = text.texto
 
-def foto(request):
-  return render_to_response('foto.html',context_instance=RequestContext(request))
+    algarrobo = Edificio.objects.get(nombre="Algarrobo")
+    pinares = Edificio.objects.get(nombre="Pinares")
+    eucaliptus = Edificio.objects.get(nombre="Eucaliptus")
+    aromo = Edificio.objects.get(nombre="Aromo")
 
-def video(request):
+    tipo_algarrobo = Tipo.objects.get(edificio=algarrobo)
+    tipo_pinares = Tipo.objects.get(edificio=pinares)
+    tipo_eucaliptus = Tipo.objects.get(edificio=eucaliptus)
+    tipo_aromo = Tipo.objects.get(edificio=aromo)
+
+    planos_algarrobo = Planos.objects.get(tipo=tipo_algarrobo)
+    planos_pinares = Planos.objects.get(tipo=tipo_pinares)
+    planos_eucaliptus = Planos.objects.get(tipo=tipo_eucaliptus)
+    planos_aromo = Planos.objects.get(tipo=tipo_aromo)
+
+  except:
+    fondos = ""
+    texto = ""
+    planos_algarrobo = ""
+    planos_pinares = ""
+    planos_eucaliptus = ""
+    planos_aromo = ""
+  return render_to_response('plantas.html', {'texto': texto,'planos_algarrobo':planos_algarrobo,'planos_pinares':planos_pinares,
+                                            'planos_eucaliptus':planos_eucaliptus,'planos_aromo':planos_aromo},context_instance=RequestContext(request))
+
+def foto(request, id_galeria):
+  galerias = GaleriasImagenes.objects.all()
+  imagenes = []
+  try:
+    galeria = GaleriasImagenes.objects.get(id=id_galeria)
+    imagenes = Imagenes.objects.filter(galeria=galeria)
+  except:
+    if galerias.count() == 0:
+      pass
+    else:
+      galeria = galerias[0].id
+      imagenes = Imagenes.objects.filter(galeria=galeria)
+      if galerias.count() > 6:
+        print "mayor que 6"
+        lista = []
+        contador = 0
+        for galeria in galerias:
+          if contador < 6:
+            lista.append(galeria)
+          contador += 1
+        galerias = lista
+    for galeria in galerias:
+      print galeria.nombreGaleria
+  return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias}, context_instance=RequestContext(request))
+
+def video(request, id_video):
+  videos = Videos.objects.all()
+  try:
+    video = GaleriasImagenes.objects.get(id=id_video)
+  except:
+    if galerias.count() == 0:
+      pass
+    else:
+      video = videos[0].id
+  if videos.count() > 6:
+    print "mayor que 6"
+    lista = []
+    contador = 0
+    for galeria in videos:
+      if contador < 6:
+        lista.append(galeria)
+        contador += 1
+    videos = lista
+    for galeria in videos:
+      print ""
   return render_to_response('video.html',context_instance=RequestContext(request))
 
 def contactanos(request):
@@ -376,3 +467,9 @@ def avance(request):
 
 def cotizacion(request):
   return render_to_response('cotizacion.html',context_instance=RequestContext(request))
+
+def mar(request):
+  return render_to_response('mar.html',context_instance=RequestContext(request))
+
+def bosque(request):
+  return render_to_response('bosque.html',context_instance=RequestContext(request))

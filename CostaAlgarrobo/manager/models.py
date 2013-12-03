@@ -67,17 +67,13 @@ class Tipo(models.Model):
 class Planos(models.Model):
   def __unicode__(self):
     return self.edificio
-
   tipo = models.ForeignKey(Tipo)
   nombre = models.CharField(max_length=100)
   imagen = models.ImageField(upload_to='carga')
   miniplano = models.ImageField(upload_to='carga',verbose_name='Plano Miniatura')
-  alto = models.CharField(max_length=20)
-  ancho = models.CharField(max_length=20)
-  alineacion1 = models.CharField(max_length=20)
-  alineacion2 = models.CharField(max_length=20)
-  size1 = models.CharField(max_length=20)
-  size2 = models.CharField(max_length=20)
+  superficie_interior = models.CharField(max_length=50, verbose_name="Superficie Interior")
+  superficie_terraza = models.CharField(max_length=50, verbose_name="Superficie Terraza")
+  superficie_total = models.CharField(max_length=50, verbose_name="Superficie Total")
   class Meta:
         verbose_name = "Plano"
 
@@ -104,7 +100,8 @@ class Imagenes(models.Model):
         verbose_name = "Imagenes de Galeria"
 
 class Videos(models.Model):
-  video = models.FileField(upload_to='carga')
+  nombre = models.CharField(max_length=50)
+  codigo = models.TextField(max_length=1000)
   class Meta:
         verbose_name = "Video"
 
