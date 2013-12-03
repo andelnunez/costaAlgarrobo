@@ -384,7 +384,7 @@ def foto(request, id_galeria):
         galerias = lista
     for galeria in galerias:
       print galeria.nombreGaleria
-  return render_to_response('foto.html', {'imagenes': imagenes, 'galerias': galerias}, context_instance=RequestContext(request))
+  return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias}, context_instance=RequestContext(request))
 
 def video(request):
   return render_to_response('video.html',context_instance=RequestContext(request))
