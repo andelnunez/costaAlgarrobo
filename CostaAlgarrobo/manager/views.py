@@ -276,6 +276,8 @@ def texto(request, id_seccion):
   return render_to_response('texto.html',{'textos':textos, 'formulario':formulario}, context_instance=RequestContext(request))
 
 def descripcion(request):
+  texto = ""
+  titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Descripcion")
     subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
@@ -306,6 +308,8 @@ def departamentos(request):
   return render_to_response('departamentos.html',{'texto':texto,'titulo':titulo},context_instance=RequestContext(request))
 
 def equipamento(request):
+  texto = ""
+  titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Equipamiento")
     fondos = Background.objects.filter(seccion=seccion)
@@ -318,6 +322,8 @@ def equipamento(request):
   return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
 
 def infraestructura(request):
+  texto = ""
+  titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Infraestructura")
     fondos = Background.objects.filter(seccion=seccion)
@@ -388,3 +394,9 @@ def avance(request):
 
 def cotizacion(request):
   return render_to_response('cotizacion.html',context_instance=RequestContext(request))
+
+def mar(request):
+  return render_to_response('mar.html',context_instance=RequestContext(request))
+
+def bosque(request):
+  return render_to_response('bosque.html',context_instance=RequestContext(request))
