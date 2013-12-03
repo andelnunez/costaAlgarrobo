@@ -343,6 +343,9 @@ footer #info p>a{
 		color: #39748e;
 	
 }
+footer .footBorder {
+border-right: #849AAF solid 1px;
+}
 
 
 /* Desplegable */
