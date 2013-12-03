@@ -27,7 +27,7 @@
 	<body class="{{section}} {{view}}">
 		<div>
 		    <header>
-			<a href="./"><img src="{{STATIC_URL}}/img/logo-can.jpg" class="logo" id="logo" alt="Costa Algarrobo Norte" width="247" height="98" /></a>
+			<a href="/"><img src="{{STATIC_URL}}/img/logo-can.jpg" class="logo" id="logo" alt="Costa Algarrobo Norte" width="247" height="98" /></a>
 			{% if oferta %}
 				<aside class="promo" id="promo">
 					<a href="{{STATIC_URL}}/img/promo.jpg" target="_blank"><h3>Promoci&oacute;n del mes</h3>
@@ -143,10 +143,8 @@
 		    <script src="{{STATIC_URL}}/js/vendor/bootstrap.min.js"></script>
 		    <script src="{{STATIC_URL}}/js/main.js"></script>
 
-			<!--
+			{% block js-footerSlider %}
 
-			-->
-			{% block js %}
 			<script> 
 			  $(document).ready(function(){
 			    $(".botonDesplegable").click(function(){
@@ -159,6 +157,10 @@
 			    });
 			  });
 			</script>
+
+			{% endblock %}
+			{% block js %}
+
 			{% endblock %}
 			
 		    <!--<script>
