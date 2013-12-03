@@ -16,6 +16,10 @@
         <link rel="stylesheet" href="{{STATIC_URL}}/css/galeria.css">
         <link rel="stylesheet" href="{{STATIC_URL}}/css/home.css">
 
+	{% block css_costa %}{% endblock %}
+
+	
+
 
         <script src="{{STATIC_URL}}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         
@@ -58,8 +62,8 @@
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">GALER&Iacute;AS</a>
 					<span class="glyphicon glyphicon-play arrow"></span>
 					<ul class="dropdown-menu">
-				      <li><a href="galeria1.php">FOTOS</a></li>
-				      <li><a href="galeriav1.php">VIDEOS</a></li>
+				      <li><a href="/foto/0">FOTOS</a></li>
+				      <li><a href="/video">VIDEOS</a></li>
 				    </ul>
 				</li>
 				<li class="dropdown"><a href="/contactanos">CONT&Aacute;CTENOS</a></li>
@@ -139,7 +143,11 @@
 		    <script src="{{STATIC_URL}}/js/vendor/bootstrap.min.js"></script>
 		    <script src="{{STATIC_URL}}/js/main.js"></script>
 
-			<!--<script> 
+			<!--
+
+			-->
+			{% block js %}
+			<script> 
 			  $(document).ready(function(){
 			    $(".botonDesplegable").click(function(){
 			      if($(".baseDesplegable").hasClass('click')) {
@@ -150,8 +158,8 @@
 			      }
 			    });
 			  });
-			</script>-->
-			{% block js %}{% endblock %}
+			</script>
+			{% endblock %}
 			
 		    <!--<script>
 		        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
