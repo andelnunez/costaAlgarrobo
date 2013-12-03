@@ -51,3 +51,16 @@ padding-top: 150px;
 .video1{
 border: solid #bdddf4 10px;
 }
+a {
+color: #FFF;
+}
+a:hover {
+text-decoration: none;
+}
+.menuder a {
+	text-decoration: none;
+}
+a.refActive {
+	color: #514537;
+	font-weight: bold;
+}

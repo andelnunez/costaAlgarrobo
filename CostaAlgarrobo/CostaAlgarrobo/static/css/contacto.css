@@ -1,3 +1,14 @@
+.info-section {
+	padding: 15px;
+	padding-right: 40px;
+}
+
+.info-section.form-horizontal {
+	margin-left: auto;
+	margin-right: 5%;
+	max-width: 548px;
+}
+
 .info-section.contacto h2{
 	font-size: 14px;
 	text-transform: uppercase;
@@ -22,26 +33,34 @@ form.info-section.contacto input.form-control, form.info-section.contacto textar
 }
 
 .info-section .alt h4{
-	font-size: 11px;
+	font-size: 10px;
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
-	color: #1a5f76;
+	color: #FFF;
 	margin-bottom: 5px;
 	margin-top: 17px;
 }
 
 .direccion{
-	font-size: 11px;
+	font-size: 12px;
 }
 .celular, .telefono{
-	font-size: 25px;
+	font-size: 21px;
 	line-height: 20px;
 }
 
 .form-submit{
 	padding-top: 10px;
-	padding-bottom: 10px;	
+	padding-bottom: 10px;
+	font-family: 'Open Sans', sans-serif;	
+}
+
+.form-submit input {
+	height: 22px;
+	width: 65px;
+	padding: 0;
+	background: #76A7D8;
 }
 
 #mensajeerror {

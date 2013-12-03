@@ -22,13 +22,14 @@
 	width: 100%;
 	background-repeat: no-repeat;
 	background-position: right top;
-	background-size: auto 510px;
+	background-size: auto 764px;
 	background-color: white;
 }
 .desplegableContent{
 	margin-right: 3%;
 	margin-right: 3%;
-	color: #547bb4;
+	color: #54798A;
+	font-size: 12px;
 }
 .shape {
     width:400px;
@@ -121,6 +122,9 @@ color: #fff;
 font-size: 12px;
 font-weight: bold;
 cursor: pointer;
+background-image: url(../img/lupa.png);
+background-position: 125px;
+background-repeat: no-repeat;
 
 }
 .ventasBot2{
@@ -204,7 +208,7 @@ margin-top: 15px;
 margin-left: 0;
 }
 .botonICuadroSombra{
-padding: 8px;
+padding: 13px;
 width: 170px;
 margin-left: auto;
 margin-right: auto;
@@ -212,6 +216,9 @@ background-color: #84a4d3;
 color: #fff;
 text-align: center;
 height: 50px;
+font-size: 16px;
+-webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+box-shadow: 0 3px 9px rgba(0,0,0,0.5);
 }
 .seleccionado{
 font-weight: bold;
@@ -226,7 +233,7 @@ border: solid #c9cace 1px;
 }
 .masterplan{
 width: 100%;
-height: 90%;
+height: 100%;
 background-image: url(../img/masterplan.jpg);
 background-size: contain;
 background-position: center center;
@@ -241,7 +248,7 @@ width: 90%;
 height: 90%;
 margin-left: auto;
 margin-right: auto;
-margin-top: 5%;
+margin-top: 0%;
 background-size: contain;
 background-repeat:no-repeat;
 background-position: center center;
@@ -268,6 +275,8 @@ display: inline-block;
 }
 .modal-dialog, .modal-content{
 height: 100%;
+max-height: 850px;
+border-radius: 0px;
 }
 .modal-dialog{
 width: 700px;
@@ -292,8 +301,27 @@ height: 100%;
   
 .carousel .item {
 
-	background-size: auto 700px;
+	background-size: auto 1049px;
 
+}
+.botonAlgarrobo{
+	top: 160px;
+	right: 130px;
+}
+.botonAromo{
+	top: 390px;
+}
+.botonPinares{
+	top: 250px;
+	right: 380px;
+}
+.botonEucaliptus{
+	top: 380px;
+	right: 360px;
+}
+.ventas{
+	top: 320px;
+	right: 550px;
 }
 
 }
