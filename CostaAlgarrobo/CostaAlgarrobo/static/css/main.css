@@ -258,6 +258,8 @@ nav#main-nav ul.dropdown-menu li a{
 	position: absolute;
 	bottom: 77px;
 	right: 0;
+	z-index: 500;
+	cursor: pointer;
 }
 
 /* Main */
