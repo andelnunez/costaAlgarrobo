@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/nano/code/turpial/costaAlgarrobo/django/costaAlgarrobo/CostaAlgarrobo/env"
+VIRTUAL_ENV="/Users/nano/code/turpial/costaAlgarrobo/sistema/costaAlgarrobo/CostaAlgarrobo/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

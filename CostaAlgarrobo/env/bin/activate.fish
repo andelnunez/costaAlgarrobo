@@ -32,7 +32,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/nano/code/turpial/costaAlgarrobo/django/costaAlgarrobo/CostaAlgarrobo/env"
+set -gx VIRTUAL_ENV "/Users/nano/code/turpial/costaAlgarrobo/sistema/costaAlgarrobo/CostaAlgarrobo/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

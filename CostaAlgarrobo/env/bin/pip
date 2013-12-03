@@ -1,4 +1,4 @@
-#!/Users/nano/code/turpial/costaAlgarrobo/django/costaAlgarrobo/CostaAlgarrobo/env/bin/python
+#!/Users/nano/code/turpial/costaAlgarrobo/sistema/costaAlgarrobo/CostaAlgarrobo/env/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==1.4.1','console_scripts','pip'
 __requires__ = 'pip==1.4.1'
 import sys
