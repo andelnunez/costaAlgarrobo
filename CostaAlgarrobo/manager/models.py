@@ -104,7 +104,8 @@ class Imagenes(models.Model):
         verbose_name = "Imagenes de Galeria"
 
 class Videos(models.Model):
-  video = models.FileField(upload_to='carga')
+  nombre = models.CharField(max_length=50)
+  codigo = models.TextField(max_length=1000)
   class Meta:
         verbose_name = "Video"
 

@@ -409,7 +409,26 @@ def foto(request, id_galeria):
       print galeria.nombreGaleria
   return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias}, context_instance=RequestContext(request))
 
-def video(request):
+def video(request, id_video):
+  videos = Videos.objects.all()
+  try:
+    video = GaleriasImagenes.objects.get(id=id_video)
+  except:
+    if galerias.count() == 0:
+      pass
+    else:
+      video = videos[0].id
+  if videos.count() > 6:
+    print "mayor que 6"
+    lista = []
+    contador = 0
+    for galeria in videos:
+      if contador < 6:
+        lista.append(galeria)
+        contador += 1
+    videos = lista
+    for galeria in videos:
+      print ""
   return render_to_response('video.html',context_instance=RequestContext(request))
 
 def contactanos(request):
