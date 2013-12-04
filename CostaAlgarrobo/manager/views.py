@@ -423,6 +423,7 @@ def foto(request, id_galeria):
   return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias, 'seccion': seccion, 'id': id}, context_instance=RequestContext(request))
 
 def video(request, id_video):
+  id = id_video
   seccion = 'Video'
   video = ""
   videos = Videos.objects.all()
@@ -432,6 +433,7 @@ def video(request, id_video):
     if videos.count() == 0:
       pass
     else:
+      id = videos[0].id
       video = videos[0].id
   if videos.count() > 6:
     print "mayor que 6"
@@ -444,7 +446,7 @@ def video(request, id_video):
     videos = lista
     for galeria in videos:
       print ""
-  return render_to_response('video.html', {'seccion': seccion, 'videos': videos, 'video': video}, context_instance=RequestContext(request))
+  return render_to_response('video.html', {'seccion': seccion, 'videos': videos, 'video': video, 'id': id}, context_instance=RequestContext(request))
 
 def contactanos(request):
   if request.method == 'POST':
