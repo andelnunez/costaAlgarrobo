@@ -478,7 +478,19 @@ def equipo(request):
   return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def avance(request):
-  return render_to_response('equipo.html',context_instance=RequestContext(request))
+  texto = ""
+  titulo = ""
+  try:
+    seccion = Seccion.objects.get(nombre="Avance")
+    fondos = Background.objects.filter(seccion=seccion)
+   # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
+   # text = Texto.objects.get(seccion = subseccion)
+   # texto = text.texto
+   # titulo = text.titulo
+  except:
+    fondos = ""
+  print fondos.count()
+  return render_to_response('avance.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def cotizacion(request):
   texto = ""
