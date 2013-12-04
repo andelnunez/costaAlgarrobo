@@ -250,16 +250,6 @@ def galeriasVideos(request,video):
 
   return render_to_response('galeriasVideos.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
-def login_admin(request):
-  try:
-    seccion = Seccion.objects.get(nombre="Home")
-    fondos = Background.objects.filter(seccion=seccion)
-  except:
-    fondos = ""
-
- # print current_url
-  return render_to_response('index.html',{'fondos': fondos}, context_instance=RequestContext(request))
-
 def oferta(request):
   request.session['oferta'] = False
   return HttpResponseRedirect(request.session['url'])
@@ -278,6 +268,19 @@ def texto(request, id_seccion):
     formulario = TextoForm()
   return render_to_response('texto.html',{'textos':textos, 'formulario':formulario}, context_instance=RequestContext(request))
 
+#aqui empiezan las vistas de la pagina
+
+def login_admin(request):
+
+  try:
+    seccion = Seccion.objects.get(nombre="Home")
+    fondos = Background.objects.filter(seccion=seccion)
+  except:
+    fondos = ""
+
+ # print current_url
+  return render_to_response('index.html',{'fondos': fondos, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
+
 def descripcion(request):
   texto = ""
   titulo = ""
@@ -291,7 +294,7 @@ def descripcion(request):
     titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('descripcion.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
+  return render_to_response('descripcion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def departamentos(request):
   texto = ""

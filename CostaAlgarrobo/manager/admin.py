@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 
 class BackgroundAdmin(AdminViews):
     exclude = ['imagen']
+    list_display = ('nombre', 'asociada')
     admin_views = (
       ('Subir Background', '/admin/background/home'),
     )
@@ -23,6 +24,10 @@ class PlanosAdmin(AdminViews):
     admin_views = (
       ('Subir Plano', '/galeriasImagenes/home'),
     )
+
+class TipoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'edificio')
+    search_fields = ['nombre', 'edificio__nombre']
 
 class TipoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'edificio')
