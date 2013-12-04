@@ -357,12 +357,14 @@ def fotos_piloto(request):
 
 def plantas(request):
   seccion = ""
+  texto = ""
   try:
     seccion = Seccion.objects.get(nombre="Plantas")
     fondos = Background.objects.filter(seccion=seccion)
     subseccion = SubSeccion.objects.get(nombre="Plantas Desplegable")
-    text = Texto.objects.get(seccion = subseccion)
-    texto = text.texto
+    text = Texto.objects.filter(seccion = subseccion)
+    if text.count() > 0:
+      texto = text.texto
 
   #  algarrobo = Edificio.objects.get(nombre="Algarrobo")
   #  pinares = Edificio.objects.get(nombre="Pinares")
@@ -386,6 +388,7 @@ def plantas(request):
   #  planos_pinares = ""
   #  planos_eucaliptus = ""
   #  planos_aromo = ""
+  print fondos
   return render_to_response('plantas.html', {'texto': texto,'seccion':seccion, 'fondos': fondos},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
