@@ -523,11 +523,13 @@ def cotizacion(request):
     seccion = Seccion.objects.get(nombre="Cotizacion")
     fondos = Background.objects.filter(seccion=seccion)
     subseccion = SubSeccion.objects.get(nombre="Cotizacion Desplegable")
-    text = Texto.objects.get(seccion = subseccion)
-    texto = text.texto
-    titulo = text.titulo
+    text = Texto.objects.filter(seccion = subseccion)
+    if text.count() > 0:
+      texto = text[0].texto
+      titulo = text[0].titulo
   except:
     fondos = ""
+  print fondos
   return render_to_response('cotizacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 
