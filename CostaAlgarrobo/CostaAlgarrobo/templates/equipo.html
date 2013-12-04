@@ -1,1 +1,19 @@
-{% extends 'proyecto.html' %}
+{% extends 'index.html' %}
+
+{% block js %}
+
+
+{% endblock %}
+
+{% block menuFooter%}
+		<div class="menuDesplegable">
+                        <div class="menuizq"><a class="refActive" href="/equipo">EQUIPO PROFESIONAL</a></div>
+                        <img src="{{STATIC_URL}}img/up.png" class="upDesplegable">
+                        <div class="menuder"><a href="/avance">AVANCE EN CONSTRUCCIÓN</a></div>
+               	</div>
+{% endblock %}
+{% block js-footerSlider %}
+
+
+
+{% endblock %}
