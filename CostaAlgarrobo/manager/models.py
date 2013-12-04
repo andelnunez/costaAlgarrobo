@@ -86,14 +86,24 @@ class GaleriasImagenes(models.Model):
         verbose_name = "Galerias de Imagene"
 
 class Imagenes(models.Model):
+  aligV = (
+    ('top','Arriba'),
+    ('middle','Medio'),
+    ('bottom','Abajo'),
+  )
+  aligH = (
+    ('left','Izquierda'),
+    ('center','Centro'),
+    ('right','Derecha'),
+  )
   def __unicode__(self):
     return self.nombre
   nombre = models.CharField(max_length=100)
   imagen = models.ImageField(upload_to='carga')
   alto = models.CharField(max_length=20)
   ancho = models.CharField(max_length=20)
-  alineacion1 = models.CharField(max_length=20)
-  alineacion2 = models.CharField(max_length=20)
+  alineacion1 = models.CharField(max_length=20, choices=aligV)
+  alineacion2 = models.CharField(max_length=20, choices=aligH)
   size1 = models.CharField(max_length=20, null=True, blank=True)
   size2 = models.CharField(max_length=20, null=True, blank=True)
   galeria = models.ForeignKey(GaleriasImagenes)
