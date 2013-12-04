@@ -103,7 +103,7 @@ class Videos(models.Model):
   nombre = models.CharField(max_length=50)
   codigo = models.TextField(max_length=1000)
   class Meta:
-        verbose_name = "Videos"
+        verbose_name = "Video"
 
 class GaleriasVideos(models.Model):
   def __unicode__(self):

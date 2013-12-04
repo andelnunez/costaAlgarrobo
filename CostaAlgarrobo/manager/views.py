@@ -364,7 +364,7 @@ def plantas(request):
     subseccion = SubSeccion.objects.get(nombre="Plantas Desplegable")
     text = Texto.objects.filter(seccion = subseccion)
     if text.count() > 0:
-      texto = text.texto
+      texto = text[0].texto
 
   #  algarrobo = Edificio.objects.get(nombre="Algarrobo")
   #  pinares = Edificio.objects.get(nombre="Pinares")
@@ -388,8 +388,8 @@ def plantas(request):
   #  planos_pinares = ""
   #  planos_eucaliptus = ""
   #  planos_aromo = ""
-  print fondos
-  return render_to_response('plantas.html', {'texto': texto,'seccion':seccion, 'fondos': fondos, 'seccion': seccion.nombre},context_instance=RequestContext(request))
+  print texto
+  return render_to_response('plantas.html', {'texto': texto, 'seccion':seccion, 'fondos': fondos, 'seccion': seccion.nombre},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
   galerias = GaleriasImagenes.objects.all()

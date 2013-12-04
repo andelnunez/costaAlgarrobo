@@ -13,7 +13,7 @@ class BackgroundAdmin(AdminViews):
     )
 
 class ImagenAdmin(AdminViews):
-    exclude = ['imagen']
+    exclude = ['imagen', 'size1', 'size2']
     admin_views = (
       ('Subir Imagen a Galeria', '/galeriasImagenes/home'),
     )
@@ -44,17 +44,20 @@ class VideosAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'codigo')
     search_fields = ['nombre']
 
-admin.site.register(Edificio)
-admin.site.register(Tipo, TipoAdmin)
+class TransparentesAdmin(admin.ModelAdmin):
+    search_fields = ['nombre']
+
+#admin.site.register(Edificio)
+#admin.site.register(Tipo, TipoAdmin)
 admin.site.register(Background, BackgroundAdmin)
-admin.site.register(Planos)
+#admin.site.register(Planos)
 admin.site.register(Imagenes, ImagenAdmin)
 admin.site.register(GaleriasImagenes, GaleriaAdmin)
 admin.site.register(GaleriasPdf, GaleriaPdfAdmin)
 admin.site.register(Pdf)
 admin.site.register(Videos, VideosAdmin)
-admin.site.register(GaleriasVideos)
+#admin.site.register(GaleriasVideos)
 admin.site.register(Seccion)
 admin.site.register(Texto, TextoAdmin)
 admin.site.register(SubSeccion)
-admin.site.register(ImagenesTransparente)
+admin.site.register(ImagenesTransparente, TransparentesAdmin)
