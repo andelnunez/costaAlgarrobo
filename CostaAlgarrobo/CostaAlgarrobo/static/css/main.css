@@ -145,16 +145,17 @@ hrader img#logo{
 /* Main-nav */
 
 nav#main-nav {
-	position: absolute;
-	left: 0;
-	top:0;
-	width: 160px;
-	background: rgba(117, 154, 172, 0.7); /* #759aac transparente */
-	min-height: 400px;
-	height: 100%;
-	padding-top: 109px;
-	z-index: 10;
+position: absolute;
+left: 0;
+top: 0;
+width: 160px;
+background: rgba(25, 125, 150, 0.8);
+min-height: 400px;
+height: 100%;
+padding-top: 109px;
+z-index: 10;
 }
+
 
 .nav {
 	margin-top: 20px;

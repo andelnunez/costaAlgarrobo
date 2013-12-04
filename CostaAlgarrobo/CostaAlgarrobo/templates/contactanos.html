@@ -1,15 +1,80 @@
 {% extends 'fondo_dinamico.html' %}
 {%block dentro_item%}
-        <div class="info-section pull-left">
-    <form id='formulario' enctype='multipart/form-data' method='post' action=''>{% csrf_token %}
-        {{formulario.nombre.errors}}{{formulario.nombre.label}}{{formulario.nombre}}
-        {{formulario.rut.errors}}{{formulario.rut.label}}{{formulario.rut}}
-        {{formulario.direccion.errors}}{{formulario.direccion.label}}{{formulario.direccion}}
-        {{formulario.telefono.errors}}{{formulario.telefono.label}}{{formulario.telefono}}
-        {{formulario.celular.errors}}{{formulario.celular.label}}{{formulario.celular}}
-        {{formulario.email.errors}}{{formulario.email.label}}{{formulario.email}}
-        {{formulario.consulta.errors}}{{formulario.consulta.label}}{{formulario.consulta}}
-        <input type='submit' class="btn btn-primary pull-right" value='enviar'/>
-    </form>
-            </div>
+
+
+<form id='formulario' enctype='multipart/form-data' method='post' action='' name="contactform" class="contacto info-section form-horizontal" role="form" >
+		    		    	<h2>formulario de contacto</h2>
+		    		    	<div class="row">
+			    		    	<div class="col-md-7">{% csrf_token %}
+									  <div class="form-group input-sm">{{formulario.nombre.errors}}
+									    <label for="contacto-nombre" class="col-sm-3 control-label">Nombre:</label>
+									    <div class="col-sm-9">
+									     {{formulario.nombre}}
+									    </div>
+									  </div>
+									  <div class="form-group input-sm">{{formulario.rut.errors}}
+									    <label for="contacto-rut" class="col-sm-3 control-label">Rut:</label>
+									    <div class="col-sm-9">
+									      {{formulario.rut}}
+									    </div>
+									  </div>
+									  <div class="form-group input-sm">{{formulario.direccion.errors}}
+									    <label for="contacto-direccion" class="col-sm-3 control-label">Direcci&oacute;n:</label>
+									    <div class="col-sm-9">
+									     {{formulario.direccion}}
+									    </div>
+									  </div>
+									  <div class="form-group input-sm">{{formulario.telefono.errors}}
+									    <label for="contacto-telefono" class="col-sm-3 control-label">Tel&eacute;fono:</label>
+									    <div class="col-sm-9">
+									      {{formulario.telefono}}
+									    </div>
+									  </div>
+									  <div class="form-group input-sm">{{formulario.celular.errors}}
+									    <label for="contacto-cel" class="col-sm-3 control-label">Celular:</label>
+									    <div class="col-sm-9">
+									     {{formulario.celular}}
+									    </div>
+									  </div>
+									  <div class="form-group input-sm">{{formulario.email.errors}}
+									    <label for="contacto-email" class="col-sm-3 control-label">Email:</label>
+									    <div class="col-sm-9">
+									     {{formulario.email}}
+									    </div>
+									  </div>
+									  <div class="form-group input-sm">{{formulario.consulta.errors}}
+									    <label for="contacto-contenido" class="col-sm-3 control-label">Consulta</label>
+									    <div class="col-sm-9">
+									      {{formulario.consulta}}</textarea>
+									    </div>
+									  </div>
+
+			    		    	</div>
+			    		    	<div class="col-md-5 hidden-sm hidden-xs alt contacto">
+			    		    	
+				    		    	<h4>Twitter</h4>
+				    		    	<p class="twitter">@Costalgarrobo</p>
+				    		    	
+				    		    	<h4>Email</h4>
+				    		    	<p class="email">costaalgarrobonorte@stitchkin.cl</p>
+				    		    	
+				    		    	<h4>Direcci&oacute;n</h4>
+				    		    	<p class="direccion">Camino Algarrobo Norte Esquina Camino del Medio, al lado de la Iglesia Mirasol. Algarrobo, Chile.</p>
+				    		    	
+				    		    	<h4>Fono Sala de Ventas</h4>
+				    		    	<p class="telefono">(035) 2488 424</p>
+				    		    	
+				    		    	<h4>Celular</h4>
+				    		    	<p class="celular">09 2539616</p>
+				    		    	
+			    		    	</div>
+		    		    	</div>
+		    		    	<div class="row">
+			    		    	<div class="col-md-7 form-submit">
+			    		    		  <input type='submit' class="btn btn-primary pull-right">
+			    		    	</div>
+		    		    	</div>
+	    		    	</form>
+
 {% endblock %}
+

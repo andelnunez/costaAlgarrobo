@@ -32,6 +32,9 @@
          <link rel="stylesheet" href="{{STATIC_URL}}/css/plantas.css">
          <link rel="stylesheet" href="{{STATIC_URL}}/css/cotizacion.css">
         {%endif%}
+        {% if seccion = 'Contactanos'%}
+         <link rel="stylesheet" href="{{STATIC_URL}}/css/contacto.css">
+        {%endif%}
 
 	{% block css_costa %}{% endblock %}
 
@@ -80,7 +83,7 @@
 					<span class="glyphicon glyphicon-play arrow"></span>
 					<ul class="dropdown-menu">
 				      <li><a href="/foto/0">FOTOS</a></li>
-				      <li><a href="/video">VIDEOS</a></li>
+				      <li><a href="/video/0">VIDEOS</a></li>
 				    </ul>
 				</li>
 				<li class="dropdown"><a href="/contactanos">CONT&Aacute;CTENOS</a></li>
