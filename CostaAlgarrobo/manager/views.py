@@ -275,7 +275,7 @@ def login_admin(request):
 
   try:
     seccion = Seccion.objects.get(nombre="Home")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
   except:
     fondos = ""
 
@@ -289,7 +289,7 @@ def descripcion(request):
     seccion = Seccion.objects.get(nombre="Descripcion")
     subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
     texto = Texto.objects.get(seccion = subseccion)
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     text = Texto.objects.get(seccion = subseccion)
     texto = text.texto
     titulo = text.titulo
@@ -302,7 +302,7 @@ def departamentos(request):
   titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Departamentos")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     #########################################3
     subSeccion = SubSeccion.objects.get(nombre="Proyecto Departamento")
     textos = Texto.objects.filter(seccion=subSeccion)
@@ -319,7 +319,7 @@ def equipamento(request):
   titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Equipamiento")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamiento")
     text = Texto.objects.get(seccion = subseccion)
     texto = text.texto
@@ -333,7 +333,7 @@ def infraestructura(request):
   titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Infraestructura")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     subseccion = SubSeccion.objects.get(nombre="Proyecto Infraestructura")
     text = Texto.objects.get(seccion = subseccion)
     texto = text.texto
@@ -362,7 +362,7 @@ def plantas(request):
   try:
     seccion = Seccion.objects.get(nombre="Plantas")
     seccion_mapa = Seccion.objects.get(nombre="Masterplan")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     fondosmaster = Background.objects.filter(seccion=seccion_mapa)
     fondomaster = fondosmaster[0]
     subseccion = SubSeccion.objects.get(nombre="Plantas Desplegable")
@@ -475,7 +475,7 @@ def ubicacion(request):
   seccion = ""
   try:
     seccion = Seccion.objects.get(nombre="Ubicacion")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     subseccion = SubSeccion.objects.get(nombre="Ubicacion Desplegable")
     text = Texto.objects.get(seccion = subseccion)
     texto_footer = text.texto
@@ -489,7 +489,7 @@ def equipo(request):
   titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Equipo")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
    # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
    # text = Texto.objects.get(seccion = subseccion)
    # texto = text.texto
@@ -503,7 +503,7 @@ def avance(request):
   titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Avance")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
    # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
    # text = Texto.objects.get(seccion = subseccion)
    # texto = text.texto
@@ -532,7 +532,7 @@ def mar(request):
   titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Fotos Mar")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
    # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
    # text = Texto.objects.get(seccion = subseccion)
    # texto = text.texto
@@ -546,7 +546,7 @@ def bosque(request):
   titulo = ""
   try:
     seccion = Seccion.objects.get(nombre="Fotos Bosque")
-    fondos = Background.objects.filter(seccion=seccion)
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
    # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
    # text = Texto.objects.get(seccion = subseccion)
    # texto = text.texto
