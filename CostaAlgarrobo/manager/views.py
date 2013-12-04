@@ -488,12 +488,14 @@ def ubicacion(request):
     seccion = Seccion.objects.get(nombre="Ubicacion")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     subseccion = SubSeccion.objects.get(nombre="Ubicacion Desplegable")
-    text = Texto.objects.get(seccion = subseccion)
-    texto_footer = text.texto
+    text = Texto.objects.filter(seccion = subseccion)
+    if text.count() > 0:
+      texto = text[0].texto
+      titulo = text[0].titulo
    # titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('ubicacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre, 'texto_footer': texto_footer}, context_instance=RequestContext(request))
+  return render_to_response('ubicacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre, 'texto': texto}, context_instance=RequestContext(request))
 
 def equipo(request):
   texto = ""
