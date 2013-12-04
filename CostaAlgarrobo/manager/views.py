@@ -423,7 +423,7 @@ def foto(request, id_galeria):
   return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias, 'seccion': seccion, 'id': id}, context_instance=RequestContext(request))
 
 def video(request, id_video):
-  id = id_video
+  id = int(id_video)
   seccion = 'Video'
   video = ""
   videos = Videos.objects.all()
