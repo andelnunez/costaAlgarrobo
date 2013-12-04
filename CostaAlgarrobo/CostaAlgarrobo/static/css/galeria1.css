@@ -53,6 +53,7 @@ border: solid #bdddf4 10px;
 }
 a {
 color: #FFF;
+text-transform: uppercase;
 }
 a:hover {
 text-decoration: none;
