@@ -472,7 +472,7 @@ def ubicacion(request):
    # titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
+  return render_to_response('ubicacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
 
 def equipo(request):
   texto = ""
@@ -486,7 +486,6 @@ def equipo(request):
    # titulo = text.titulo
   except:
     fondos = ""
-  print fondos.count()
   return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def avance(request):
@@ -501,7 +500,6 @@ def avance(request):
    # titulo = text.titulo
   except:
     fondos = ""
-  print fondos.count()
   return render_to_response('avance.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def cotizacion(request):
