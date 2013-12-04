@@ -35,14 +35,14 @@ class PlanosForm(forms.Form):
 
 class GaleriasImagenesForm(forms.Form):
   aligV = (
-    ('Top','Arriba'),
-    ('Middle','Medio'),
-    ('Bottom','Abajo'),
+    ('top','Arriba'),
+    ('middle','Medio'),
+    ('bottom','Abajo'),
   )
   aligH = (
-    ('Left','Izquierda'),
-    ('Center','Centro'),
-    ('Right','Derecha'),
+    ('left','Izquierda'),
+    ('center','Centro'),
+    ('right','Derecha'),
   )
   nombre = forms.CharField(max_length=100)
   imagenes = forms.ImageField()

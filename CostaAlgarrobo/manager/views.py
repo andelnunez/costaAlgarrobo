@@ -289,10 +289,11 @@ def descripcion(request):
     subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
     texto = Texto.objects.get(seccion = subseccion)
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
-    text = Texto.objects.get(seccion = subseccion)
-    texto = text.texto
-    titulo = text.titulo
-  except:
+    textos = Texto.objects.filter(seccion=subSeccion)
+    if len(textos) > 0:
+      for tex in textos:
+        texto = tex.texto
+        titulo = tex.titulo
     fondos = ""
   return render_to_response('descripcion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
@@ -320,9 +321,11 @@ def equipamento(request):
     seccion = Seccion.objects.get(nombre="Equipamiento")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamiento")
-    text = Texto.objects.get(seccion = subseccion)
-    texto = text.texto
-    titulo = text.titulo
+    textos = Texto.objects.filter(seccion=subSeccion)
+    if len(textos) > 0:
+      for tex in textos:
+        texto = tex.texto
+        titulo = tex.titulo
   except:
     fondos = ""
   return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
@@ -334,9 +337,11 @@ def infraestructura(request):
     seccion = Seccion.objects.get(nombre="Infraestructura")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     subseccion = SubSeccion.objects.get(nombre="Proyecto Infraestructura")
-    text = Texto.objects.get(seccion = subseccion)
-    texto = text.texto
-    titulo = text.titulo
+    textos = Texto.objects.filter(seccion=subSeccion)
+    if len(textos) > 0:
+      for tex in textos:
+        texto = tex.texto
+        titulo = tex.titulo
   except:
     fondos = ""
   return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
