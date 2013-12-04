@@ -7,41 +7,10 @@
 	margin-top: 6px;
 	font-size: 10px;
 }
-.desplegableContent{
-	margin-right: 3%;
-	margin-right: 3%;
-	color: #547bb4;
-}
-.menuizq {
-	height: 23px;
-	border-width: 0 0 23px 23px;
-	border-style: solid;
-	border-color: transparent #c9ce33 #c9ce33 transparent;
-	width: 200px;
-	float: left;
-	text-align: right;
-	color: #FFF;
-}
-.menuder {
-	height: 23px;
-	border-width: 0 23px 23px 0;
-	border-style: solid;
-	border-color: #c9ce33 transparent #c9ce33 #c9ce33;
-	width: 200px;
-	float: left;
-	text-align: left;
-	color: #FFF;
-}
 .upDesplegable{
 	vertical-align: none;
 	float: left;
 	background-color: #c9ce33;
-}
-.menuDesplegable{
-	height: 23px;
-	max-width: 460px;
-	margin-right: auto;
-	margin-left: auto;
 }
 .fotoGaleria{
 	height: 60px;
