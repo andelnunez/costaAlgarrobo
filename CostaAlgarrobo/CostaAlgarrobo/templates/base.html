@@ -24,6 +24,14 @@
         {% if seccion = 'Foto'%}
          <link rel="stylesheet" href="{{STATIC_URL}}/css/galeria1.css">
         {%endif%}
+        {% if seccion = 'Video'%}
+         <link rel="stylesheet" href="{{STATIC_URL}}/css/galeria1.css">
+         <link rel="stylesheet" href="{{STATIC_URL}}/css/galeriav1.css">
+        {%endif%}
+        {% if seccion = 'Cotizacion'%}
+         <link rel="stylesheet" href="{{STATIC_URL}}/css/plantas.css">
+         <link rel="stylesheet" href="{{STATIC_URL}}/css/cotizacion.css">
+        {%endif%}
 
 	{% block css_costa %}{% endblock %}
 

@@ -5,9 +5,59 @@
 
 {% block menuFooter%}
 	<img src="{{STATIC_URL}}img/up.png">
+     <div id="footerDesplegable">
+
+			   <div class="desplegable">
+			   	<div id="content">
+    		    <section class="main container">
+    		    	<div class="desplegableContent">
+    		    	{{texto}}
+                    </div>
+    		    </section><!-- Fin Main -->
+            </div><!-- Fin Content -->
+			   </div>
+			   <div class="baseDesplegable">
+			   </div>
+
+	</div><!-- Fin Content -->
 {% endblock %}
 
 
 {% block js %}
 
+{% endblock %}
+
+{% block fondo %}
+
+        	<div id="fondo" class="carousel slide">
+        		<div class="carousel-inner">
+        			{% for fondo in fondos %}
+	        			<div id="slide{{forloop.counter}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
+
+					<!-- PEDAZO ESTATICO -->
+					<div class="botonAlgarrobo"><div class="textoPlantas">ALGARROBO</div></div>
+					<div class="botonPinares"><div class="textoPlantas">PINARES</div></div>
+					<div class="botonEucaliptus"><div class="textoPlantas">EUCALIPTUS</div></div>
+					<div class="botonAromo"><div class="textoPlantas">AROMO</div></div>
+               				<div class="ventas">
+							<div class="ventasTit">ENTREGA 2DO SEMESTRE 2013</div>
+							<div class="ventasTex">Edificio Algarrobo (vendido)</div>
+							<div class="ventasTex">Edificio Pinares (vendido)</div>
+							<div class="ventasTex">Edificio Eucaliptus (vendido)</div>
+
+							<div class="ventasTit">ENTREGA 2DO SEMESTRE 2014</div>
+							<div class="ventasTex">Edificio Aromo (disponible)</div>
+							<div class="ventasBot">
+								<a href="http://cstitchkin.cstitchkin.cl/CTZ/cotice.asp?pry=1294" id="etapa1"><img src="{{STATIC_URL}}/img/etapa1.png"></a>
+								<a href="http://cstitchkin.cstitchkin.cl/CTZ/cotice.asp?pry=1294" id="etapa2"><img src="{{STATIC_URL}}/img/etapa2.png"></a>
+							</div>
+					</div>
+					<!-- FIN PEDAZO ESTATICO -->								
+
+
+	
+	        			</div>	
+					{% endfor %}
+        		</div>
+        	</div><!-- Fin Carrusel -->
 {% endblock %}

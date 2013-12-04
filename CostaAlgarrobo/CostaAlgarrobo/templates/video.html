@@ -2,7 +2,35 @@
 {%block dentro_item%}
 
 {% endblock %}
-
+{% block js-footerSlider %}
+{% endblock %}
+{% block js %}
+{% endblock %}
 {% block menuFooter%}
-	<img src="{{STATIC_URL}}img/up.png">
-   {% endblock %}
+				<div class="menuDesplegable">
+					<div class="menuizq"><a {% if id = videos.4.id %} class="refActive" {%endif%} href="/video/{{videos.4.id}}">{{videos.4.nombre}}</a></div>
+					<div class="menuizq1"><a {% if id = videos.2.id %} class="refActive" {%endif%} href="/video/{{videos.2.id}}">{{videos.2.nombre}}</a></div>
+					<div class="menuizq2"><a {% if id = videos.0.id %} class="refActive" {%endif%} href="/video/{{videos.0.id}}">{{videos.0.nombre}}</a></div>
+				   	<img src="{{STATIC_URL}}/img/up.png" class="upDesplegable">
+					<div class="menuder2"><a {% if id = videos.1.id %} class="refActive" {%endif%} href="/video/{{videos.1.id}}">{{videos.1.nombre}}</a></div>
+					<div class="menuder1"><a {% if id = videos.3.id %} class="refActive" {%endif%} href="/video/{{videos.3.id}}">{{videos.3.nombre}}</a></div>
+					<div class="menuder"><a {% if id = videos.5.id %} class="refActive" {%endif%} href="/video/{{videos.5.id}}">{{videos.5.nombre}}</a></div>
+				</div>
+
+
+{% endblock %}
+{% block fondo %}
+
+        	<div id="fondo" class="carousel slide">
+        		<div class="carousel-inner">
+        			{% for fondo in fondos %}
+	        			<div id="slide{{forloop.counter}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
+						<div class="video">
+								{% autoescape off %} {{video.codigo}} {% endautoescape %}
+						</div>
+					
+	        			</div>	
+					{% endfor %}
+        		</div>
+        	</div><!-- Fin Carrusel -->
+{% endblock %}
