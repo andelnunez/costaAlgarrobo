@@ -53,9 +53,9 @@
 			<a href="/"><img src="{{STATIC_URL}}/img/logo-can.jpg" class="logo" id="logo" alt="Costa Algarrobo Norte" width="247" height="98" /></a>
 			{% if oferta %}
 				<aside class="promo" id="promo">
-					<a href="{{STATIC_URL}}/img/promo.jpg" target="_blank"><h3>Novedades</h3>
-					<img src="{{STATIC_URL}}/img/promImage.png" alt="imagen-promo" class="promo-image"  />
-					<p>No vendemos departamentos... Vendemos un estilo de vida...</p></a>
+					<a href="{{info_oferta.pdf.url}}" target="_blank"><h3>Novedades</h3>
+					<div alt="imagen-promo" class="promo-image" style="background-image: url({{info_oferta.imagen.url}}) ; background-size: cover; width: 64px; height: 54px; float: left;"></div>
+					<p>{{info_oferta.mensaje}}</p></a>
 					<a href="/oferta" class="button-close" onclick="$('aside#promo').fadeOut(1000)"></a>
 				</aside>
 			{% endif %}
