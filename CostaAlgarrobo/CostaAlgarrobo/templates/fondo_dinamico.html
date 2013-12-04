@@ -6,7 +6,6 @@
         			{% for fondo in fondos %}
 	        			<div id="slide{{forloop.counter}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
 								{% block dentro_item %}							{% endblock %}
-								<div class="textSlider" style="background-image: url({{fondo.asociada.imagen.url}});"></div>
 	
 	        			</div>	
 					{% endfor %}
