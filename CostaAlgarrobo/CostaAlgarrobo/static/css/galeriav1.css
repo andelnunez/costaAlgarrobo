@@ -1,7 +1,7 @@
-.video1 {
-	width: 420px;
-	height: 315px;
+iframe {
+border: solid #bdddf4 10px;
 }
+
 @media  screen and (min-height: 680px) {
 
 .video1 {
