@@ -44,6 +44,6 @@ urlpatterns = patterns('',
     url(r'^avance/$', 'manager.views.avance'),
     url(r'^equipo/$', 'manager.views.equipo'),
     url(r'^cotizacion/$', 'manager.views.cotizacion'),
-    url(r'^mar/$', 'manager.views.cotizacion'),
-    url(r'^bosque/$', 'manager.views.cotizacion'),
+    url(r'^fotos_mar/$', 'manager.views.cotizacion'),
+    url(r'^fotos_bosque/$', 'manager.views.cotizacion'),
 )
