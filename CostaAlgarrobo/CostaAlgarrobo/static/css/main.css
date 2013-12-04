@@ -494,9 +494,6 @@ cursor: pointer;
 .menuder a {
 	text-decoration: none;
 }
-a.refActive {
-	color: #514537;
-}
 .upDesplegable{
 	vertical-align: none;
 	float: left;
@@ -576,6 +573,10 @@ a.refActive {
 	text-decoration: none;
 }
 a.refActive {
+	color: #514537;
+	font-weight: bold;
+}
+.refActive {
 	color: #514537;
 	font-weight: bold;
 }
