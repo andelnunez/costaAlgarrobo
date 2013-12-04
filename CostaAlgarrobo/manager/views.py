@@ -513,7 +513,7 @@ def equipo(request):
    # titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion}, context_instance=RequestContext(request))
+  return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
 
 def avance(request):
   texto = ""
