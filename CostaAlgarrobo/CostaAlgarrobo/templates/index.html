@@ -1,6 +1,9 @@
 {% extends 'fondo_dinamico.html' %}
 {%block dentro_item%}
 								<div class="textSlider" style="background-image: url({{fondo.asociada.imagen.url}});"></div>
+<div class="nombre_foto">
+{{fondo.nombre}}
+</div>
 
 {% endblock %}
 
