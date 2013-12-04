@@ -29,9 +29,9 @@ class TipoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'edificio')
     search_fields = ['nombre', 'edificio__nombre']
 
-class TipoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'edificio')
-    search_fields = ['nombre', 'edificio__nombre']
+class TextoAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'seccion')
+    search_fields = ['titulo', 'seccion__nombre']
 
 admin.site.register(Edificio)
 admin.site.register(Tipo, TipoAdmin)
@@ -44,6 +44,6 @@ admin.site.register(Pdf)
 admin.site.register(Videos)
 admin.site.register(GaleriasVideos)
 admin.site.register(Seccion)
-admin.site.register(Texto)
+admin.site.register(Texto, TextoAdmin)
 admin.site.register(SubSeccion)
 admin.site.register(ImagenesTransparente)
