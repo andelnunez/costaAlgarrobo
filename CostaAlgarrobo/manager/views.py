@@ -463,7 +463,7 @@ def ubicacion(request):
   return render_to_response('ubicacion.html',context_instance=RequestContext(request))
 
 def equipo(request):
-  return render_to_response('avance.html',context_instance=RequestContext(request))
+  return render_to_response('equipo.html',context_instance=RequestContext(request))
 
 def avance(request):
   return render_to_response('equipo.html',context_instance=RequestContext(request))
