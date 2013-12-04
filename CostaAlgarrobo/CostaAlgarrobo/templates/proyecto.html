@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'fondo_dinamico.html' %}
 {%block dentro_item%}
-    			    <div class="info-section pull-left">
+    			<div class="info-section pull-right">
                         <a id="close" href="#"><img src="{{STATIC_URL}}img/close.png"></a>
                         <h4>{{titulo}}</h4>
 						<p>{{texto|linebreaksbr}}</p>
@@ -27,7 +27,9 @@
 		  });
 		</script>
 {% endblock %}
+{% block desplegable%}
 
+{% endblock %}
 
 
 
