@@ -481,7 +481,19 @@ def cotizacion(request):
 
 
 def mar(request):
-  return render_to_response('mar.html',context_instance=RequestContext(request))
+  imagenes_mar = []
+  try:
+    galeria_mar = GaleriasImagenes.objects.get(nombreGaleria="Mar")
+    imagenes_mar = Imagenes.objects.filter(galeria=galeria_mar)
+  except:
+    fondos = ""
+  return render_to_response('mar.html',{'imagenes_mar':imagenes_mar},context_instance=RequestContext(request))
 
 def bosque(request):
-  return render_to_response('bosque.html',context_instance=RequestContext(request))
+  imagenes_bosque = []
+  try:
+    galeria_bosque = GaleriasImagenes.objects.get(nombreGaleria="Bosque")
+    imagenes_bosque = Imagenes.objects.filter(galeria=galeria_bosque)
+  except:
+    fondos = ""
+  return render_to_response('bosque.html',{'imagenes_bosque':imagenes_bosque},context_instance=RequestContext(request))
