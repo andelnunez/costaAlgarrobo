@@ -426,7 +426,6 @@ def foto(request, id_galeria):
         contador += 1
     galerias = lista
   for galeria in galerias:
-    print galeria.nombreGaleria
   return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias, 'seccion': seccion, 'id': id}, context_instance=RequestContext(request))
 
 def video(request, id_video):
