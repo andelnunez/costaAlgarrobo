@@ -92,6 +92,9 @@
 	                    <div id="content">
 	                        <section class="main container">
 	                            <div class="desplegableContent">
+					{% block desplegable%}
+ -                <p>Costa Algarrobo Norte es un exclusivo y entretenido proyecto especialmente concebido para quienes gustan salir de la ciudad en familia, disfrutando la cercanía del mar y el encanto del bosque. Con accesos expeditos desde Santiago, Costa Algarrobo Norte rescata lo mejor de este lugar generoso en árboles, senderos, aire puro y un agradable ambiente costero. Estarás a pasos de supermercados, locomoción y todos los servicios necesarios para tu descanso.</p>
+ -              			    {% endblock %}
 	                            </div>
 	                        </section><!-- Fin Main -->
 	                    </div><!-- Fin Content -->
@@ -159,10 +162,10 @@
 			</script>
 
 			{% endblock %}
-			{% block js %}
-
+			{% block js-mid-template%}
 			{% endblock %}
-			
+			{% block js %}
+			{% endblock %}
 		    <!--<script>
 		        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
 		        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
