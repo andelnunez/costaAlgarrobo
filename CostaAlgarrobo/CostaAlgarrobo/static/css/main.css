@@ -36,7 +36,7 @@ hrader img#logo{
 	height: 100%;
 	min-height: 100%;
 	width: 100%;
-	background-color: gray; /* !!! */
+	background-color: #fff; /* !!! */
 }
 
 /* Since positioning the image, we need to help out the caption */

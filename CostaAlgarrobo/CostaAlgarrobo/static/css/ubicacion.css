@@ -3,7 +3,7 @@
 	font-size: 10px;
 
 }
-#carruselFondo {
+#fondo.carousel {
 	z-index: -20;
 	position: absolute;
 	top: 107px;
