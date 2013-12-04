@@ -466,13 +466,13 @@ def ubicacion(request):
   try:
     seccion = Seccion.objects.get(nombre="Ubicacion")
     fondos = Background.objects.filter(seccion=seccion)
-   # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
-   # text = Texto.objects.get(seccion = subseccion)
-   # texto = text.texto
+    subseccion = SubSeccion.objects.get(nombre="Ubicacion Desplegable")
+    text = Texto.objects.get(seccion = subseccion)
+    texto_footer = text.texto
    # titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('ubicacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
+  return render_to_response('ubicacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre, 'texto_footer': texto_footer}, context_instance=RequestContext(request))
 
 def equipo(request):
   texto = ""
