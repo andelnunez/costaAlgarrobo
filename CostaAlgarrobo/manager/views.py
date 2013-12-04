@@ -468,15 +468,14 @@ def equipo(request):
   try:
     seccion = Seccion.objects.get(nombre="Equipo")
     fondos = Background.objects.filter(seccion=seccion)
-    subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
-    text = Texto.objects.get(seccion = subseccion)
-    texto = text.texto
-    titulo = text.titulo
+   # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
+   # text = Texto.objects.get(seccion = subseccion)
+   # texto = text.texto
+   # titulo = text.titulo
   except:
     fondos = ""
+  print fondos.count()
   return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
-
-  return render_to_response('equipo.html',context_instance=RequestContext(request))
 
 def avance(request):
   return render_to_response('equipo.html',context_instance=RequestContext(request))
