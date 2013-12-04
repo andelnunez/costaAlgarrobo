@@ -83,13 +83,16 @@
   <fieldset class="module aligned ">
         <div class="form-row field-seccion">
                 <div>
+                        {{formulario.seccion.errors}}
                         <label for="id_seccion" class="required">Seccion:</label>
                         {{formulario.seccion}}
+
                 </div>
 
         </div>
         <div class="form-row field-nombre">
                 <div>
+                        {{formulario.nombre.errors}}
                         <label for="id_nombre" class="required">Nombre:</label>
                         <input class="vTextField" id="id_nombre" maxlength="100" name="nombre" type="text" />
                 </div>
@@ -97,23 +100,29 @@
         </div>
         <div class="form-row field-imagen">
                 <div>
+                        {{formulario.imagen.errors}}
                         <label for="id_imagen" class="required">Imagen:</label>
                         <input class="vTextField" id="id_imagen" maxlength="100" name="imagen" type="file" />
+
                 </div>
 
         </div>
 
         <div class="form-row field-alineacion1">
                 <div>
-                        <label for="id_alineacion1" class="required">Alineacion1:</label>
+                        {{formulario.alineacion1.errors}}
+                        <label for="id_alineacion1" class="required">Alineacion Vertical:</label>
                         {{formulario.alineacion1}}
+
                 </div>
         </div>
 
         <div class="form-row field-alineacion2">
                 <div>
-                        <label for="id_alineacion2" class="required">Alineacion2:</label>
+                        {{formulario.alineacion2.errors}}
+                        <label for="id_alineacion2" class="required">Alineacion Horizontal:</label>
                         {{formulario.alineacion2}}
+
                 </div>
         </div>
 
