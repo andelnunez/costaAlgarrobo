@@ -13,12 +13,13 @@
 
 
 <script type="text/javascript">
-            $( document ).ready(function() {
-/*                 console.log( "ready: t-1000 fadeOut primer .textSlider" ); */
+             $('#fondo').ready(function() {
+                 console.log( "ready: t-1000 fadeOut primer .textSlider" ); 
                 $(".active > .textSlider").addClass("sliderHidden");
                 $(".active > .textSlider").delay( 2000 ).fadeOut(1500);
             });             
-            $('#carruselFondo').on('slid.bs.carousel', function () {
+            $('#fondo').on('slid.bs.carousel', function () {
+                 console.log( "slid" ); 
                 $(".sliderHidden").show();
                 $(".sliderHidden").removeClass('sliderHidden');
                 $(".active > .textSlider").addClass("sliderHidden");
