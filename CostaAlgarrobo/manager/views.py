@@ -389,7 +389,7 @@ def plantas(request):
   #  planos_eucaliptus = ""
   #  planos_aromo = ""
   print fondos
-  return render_to_response('plantas.html', {'texto': texto,'seccion':seccion, 'fondos': fondos},context_instance=RequestContext(request))
+  return render_to_response('plantas.html', {'texto': texto,'seccion':seccion, 'fondos': fondos, 'seccion': seccion.nombre},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
   galerias = GaleriasImagenes.objects.all()
