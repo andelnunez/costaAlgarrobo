@@ -262,6 +262,15 @@ nav#main-nav ul.dropdown-menu li a{
 	z-index: 500;
 	cursor: pointer;
 }
+.nombre_foto{
+position: absolute;
+bottom: 0px;
+right: 100px;
+color: #FFF;
+text-transform: lowercase;
+font-weight: bold;
+font-size: 10px;
+}
 
 /* Main */
 
