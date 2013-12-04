@@ -1,0 +1,12 @@
+.carousel .item .textSlider {
+width: 100%;
+min-height: 100%;
+position: absolute;
+background-position: bottom left;
+background-repeat: no-repeat;
+margin-left: 0;
+bottom: 0;
+top: 0px;
+background-size: contain;
+
+}
