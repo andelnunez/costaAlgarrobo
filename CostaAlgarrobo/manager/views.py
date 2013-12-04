@@ -324,9 +324,8 @@ def equipamento(request):
     subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamiento")
     textos = Texto.objects.filter(seccion=subSeccion)
     if len(textos) > 0:
-      for tex in textos:
-        texto = tex.texto
-        titulo = tex.titulo
+        texto = tex[0].texto
+        titulo = tex[0].titulo
   except:
     fondos = ""
   return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
