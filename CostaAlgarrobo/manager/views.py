@@ -423,9 +423,11 @@ def foto(request, id_galeria):
   return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias, 'seccion': seccion, 'id': id}, context_instance=RequestContext(request))
 
 def video(request, id_video):
+  seccion = 'Video'
+  video = ""
   videos = Videos.objects.all()
   try:
-    video = GaleriasImagenes.objects.get(id=id_video)
+    video = Videos.objects.get(id=id_video)
   except:
     if videos.count() == 0:
       pass
@@ -442,7 +444,7 @@ def video(request, id_video):
     videos = lista
     for galeria in videos:
       print ""
-  return render_to_response('video.html',context_instance=RequestContext(request))
+  return render_to_response('video.html', {'seccion': seccion, 'videos': videos, 'video': video}, context_instance=RequestContext(request))
 
 def contactanos(request):
   if request.method == 'POST':
