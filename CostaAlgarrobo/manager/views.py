@@ -528,7 +528,7 @@ def cotizacion(request):
     titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
+  return render_to_response('cotizacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 
 def mar(request):
