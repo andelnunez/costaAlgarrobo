@@ -272,7 +272,7 @@ def texto(request, id_seccion):
 #aqui empiezan las vistas de la pagina
 
 def login_admin(request):
-
+  seccion = ""
   try:
     seccion = Seccion.objects.get(nombre="Home")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
