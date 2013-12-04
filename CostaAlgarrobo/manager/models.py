@@ -114,8 +114,11 @@ class GaleriasVideos(models.Model):
   class Meta:
         verbose_name = "Galerias de Video"
 
-class Pdf(models.Model):
+class Promocion(models.Model):
+  mensaje= models.CharField(max_length=60)
+  imagen = models.ImageField(upload_to='carga')
   pdf = models.FileField(upload_to='carga')
+
 
 class GaleriasPdf(models.Model):
   def __unicode__(self):
