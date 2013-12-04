@@ -360,7 +360,7 @@ def plantas(request):
   try:
     seccion = Seccion.objects.get(nombre="Plantas")
     fondos = Background.objects.filter(seccion=seccion)
-    subseccion = SubSeccion.objects.get(nombre="Plantas Menu Desplegable")
+    subseccion = SubSeccion.objects.get(nombre="Plantas Desplegable")
     text = Texto.objects.get(seccion = subseccion)
     texto = text.texto
 
