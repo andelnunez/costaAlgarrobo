@@ -289,8 +289,8 @@ def descripcion(request):
     subseccion = SubSeccion.objects.get(nombre="Proyecto Descripcion")
     texto = Texto.objects.get(seccion = subseccion)
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
-    textos = Texto.objects.filter(seccion=subSeccion)
-    if len(textos) > 0:
+    textos = Texto.objects.filter(seccion=subseccion)
+    if textos.count() > 0:
       for tex in textos:
         texto = tex.texto
         titulo = tex.titulo
@@ -305,9 +305,9 @@ def departamentos(request):
     seccion = Seccion.objects.get(nombre="Departamentos")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     #########################################3
-    subSeccion = SubSeccion.objects.get(nombre="Proyecto Departamento")
-    textos = Texto.objects.filter(seccion=subSeccion)
-    if len(textos) > 0:
+    subseccion = SubSeccion.objects.get(nombre="Proyecto Departamento")
+    textos = Texto.objects.filter(seccion=subseccion)
+    if textos.count() > 0:
       for tex in textos:
         texto = tex.texto
         titulo = tex.titulo
@@ -319,15 +319,18 @@ def equipamento(request):
   texto = ""
   titulo = ""
   try:
-    seccion = Seccion.objects.get(nombre="Equipamiento")
+    seccion = Seccion.objects.get(nombre="Equipamento")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
-    subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamiento")
-    textos = Texto.objects.filter(seccion=subSeccion)
-    if len(textos) > 0:
-        texto = tex[0].texto
-        titulo = tex[0].titulo
+    subseccion = SubSeccion.objects.get(nombre="Proyecto Equipamento")
+    textos = Texto.objects.filter(seccion=subseccion)
+    print "agarro"
+    if textos.count() > 0:
+        print "entro"
+        texto = textos[0].texto
+        titulo = textos[0].titulo
   except:
     fondos = ""
+    print texto
   return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def infraestructura(request):
@@ -337,8 +340,8 @@ def infraestructura(request):
     seccion = Seccion.objects.get(nombre="Infraestructura")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
     subseccion = SubSeccion.objects.get(nombre="Proyecto Infraestructura")
-    textos = Texto.objects.filter(seccion=subSeccion)
-    if len(textos) > 0:
+    textos = Texto.objects.filter(seccion=subseccion)
+    if textos.count() > 0:
       for tex in textos:
         texto = tex.texto
         titulo = tex.titulo
