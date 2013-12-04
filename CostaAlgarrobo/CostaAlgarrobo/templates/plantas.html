@@ -3,6 +3,305 @@
 
 {% endblock %}
 
+{% block fondo %}
+
+        	<div id="fondo" class="carousel slide">
+        		<div class="carousel-inner">
+        			{% for fondo in fondos %}
+	        			<div id="slide{{forloop.counter}}" class="item {% if forloop.first %}active{% endif %} bg-v-{{fondo.vertical}} bg-h-{{fondo.horizontal}}" style="background-image: url({{fondo.imagen.url}}) ;">
+
+					<!-- PEDAZO ESTATICO -->
+					<div class="botonAlgarrobo" data-toggle="modal" data-target="#myModal"><div class="textoPlantas">ALGARROBO</div></div>
+					<div class="botonPinares"><div class="textoPlantas">PINARES</div></div>
+					<div class="botonEucaliptus" data-toggle="modal" data-target="#myModal2"><div class="textoPlantas">EUCALIPTUS</div></div>
+					<div class="botonAromo" data-toggle="modal" data-target="#myModal1"><div class="textoPlantas">AROMO</div></div>
+					<div class="ventas">
+						<div class="ventasTit">ENTREGA 2DO SEMESTRE 2013</div>
+						<div class="ventasTex">Edificio Algarrobo (vendido)</div>
+						<div class="ventasTex">Edificio Pinares (vendido)</div>
+						<div class="ventasTex">Edificio Eucaliptus (vendido)</div>
+
+						<div class="ventasTit">ENTREGA 2DO SEMESTRE 2014</div>
+						<div class="ventasTex">Edificio Aromo (disponible)</div>
+						<div class="ventasBot">
+							<div class="ventasBot1" data-toggle="modal" data-target="#myModal3">Ver masterplan del proyecto ampliado
+							</div>
+							<div class="ventasBot2">Selecciones el edificio para ver las plantas</div>
+						</div>
+					</div>
+					<!-- FIN PEDAZO ESTATICO -->								
+
+
+	
+	        			</div>	
+					{% endfor %}
+        		</div>
+        	</div><!-- Fin Carrusel -->
+{% endblock %}
+
+
+{% block modals %}
+<!-- ALGARROBO -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <img src="{{STATIC_URL}}/img/cerrar-01.png" class="close" data-dismiss="modal" aria-hidden="true">
+      </div>
+      <div class="modal-body">
+
+
+<div class="izquierdaSombra">
+	<div class="tituloCuadroSombra">
+		<img src="{{STATIC_URL}}/img/logo_algarrobo.png">
+	</div>
+	<div class="tituloDptsCuadroSombra">
+		DPTOS 3 DORM. Y 2 BAÑOS
+	</div>
+	<div class="plantaCuadroSombra b1y2 seleccionado">
+		Planta Tipo 1 y 2
+	</div>
+	<div class="plantaCuadroSombra b3y4">
+		Planta Tipo 3 y 4
+	</div>
+	<div class="lineaCuadroSombra">
+		<img src="{{STATIC_URL}}/img/linea.png">
+	</div>
+	<div class="titulo2DptsCuadroSombra 1y2">
+		DEPTOS. 101 - 501 / 102 - 502
+	</div>
+	<div class="titulo2DptsCuadroSombra 3y4 down">
+		DEPTOS. 103 - 503 / 204 - 504
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie interior</div><div class="sin1 1y2">58,12 m<sup>2</sup></div><div class="sin1 3y4 down">58,55 m<sup>2</sup></div>
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie terraza</div><div class="sin1 1y2">8,30 m<sup>2</sup></div><div class="sin1 3y4 down">8,04 m<sup>2</sup></div>
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie total</div><div class="sin1 1y2">66,42 m<sup>2</sup></div><div class="sin1 3y4 down">66,59 m<sup>2</sup></div>
+	</div>
+	<div class="imgDptsCuadroSombra">
+		<img src="{{STATIC_URL}}/img/algarrobo1y2.png" class="1y2">
+		<img src="{{STATIC_URL}}/img/algarrobo3y4.png" class="3y4 down">
+	</div>
+	<div class="botonCuadroSombra"><a target="_BLANK" href="http://cstitchkin.cstitchkin.cl/CTZ/cotice.asp?pry=1294">
+		<div class="botonICuadroSombra">
+			Cotización en línea
+		</div>
+	</a>
+	</div>
+	</div>
+	<div class="plano">
+		<div class="planoimg 1y2" style="background-image: url({{STATIC_URL}}/img/algarrobo1y2.jpg);">
+		</div>
+		<div class="planoimg 3y4 down" style="background-image: url({{STATIC_URL}}/img/algarrobo3y4.jpg);">
+		</div>
+	</div>
+
+
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.ALGARROBO -->
+
+
+<!-- AROMO -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <img src="{{STATIC_URL}}/img/cerrar-01.png" class="close" data-dismiss="modal" aria-hidden="true">
+      </div>
+      <div class="modal-body">
+
+
+<div class="izquierdaSombra">
+	<div class="tituloCuadroSombra">
+		<img src="{{STATIC_URL}}/img/logo_aromo.png">
+	</div>
+	<div class="tituloDptsCuadroSombra">
+		DPTOS 3 DORM. Y 2 BAÑOS
+	</div>
+	<div class="plantaCuadroSombra a1y2 seleccionado">
+		Planta Tipo 1 y 6
+	</div>
+	<div class="plantaCuadroSombra a3y4">
+		Planta Tipo 2 y 5
+	</div>
+	<div class="plantaCuadroSombra a5y6">
+		Planta Tipo 3 y 4
+	</div>
+	<div class="tituloDptsCuadroSombra">
+		DPTOS 2 DORM. Y 2 BAÑOS
+	</div>
+	<div class="plantaCuadroSombra a7y8">
+		Planta Tipo 7
+	</div>
+	<div class="lineaCuadroSombra">
+		<img src="{{STATIC_URL}}/img/linea.png">
+	</div>
+	<div class="titulo2DptsCuadroSombra 1y2a">
+		DEPTOS. 101 - 1601 / 206 - 1606
+	</div>
+	<div class="titulo2DptsCuadroSombra 3y4a down">
+		DEPTOS. 102 - 1602 / 105 - 1605
+	</div>
+	<div class="titulo2DptsCuadroSombra 5y6a down">
+		DEPTOS. 103 - 1603 / 104 - 1604
+	</div>
+	<div class="titulo2DptsCuadroSombra 7y8a down">
+		DEPTOS. 207 - 1607
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie interior</div><div class="sin1 1y2a">58,31 m<sup>2</sup></div><div class="sin1 3y4a down">59,65 m<sup>2</sup></div><div class="sin1 5y6a down">56,53 m<sup>2</sup></div><div class="sin1 7y8a down">45,87 m<sup>2</sup></div>
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie terraza</div><div class="sin1 1y2a">8,04 m<sup>2</sup></div><div class="sin1 3y4a down">7,13 m<sup>2</sup></div><div class="sin1 5y6a down">7,35 m<sup>2</sup></div><div class="sin1 7y8a down">9,19 m<sup>2</sup></div>
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie total</div><div class="sin1 1y2a">66,35 m<sup>2</sup></div><div class="sin1 3y4a down">66,78 m<sup>2</sup></div><div class="sin1 5y6a down">63,88 m<sup>2</sup></div><div class="sin1 7y8a down">55,06 m<sup>2</sup></div>
+	</div>
+	<div class="imgDptsCuadroSombra">
+		<img src="{{STATIC_URL}}/img/aromo1y6.png" class="1y2a">
+		<img src="{{STATIC_URL}}/img/aromo2y5.png" class="3y4a down">
+		<img src="{{STATIC_URL}}/img/aromo3y4.png" class="5y6a down">
+		<img src="{{STATIC_URL}}/img/aromo7.png" class="7y8a down">
+	</div>
+	<div class="botonCuadroSombra">
+<a target="_BLANK" href="http://cstitchkin.cstitchkin.cl/CTZ/cotice.asp?pry=1294">
+		<div class="botonICuadroSombra">
+			Cotización en línea
+		</div>
+	</a>
+	</div>
+	</div>
+	<div class="plano">
+		<div class="planoimg 1y2a" style="background-image: url({{STATIC_URL}}/img/aromo1y6.jpg);">
+		</div>
+		<div class="planoimg 3y4a down" style="background-image: url({{STATIC_URL}}/img/aromo2y5.jpg);">
+		</div>
+		<div class="planoimg 5y6a down" style="background-image: url({{STATIC_URL}}/img/aromo3y4.jpg);">
+		</div>
+		<div class="planoimg 7y8a down" style="background-image: url({{STATIC_URL}}/img/aromo7.jpg);">
+		</div>
+	</div>
+
+
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.AROMO -->
+
+<!-- EUCALIPTUS -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="{{STATIC_URL}}/img/cerrar-01.png" class="close" data-dismiss="modal" aria-hidden="true">
+      </div>
+      <div class="modal-body">
+
+
+<div class="izquierdaSombra">
+	<div class="tituloCuadroSombra">
+		<img src="{{STATIC_URL}}/img/logo_eucaliptus.png">
+	</div>
+	<div class="tituloDptsCuadroSombra">
+		DPTOS 3 DORM. Y 2 BAÑOS
+	</div>
+	<div class="plantaCuadroSombra e1y2 seleccionado">
+		Planta Tipo 1 y 6
+	</div>
+	<div class="plantaCuadroSombra e3y4">
+		Planta Tipo 2 y 5
+	</div>
+	<div class="plantaCuadroSombra e5y6">
+		Planta Tipo 3 y 4
+	</div>
+	<div class="tituloDptsCuadroSombra">
+		DPTOS 2 DORM. Y 2 BAÑOS
+	</div>
+	<div class="plantaCuadroSombra e7y8">
+		Planta Tipo 7
+	</div>
+	<div class="lineaCuadroSombra">
+		<img src="{{STATIC_URL}}/img/linea.png">
+	</div>
+	<div class="titulo2DptsCuadroSombra 1y2e">
+		DEPTOS. 201 - 1401 / 106 - 1406
+	</div>
+	<div class="titulo2DptsCuadroSombra 3y4e down">
+		DEPTOS. 102 - 1402 / 105 - 1405
+	</div>
+	<div class="titulo2DptsCuadroSombra 5y6e down">
+		DEPTOS. 103 - 1403 / 104 - 1404
+	</div>
+	<div class="titulo2DptsCuadroSombra 7y8e down">
+		DEPTOS. 207 - 1407
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie interior</div><div class="sin1 1y2e">56,21 m<sup>2</sup></div><div class="sin1 3y4e down">60,86 m<sup>2</sup></div><div class="sin1 5y6e down">54,65 m<sup>2</sup></div><div class="sin1 7y8e down">53,89 m<sup>2</sup></div>
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie terraza</div><div class="sin1 1y2e">4,72 m<sup>2</sup></div><div class="sin1 3y4e down">8,28 m<sup>2</sup></div><div class="sin1 5y6e down">4,56 m<sup>2</sup></div><div class="sin1 7y8e down">8,13 m<sup>2</sup></div>
+	</div>
+	<div class="descDptsCuadroSombra">
+		<div class="sin">Superficie total</div><div class="sin1 1y2e">60,93 m<sup>2</sup></div><div class="sin1 3y4e down">69,14 m<sup>2</sup></div><div class="sin1 5y6e down">59,21 m<sup>2</sup></div><div class="sin1 7y8e down">53,89 m<sup>2</sup></div>
+	</div>
+	<div class="imgDptsCuadroSombra">
+		<img src="{{STATIC_URL}}/img/eucaliptus1y6.png" class="1y2e">
+		<img src="{{STATIC_URL}}/img/eucaliptus2y5.png" class="3y4e down">
+		<img src="{{STATIC_URL}}/img/eucaliptus3y4.png" class="5y6e down">
+		<img src="{{STATIC_URL}}/img/eucaliptus7.png" class="7y8e down">
+	</div>
+	<div class="botonCuadroSombra">
+<a target="_BLANK" href="http://cstitchkin.cstitchkin.cl/CTZ/cotice.asp?pry=1294">
+		<div class="botonICuadroSombra">
+			Cotización en línea
+		</div>
+	</a>
+	</div>
+	</div>
+	<div class="plano">
+		<div class="planoimg 1y2e" style="background-image: url({{STATIC_URL}}/img/eucaliptus1y6.jpg);">
+		</div>
+		<div class="planoimg 3y4e down" style="background-image: url({{STATIC_URL}}/img/eucaliptus2y5.jpg);">
+		</div>
+		<div class="planoimg 5y6e down" style="background-image: url({{STATIC_URL}}/img/eucaliptus3y4.jpg);">
+		</div>
+		<div class="planoimg 7y8e down" style="background-image: url({{STATIC_URL}}/img/eucaliptus7.jpg);">
+		</div>
+	</div>
+
+
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.EUCALIPTUS -->
+
+<!-- MASTERPLAN -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3Label" aria-hidden="true">
+  <div class="modal-dialog anchomayor">
+    <div class="modal-content">
+
+
+      <div class="modal-body">
+	<img src="{{STATIC_URL}}/img/cerrar-01.png" class="close" data-dismiss="modal" aria-hidden="true">
+		<div class="masterplan" style="background-image: url({{master.imagen.url}});"></div>
+
+
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.MASTERPLAN -->
+{% endblock %}
+
 {% block menuFooter%}
 	<img src="{{STATIC_URL}}img/up.png">
      <div id="footerDesplegable">
@@ -24,23 +323,141 @@
 
 
 {% block js %}
+		<script> 
+		  $(document).ready(function(){
+		    $(".b3y4").click(function(){
+		      if($(".3y4").hasClass('down')) {
+		        $(".1y2").toggleClass("down");
+			$(".3y4").toggleClass("down");
+			$(".b1y2").toggleClass("seleccionado");
+			$(".b3y4").toggleClass("seleccionado");
+		      } else { 
+		      }
+		    });
+		    $(".b1y2").click(function(){
+		      if($(".1y2").hasClass('down')) {
+		        $(".3y4").toggleClass("down");
+			$(".1y2").toggleClass("down");
+			$(".b1y2").toggleClass("seleccionado");
+			$(".b3y4").toggleClass("seleccionado");
+		      } else { 
+		      }
+		    });
+		    $(".a3y4").click(function(){
+		      if($(".3y4a").hasClass('down')) {
+			$(".3y4a").toggleClass("down");
+
+
+		        $(".1y2a").addClass("down");
+		        $(".5y6a").addClass("down");
+			$(".7y8a").addClass("down");
+			$(".a1y2").removeClass("seleccionado");
+			$(".a3y4").addClass("seleccionado");
+			$(".a5y6").removeClass("seleccionado");
+			$(".a7y8").removeClass("seleccionado");
+
+		      } else { 
+		      }
+		    });
+		    $(".a1y2").click(function(){
+		      if($(".1y2a").hasClass('down')) {
+		        $(".1y2a").toggleClass("down");
+			$(".3y4a").addClass("down");
+		        $(".5y6a").addClass("down");
+			$(".7y8a").addClass("down");
+			$(".a1y2").addClass("seleccionado");
+			$(".a3y4").removeClass("seleccionado");
+			$(".a5y6").removeClass("seleccionado");
+			$(".a7y8").removeClass("seleccionado");
+		      } else { 
+		      }
+		    });
+		    $(".a5y6").click(function(){
+		      if($(".5y6a").hasClass('down')) {
+		        $(".1y2a").addClass("down");
+			$(".3y4a").addClass("down");
+		        $(".5y6a").removeClass("down");
+			$(".7y8a").addClass("down");
+			$(".a1y2").removeClass("seleccionado");
+			$(".a3y4").removeClass("seleccionado");
+			$(".a5y6").addClass("seleccionado");
+			$(".a7y8").removeClass("seleccionado");
+		      } else { 
+		      }
+		    });
+		    $(".a7y8").click(function(){
+		      if($(".7y8a").hasClass('down')) {
+		        $(".1y2a").addClass("down");
+			$(".3y4a").addClass("down");
+		        $(".5y6a").addClass("down");
+			$(".7y8a").removeClass("down");
+			$(".a1y2").removeClass("seleccionado");
+			$(".a3y4").removeClass("seleccionado");
+			$(".a5y6").removeClass("seleccionado");
+			$(".a7y8").addClass("seleccionado");
+		      } else { 
+		      }
+		    });
+		    $(".e3y4").click(function(){
+		      if($(".3y4e").hasClass('down')) {
+			$(".3y4e").toggleClass("down");
+
+
+		        $(".1y2e").addClass("down");
+		        $(".5y6e").addClass("down");
+			$(".7y8e").addClass("down");
+			$(".e1y2").removeClass("seleccionado");
+			$(".e3y4").addClass("seleccionado");
+			$(".e5y6").removeClass("seleccionado");
+			$(".e7y8").removeClass("seleccionado");
+
+		      } else { 
+		      }
+		    });
+		    $(".e1y2").click(function(){
+		      if($(".1y2e").hasClass('down')) {
+		        $(".1y2e").toggleClass("down");
+			$(".3y4e").addClass("down");
+		        $(".5y6e").addClass("down");
+			$(".7y8e").addClass("down");
+			$(".e1y2").addClass("seleccionado");
+			$(".e3y4").removeClass("seleccionado");
+			$(".e5y6").removeClass("seleccionado");
+			$(".e7y8").removeClass("seleccionado");
+		      } else { 
+		      }
+		    });
+		    $(".e5y6").click(function(){
+		      if($(".5y6e").hasClass('down')) {
+		        $(".1y2e").addClass("down");
+			$(".3y4e").addClass("down");
+		        $(".5y6e").removeClass("down");
+			$(".7y8e").addClass("down");
+			$(".e1y2").removeClass("seleccionado");
+			$(".e3y4").removeClass("seleccionado");
+			$(".e5y6").addClass("seleccionado");
+			$(".e7y8").removeClass("seleccionado");
+		      } else { 
+		      }
+		    });
+		    $(".e7y8").click(function(){
+		      if($(".7y8e").hasClass('down')) {
+		        $(".1y2e").addClass("down");
+			$(".3y4e").addClass("down");
+		        $(".5y6e").addClass("down");
+			$(".7y8e").removeClass("down");
+			$(".e1y2").removeClass("seleccionado");
+			$(".e3y4").removeClass("seleccionado");
+			$(".e5y6").removeClass("seleccionado");
+			$(".e7y8").addClass("seleccionado");
+		      } else { 
+		      }
+		    });
 
 
 
 
-<script type="text/javascript">
-            $( document ).ready(function() {
-/*                 console.log( "ready: t-1000 fadeOut primer .textSlider" ); */
-                $(".active > .textSlider").addClass("sliderHidden");
-                $(".active > .textSlider").delay( 2000 ).fadeOut(1500);
-            });             
-            $('#carruselFondo').on('slid.bs.carousel', function () {
-                $(".sliderHidden").show();
-                $(".sliderHidden").removeClass('sliderHidden');
-                $(".active > .textSlider").addClass("sliderHidden");
-                $(".active > .textSlider").delay( 2500 ).fadeOut(1500);
-
-            });
-</script>
+		  });
+		</script>
 
 {% endblock %}
