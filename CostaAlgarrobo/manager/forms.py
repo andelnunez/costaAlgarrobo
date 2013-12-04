@@ -24,6 +24,7 @@ class BackgroundForm(forms.Form):
   imagen = forms.ImageField(required=False)
   alineacion1 = forms.ChoiceField(choices=aligV)
   alineacion2 = forms.ChoiceField(choices=aligH)
+  orden = forms.IntegerField()
 
 class PlanosForm(forms.Form):
   imagen = forms.ImageField(required=False)

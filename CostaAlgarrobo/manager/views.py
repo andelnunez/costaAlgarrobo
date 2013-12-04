@@ -31,11 +31,12 @@ def background(request,seccion):
       alineacion1 = formulario.cleaned_data['alineacion1']
       alineacion2 = formulario.cleaned_data['alineacion2']
       secciones = formulario.cleaned_data['seccion']
+      orden = formulario.cleaned_data['orden']
       print alineacion1
 
 
 #      if sec == None:
-      sec = Background.objects.create(nombre=nombre,imagen=imagen,vertical=alineacion1,horizontal=alineacion2)
+      sec = Background.objects.create(nombre=nombre,imagen=imagen,vertical=alineacion1,horizontal=alineacion2, orden=orden)
       for seccion in secciones:
         sec.seccion.add(seccion)
       sec.save()
