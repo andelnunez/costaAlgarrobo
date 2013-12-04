@@ -3,28 +3,105 @@
 
 {% endblock %}
 
+{% block js-footerSlider %}
+{% endblock %}
+
 {% block menuFooter%}
-	<img src="{{STATIC_URL}}img/up.png">
+				<div class="menuDesplegable">
+					<div class="menuizq"><a {% if id = galerias.4.id %} class="refActive" {%endif%} href="#">{{galerias.4.nombreGaleria}}</a></div>
+					<div class="menuizq1"><a {% if id = galerias.2.id %} class="refActive" {%endif%} href="#">{{galerias.2.nombreGaleria}}</a></div>
+					<div class="menuizq2"><a {% if id = galerias.0.id %} class="refActive" {%endif%} href="#">{{galerias.0.nombreGaleria}}</a></div>
+				   	<img src="{{STATIC_URL}}/img/up.png" class="upDesplegable">
+					<div class="menuder2"><a {% if id = galerias.1.id %} class="refActive" {%endif%} href="#">{{galerias.1.nombreGaleria}}</a></div>
+					<div class="menuder1"><a {% if id = galerias.3.id %} class="refActive" {%endif%} href="#">{{galerias.3.nombreGaleria}}</a></div>
+					<div class="menuder"><a {% if id = galerias.5.id %} class="refActive" {%endif%} href="#">{{galerias.5.nombreGaleria}}</a></div>
+				</div>
 {% endblock %}
 
 
 {% block js %}
-
-
-
-<script type="text/javascript">
-            $( document ).ready(function() {
-/*                 console.log( "ready: t-1000 fadeOut primer .textSlider" ); */
-                $(".active > .textSlider").addClass("sliderHidden");
-                $(".active > .textSlider").delay( 2000 ).fadeOut(1500);
-            });             
-            $('#carruselFondo').on('slid.bs.carousel', function () {
-                $(".sliderHidden").show();
-                $(".sliderHidden").removeClass('sliderHidden');
-                $(".active > .textSlider").addClass("sliderHidden");
-                $(".active > .textSlider").delay( 2500 ).fadeOut(1500);
-
-            });
-</script>
-
+<script> 
+		  $(document).ready(function(){
+		    $(".upDesplegable").click(function(){
+		      if($(".baseDesplegable").hasClass('click')) {
+		        $(".baseDesplegable").animate({height:0},200).removeClass('click');
+		      } else { 
+		        $(".baseDesplegable").animate({height:77},200);
+		        $(".baseDesplegable").addClass('click');
+		      }
+		    });
+		    $(".menuizq2").click(function(){
+		       {% if id = galerias.0.id %}
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+			{%else%}
+				window.location ="/foto/{{galerias.0.id}}";
+			{%endif%}
+		    });
+		    $(".menuizq1").click(function(){
+		       {% if id = galerias.2.id %}
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+			{%else%}
+				window.location ="/foto/{{galerias.2.id}}";
+			{%endif%}
+		    });
+		    $(".menuizq").click(function(){
+		       {% if id = galerias.4.id %}
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+			{%else%}
+				window.location ="/foto/{{galerias.4.id}}";
+			{%endif%}
+		    });
+		    $(".menuder2").click(function(){
+		       {% if id = galerias.1.id %}
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+			{%else%}
+				window.location ="/foto/{{galerias.1.id}}";
+			{%endif%}
+		    });
+		    $(".menuder1").click(function(){
+		       {% if id = galerias.3.id %}
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+			{%else%}
+				window.location ="/foto/{{galerias.3.id}}";
+			{%endif%}
+		    });
+		    $(".menuder").click(function(){
+		       {% if id = galerias.5.id %}
+			      if($(".baseDesplegable").hasClass('click')) {
+				$(".baseDesplegable").animate({height:0},200).removeClass('click');
+			      } else { 
+				$(".baseDesplegable").animate({height:77},200);
+				$(".baseDesplegable").addClass('click');
+			      }
+			{%else%}
+				window.location ="/foto/{{galerias.5.id}}";
+			{%endif%}
+		    });
+		  });
+		</script>
 {% endblock %}
