@@ -395,7 +395,7 @@ def plantas(request):
   return render_to_response('plantas.html', {'texto': texto, 'seccion':seccion, 'fondos': fondos, 'seccion': seccion.nombre, 'master': fondomaster},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
-  id = id_galeria
+  id = int(id_galeria)
   seccion = "Foto"
   galerias = GaleriasImagenes.objects.all()
   imagenes = []
