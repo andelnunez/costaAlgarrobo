@@ -522,7 +522,7 @@ def cotizacion(request):
   try:
     seccion = Seccion.objects.get(nombre="Cotizacion")
     fondos = Background.objects.filter(seccion=seccion)
-    subseccion = SubSeccion.objects.get(nombre="Cotizacion Menu Desplegable")
+    subseccion = SubSeccion.objects.get(nombre="Cotizacion Desplegable")
     text = Texto.objects.get(seccion = subseccion)
     texto = text.texto
     titulo = text.titulo
