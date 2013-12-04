@@ -413,7 +413,7 @@ def foto(request, id_galeria):
       pass
     else:
       id = galerias[0].id
-      galeria = galerias[0].id
+      galeria = galerias[0]
       imagenes = Imagenes.objects.filter(galeria=galeria)
   if galerias.count() > 6:
     print "mayor que 6"
