@@ -93,8 +93,8 @@ class Imagenes(models.Model):
   ancho = models.CharField(max_length=20)
   alineacion1 = models.CharField(max_length=20)
   alineacion2 = models.CharField(max_length=20)
-  size1 = models.CharField(max_length=20)
-  size2 = models.CharField(max_length=20)
+  size1 = models.CharField(max_length=20, null=True, blank=True)
+  size2 = models.CharField(max_length=20, null=True, blank=True)
   galeria = models.ForeignKey(GaleriasImagenes)
   class Meta:
         verbose_name = "Imagenes de Galeria"
