@@ -356,6 +356,7 @@ def fotos_piloto(request):
   return render_to_response('fotos_piloto.html',{'imagenes_mar':imagenes_mar,'imagenes_bosque':imagenes_bosque},context_instance=RequestContext(request))
 
 def plantas(request):
+  seccion = ""
   try:
     seccion = Seccion.objects.get(nombre="Plantas")
     fondos = Background.objects.filter(seccion=seccion)
