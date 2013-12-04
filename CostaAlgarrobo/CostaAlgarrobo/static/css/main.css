@@ -1,8 +1,7 @@
 
 
-
 /* ==========================================================================
-   Author's custom styles
+   Turpial Development - turpialdev.com
    ========================================================================== */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 html {
@@ -288,7 +287,10 @@ font-size: 10px;
 
 
 		/* Main: Contactanos */
-		
+		    
+		    .info-section.contacto h2{
+		        
+		    }
     		.info-section.contacto .alt{
         		background: #00647d;
         		opacity:0.8;
@@ -313,6 +315,7 @@ font-size: 10px;
 				font-family: 'Open Sans', sans-serif;
 				font-weight: 300;
 				color: #574234;
+				margin-top: 5px;
 			}
 			
 			form.info-section.contacto label{
