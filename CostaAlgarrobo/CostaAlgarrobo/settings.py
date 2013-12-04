@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'manager',
     'admin_views',
+    'bootstrapform',
 )
 
 # A sample logging configuration. The only tangible logging
