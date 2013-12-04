@@ -311,7 +311,7 @@ def departamentos(request):
         titulo = tex.titulo
   except:
     fondos = ""
-  return render_to_response('departamentos.html',{'texto':texto,'titulo':titulo},context_instance=RequestContext(request))
+  return render_to_response('departamentos.html',{'texto':texto,'titulo':titulo, 'fondos': fondos},context_instance=RequestContext(request))
 
 def equipamento(request):
   texto = ""
@@ -325,7 +325,7 @@ def equipamento(request):
     titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
+  return render_to_response('equipamento.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def infraestructura(request):
   texto = ""
@@ -339,7 +339,7 @@ def infraestructura(request):
     titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo}, context_instance=RequestContext(request))
+  return render_to_response('infraestructura.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def fotos_piloto(request):
   imagenes_mar = []
@@ -463,7 +463,7 @@ def ubicacion(request):
   return render_to_response('ubicacion.html',context_instance=RequestContext(request))
 
 def equipo(request):
-  return render_to_response('avance.html',context_instance=RequestContext(request))
+  return render_to_response('equipo.html',context_instance=RequestContext(request))
 
 def avance(request):
   return render_to_response('equipo.html',context_instance=RequestContext(request))
