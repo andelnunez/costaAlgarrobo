@@ -450,6 +450,13 @@ def video(request, id_video):
   return render_to_response('video.html', {'seccion': seccion.nombre, 'videos': videos, 'video': video, 'id': id, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def contactanos(request):
+  seccion = ""
+  texto = ""
+  try:
+    seccion = Seccion.objects.get(nombre="Contactanos")
+    fondos = Background.objects.filter(seccion=seccion).order_by('orden')
+  except:
+    fondos = ""
   if request.method == 'POST':
     formulario = ContactoForm(request.POST)
     if formulario.is_valid():
@@ -465,7 +472,7 @@ def contactanos(request):
       correo.send()
   else:
     formulario = ContactoForm()
-  return render_to_response('contactanos.html', {'formulario': formulario}, context_instance=RequestContext(request))
+  return render_to_response('contactanos.html', {'formulario': formulario, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
 
 def etapa1(request):
   return render_to_response('etapa1.html',context_instance=RequestContext(request))
