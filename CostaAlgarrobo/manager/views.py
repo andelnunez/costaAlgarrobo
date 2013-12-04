@@ -433,13 +433,16 @@ def video(request, id_video):
   try:
     seccion = Seccion.objects.get(nombre="Video")
     fondos = Background.objects.filter(seccion=seccion).order_by('orden')
+  except:
+    pass
+  try:
     video = Videos.objects.get(id=id_video)
   except:
     if videos.count() == 0:
       pass
     else:
       id = videos[0].id
-      video = videos[0].id
+      video = videos[0]
   if videos.count() > 6:
     print "mayor que 6"
     lista = []
