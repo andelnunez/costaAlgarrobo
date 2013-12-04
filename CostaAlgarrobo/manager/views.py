@@ -517,6 +517,7 @@ def avance(request):
   return render_to_response('avance.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def cotizacion(request):
+  seccion = ""
   texto = ""
   titulo = ""
   try:
@@ -530,7 +531,7 @@ def cotizacion(request):
   except:
     fondos = ""
   print fondos
-  return render_to_response('cotizacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
+  return render_to_response('cotizacion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
 
 
 def mar(request):
