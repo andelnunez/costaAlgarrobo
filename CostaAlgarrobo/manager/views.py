@@ -518,19 +518,29 @@ def cotizacion(request):
 
 
 def mar(request):
-  imagenes_mar = []
+  texto = ""
+  titulo = ""
   try:
-    galeria_mar = GaleriasImagenes.objects.get(nombreGaleria="Mar")
-    imagenes_mar = Imagenes.objects.filter(galeria=galeria_mar)
+    seccion = Seccion.objects.get(nombre="Fotos Mar")
+    fondos = Background.objects.filter(seccion=seccion)
+   # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
+   # text = Texto.objects.get(seccion = subseccion)
+   # texto = text.texto
+   # titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('mar.html',{'imagenes_mar':imagenes_mar},context_instance=RequestContext(request))
+  return render_to_response('mar.html',{'fondos': fondos},context_instance=RequestContext(request))
 
 def bosque(request):
-  imagenes_bosque = []
+  texto = ""
+  titulo = ""
   try:
-    galeria_bosque = GaleriasImagenes.objects.get(nombreGaleria="Bosque")
-    imagenes_bosque = Imagenes.objects.filter(galeria=galeria_bosque)
+    seccion = Seccion.objects.get(nombre="Fotos Mar")
+    fondos = Background.objects.filter(seccion=seccion)
+   # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
+   # text = Texto.objects.get(seccion = subseccion)
+   # texto = text.texto
+   # titulo = text.titulo
   except:
     fondos = ""
-  return render_to_response('bosque.html',{'imagenes_bosque':imagenes_bosque},context_instance=RequestContext(request))
+  return render_to_response('bosque.html',{'fondos': fondos},context_instance=RequestContext(request))
