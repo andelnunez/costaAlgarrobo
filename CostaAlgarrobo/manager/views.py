@@ -294,6 +294,7 @@ def descripcion(request):
       for tex in textos:
         texto = tex.texto
         titulo = tex.titulo
+  except:
     fondos = ""
   return render_to_response('descripcion.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
 
