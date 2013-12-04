@@ -169,7 +169,6 @@ def galeriasImagenes(request,gale):
 
 @login_required(login_url='/')
 def crop_galeriasImagenes(request,galeria,id_imagen):
-  print galeria
   image = Imagenes.objects.get(id=id_imagen)
   if request.method == "POST":
     im = Image.open(image.imagen)
