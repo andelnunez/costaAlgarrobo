@@ -462,6 +462,7 @@ def etapa2(request):
 def ubicacion(request):
   texto = ""
   titulo = ""
+  seccion = ""
   try:
     seccion = Seccion.objects.get(nombre="Ubicacion")
     fondos = Background.objects.filter(seccion=seccion)
@@ -471,8 +472,7 @@ def ubicacion(request):
    # titulo = text.titulo
   except:
     fondos = ""
-  print fondos.count()
-  return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos}, context_instance=RequestContext(request))
+  return render_to_response('equipo.html', {'texto': texto, 'titulo': titulo, 'fondos': fondos, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
 
 def equipo(request):
   texto = ""
