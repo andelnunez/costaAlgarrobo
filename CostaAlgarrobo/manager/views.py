@@ -472,7 +472,7 @@ def contactanos(request):
       correo.send()
   else:
     formulario = ContactoForm()
-  return render_to_response('contactanos.html', {'formulario': formulario, 'seccion': seccion.nombre}, context_instance=RequestContext(request))
+  return render_to_response('contactanos.html', {'formulario': formulario, 'seccion': seccion.nombre, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def etapa1(request):
   return render_to_response('etapa1.html',context_instance=RequestContext(request))
