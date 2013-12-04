@@ -395,6 +395,7 @@ def plantas(request):
   return render_to_response('plantas.html', {'texto': texto, 'seccion':seccion, 'fondos': fondos, 'seccion': seccion.nombre, 'master': fondomaster},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
+  id = id_galeria
   seccion = "Foto"
   galerias = GaleriasImagenes.objects.all()
   imagenes = []
@@ -405,6 +406,7 @@ def foto(request, id_galeria):
     if galerias.count() == 0:
       pass
     else:
+      id = galerias[0].id
       galeria = galerias[0].id
       imagenes = Imagenes.objects.filter(galeria=galeria)
   if galerias.count() > 6:
@@ -418,7 +420,7 @@ def foto(request, id_galeria):
     galerias = lista
   for galeria in galerias:
     print galeria.nombreGaleria
-  return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias, 'seccion': seccion, 'id': id_galeria}, context_instance=RequestContext(request))
+  return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias, 'seccion': seccion, 'id': id}, context_instance=RequestContext(request))
 
 def video(request, id_video):
   videos = Videos.objects.all()
