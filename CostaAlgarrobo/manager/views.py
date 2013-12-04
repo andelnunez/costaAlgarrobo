@@ -395,6 +395,7 @@ def plantas(request):
   return render_to_response('plantas.html', {'texto': texto, 'seccion':seccion, 'fondos': fondos, 'seccion': seccion.nombre, 'master': fondomaster},context_instance=RequestContext(request))
 
 def foto(request, id_galeria):
+  seccion = "Foto"
   galerias = GaleriasImagenes.objects.all()
   imagenes = []
   try:
@@ -417,7 +418,7 @@ def foto(request, id_galeria):
     galerias = lista
   for galeria in galerias:
     print galeria.nombreGaleria
-  return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias}, context_instance=RequestContext(request))
+  return render_to_response('foto.html', {'fondos': imagenes, 'galerias': galerias, 'seccion': seccion}, context_instance=RequestContext(request))
 
 def video(request, id_video):
   videos = Videos.objects.all()

@@ -47,8 +47,9 @@ class GaleriasImagenesForm(forms.Form):
   imagenes = forms.ImageField()
   alineacion1 = forms.ChoiceField(choices=aligV)
   alineacion2 = forms.ChoiceField(choices=aligH)
-  size1 = forms.CharField(max_length=20)
-  size2 = forms.CharField(max_length=20)
+  size1 = forms.CharField(max_length=20, required=False)
+  size2 = forms.CharField(max_length=20, required=False)
+  orden = forms.IntegerField()
 
 class PdfForm(forms.Form):
   pdf = forms.FileField()

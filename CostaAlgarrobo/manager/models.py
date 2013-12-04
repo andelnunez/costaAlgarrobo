@@ -47,6 +47,7 @@ class Background(models.Model):
   vertical = models.CharField(max_length=20, choices=aligV)
   horizontal = models.CharField(max_length=20, choices=aligH)
   asociada = models.ForeignKey(ImagenesTransparente, null=True, blank=True)
+  orden = models.IntegerField()
   class Meta:
         verbose_name = "Fondo"
 
