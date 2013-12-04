@@ -115,18 +115,11 @@ class GaleriasVideos(models.Model):
         verbose_name = "Galerias de Video"
 
 class Promocion(models.Model):
-  mensaje= models.CharField(max_length=60)
+  mensaje= models.TextField(max_length=60)
   imagen = models.ImageField(upload_to='carga')
   pdf = models.FileField(upload_to='carga')
-
-
-class GaleriasPdf(models.Model):
-  def __unicode__(self):
-    return self.nombreGaleria
-  nombreGaleria = models.CharField(max_length=100, verbose_name="Nombre")
-  pdf = ManyToManyField(Pdf, null=True, blank=True)
   class Meta:
-        verbose_name = "Galerias de Pdf"
+        verbose_name = "Promocion"
 
 class Texto(models.Model):
   seccion = models.ForeignKey(SubSeccion)
