@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 class BackgroundAdmin(AdminViews):
     exclude = ['imagen']
     list_display = ('nombre', 'asociada')
+    search_fields = ['nombre', 'asociada']
     admin_views = (
       ('Subir Background', '/admin/background/home'),
     )
@@ -33,15 +34,25 @@ class TextoAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'seccion')
     search_fields = ['titulo', 'seccion__nombre']
 
+class GaleriaAdmin(admin.ModelAdmin):
+    search_fields = ['nombreGaleria']
+
+class GaleriaPdfAdmin(admin.ModelAdmin):
+    search_fields = ['nombreGaleria']
+
+class VideosAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'codigo')
+    search_fields = ['nombre']
+
 admin.site.register(Edificio)
 admin.site.register(Tipo, TipoAdmin)
 admin.site.register(Background, BackgroundAdmin)
 admin.site.register(Planos)
 admin.site.register(Imagenes, ImagenAdmin)
-admin.site.register(GaleriasImagenes)
-admin.site.register(GaleriasPdf)
+admin.site.register(GaleriasImagenes, GaleriaAdmin)
+admin.site.register(GaleriasPdf, GaleriaPdfAdmin)
 admin.site.register(Pdf)
-admin.site.register(Videos)
+admin.site.register(Videos, VideosAdmin)
 admin.site.register(GaleriasVideos)
 admin.site.register(Seccion)
 admin.site.register(Texto, TextoAdmin)

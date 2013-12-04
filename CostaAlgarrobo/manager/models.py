@@ -80,7 +80,7 @@ class Planos(models.Model):
 class GaleriasImagenes(models.Model):
   def __unicode__(self):
     return self.nombreGaleria
-  nombreGaleria = models.CharField(max_length=100)
+  nombreGaleria = models.CharField(max_length=100, verbose_name="Nombre")
   class Meta:
         verbose_name = "Galerias de Imagene"
 
@@ -103,7 +103,7 @@ class Videos(models.Model):
   nombre = models.CharField(max_length=50)
   codigo = models.TextField(max_length=1000)
   class Meta:
-        verbose_name = "Video"
+        verbose_name = "Videos"
 
 class GaleriasVideos(models.Model):
   def __unicode__(self):
@@ -119,8 +119,8 @@ class Pdf(models.Model):
 class GaleriasPdf(models.Model):
   def __unicode__(self):
     return self.nombreGaleria
-  nombreGaleria = models.CharField(max_length=100)
-  pdf = ManyToManyField(Pdf)
+  nombreGaleria = models.CharField(max_length=100, verbose_name="Nombre")
+  pdf = ManyToManyField(Pdf, null=True, blank=True)
   class Meta:
         verbose_name = "Galerias de Pdf"
 
