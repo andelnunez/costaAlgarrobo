@@ -535,7 +535,7 @@ def bosque(request):
   texto = ""
   titulo = ""
   try:
-    seccion = Seccion.objects.get(nombre="Fotos Mar")
+    seccion = Seccion.objects.get(nombre="Fotos Bosque")
     fondos = Background.objects.filter(seccion=seccion)
    # subseccion = SubSeccion.objects.get(nombre="Proyecto Equipo")
    # text = Texto.objects.get(seccion = subseccion)
