@@ -14,6 +14,11 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import resolve
 
 def cookie_oferta(request):
+  ofertas = Promocion.objects.all()
+  if ofertas.count() > 0:
+    info_oferta = ofertas[0]
+  else:
+    info_oferta = ""
   if 'oferta' in request.session:
     oferta = request.session['oferta']
   else:
@@ -23,6 +28,4 @@ def cookie_oferta(request):
     pass
   else:
     request.session['url'] = current_url
-  return {
-        'oferta': oferta,
-    }
+  return {'oferta': oferta, 'info_oferta': info_oferta,}
