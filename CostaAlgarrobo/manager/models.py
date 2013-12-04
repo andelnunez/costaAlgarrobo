@@ -31,7 +31,7 @@ class Background(models.Model):
     return self.nombre
   aligV = (
     ('top','Arriba'),
-    ('center','Medio'),
+    ('middle','Medio'),
     ('bottom','Abajo'),
   )
   aligH = (
