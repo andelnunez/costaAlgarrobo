@@ -18,6 +18,9 @@
         {% if seccion = 'Ubicacion'%}
          <link rel="stylesheet" href="{{STATIC_URL}}/css/ubicacion.css">
         {%endif%}
+        {% if seccion = 'Plantas'%}
+         <link rel="stylesheet" href="{{STATIC_URL}}/css/plantas.css">
+        {%endif%}
 
 	{% block css_costa %}{% endblock %}
 
@@ -58,7 +61,7 @@
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">DEPARTAMENTOS</a>
 					<span class="glyphicon glyphicon-play arrow"></span>
 					<ul class="dropdown-menu">
-				      <li><a href="/fotos_piloto">FOTOS PILOTOS</a></li>
+				      <li><a href="/fotos_mar">FOTOS PILOTOS</a></li>
 				      <li><a href="/plantas">PLANTAS</a></li>
 				    </ul>
 				</li>
@@ -139,7 +142,8 @@
 			</div>
 		</footer>
 		
-		   
+		{% block modals %}
+		{% endblock %}
 		    
 	
 		    <!-- Scripts para cargas finales -->
