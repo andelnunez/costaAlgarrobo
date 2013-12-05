@@ -5,17 +5,17 @@ from admin_views.admin import AdminViews
 from django.core.exceptions import ValidationError
 
 class BackgroundAdmin(AdminViews):
-    exclude = ['imagen']
+    exclude = ['ancho', 'alto']
     list_display = ('nombre', 'asociada')
     search_fields = ['nombre', 'asociada']
     admin_views = (
-      ('Subir Background', '/admin/background/home'),
+      ('Subir fondo que requiera recortar', '/admin/background/home'),
     )
 
 class ImagenAdmin(AdminViews):
-    exclude = ['imagen', 'size1', 'size2']
+    exclude = ['size1', 'size2', 'alto', 'ancho']
     admin_views = (
-      ('Subir Imagen a Galeria', '/galeriasImagenes/home'),
+      ('Subir Imagen a galeria que requiera recortar', '/galeriasImagenes/home'),
     )
     list_display = ('nombre', 'galeria')
     search_fields = ['nombre', 'galeria__nombreGaleria']
@@ -31,6 +31,7 @@ class TipoAdmin(admin.ModelAdmin):
     search_fields = ['nombre', 'edificio__nombre']
 
 class TextoAdmin(admin.ModelAdmin):
+    exclude = ['seccion']
     list_display = ('titulo', 'seccion')
     search_fields = ['titulo', 'seccion__nombre']
 

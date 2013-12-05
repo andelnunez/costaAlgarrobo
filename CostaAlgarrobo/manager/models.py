@@ -42,11 +42,11 @@ class Background(models.Model):
   nombre = models.CharField(max_length=100)
   seccion = models.ManyToManyField(Seccion)
   imagen = models.ImageField(upload_to='carga')
-  alto = models.CharField(max_length=20)
-  ancho = models.CharField(max_length=20)
-  vertical = models.CharField(max_length=20, choices=aligV)
-  horizontal = models.CharField(max_length=20, choices=aligH)
-  asociada = models.ForeignKey(ImagenesTransparente, null=True, blank=True)
+  alto = models.CharField(max_length=20, null=True, blank=True)
+  ancho = models.CharField(max_length=20, null=True, blank=True)
+  vertical = models.CharField(max_length=20, choices=aligV, verbose_name="Alineacion vertical")
+  horizontal = models.CharField(max_length=20, choices=aligH, verbose_name="Alineacion horizontal")
+  asociada = models.ForeignKey(ImagenesTransparente, null=True, blank=True, verbose_name="Imagen transparente asociada")
   orden = models.IntegerField()
   class Meta:
         verbose_name = "Fondo"
@@ -83,7 +83,7 @@ class GaleriasImagenes(models.Model):
     return self.nombreGaleria
   nombreGaleria = models.CharField(max_length=100, verbose_name="Nombre")
   class Meta:
-        verbose_name = "Galerias de Imagene"
+        verbose_name = "Crear galerias de imagene"
 
 class Imagenes(models.Model):
   aligV = (
@@ -100,10 +100,10 @@ class Imagenes(models.Model):
     return self.nombre
   nombre = models.CharField(max_length=100)
   imagen = models.ImageField(upload_to='carga')
-  alto = models.CharField(max_length=20)
-  ancho = models.CharField(max_length=20)
-  alineacion1 = models.CharField(max_length=20, choices=aligV)
-  alineacion2 = models.CharField(max_length=20, choices=aligH)
+  alto = models.CharField(max_length=20, null=True, blank=True)
+  ancho = models.CharField(max_length=20, blank=True, null=True)
+  alineacion1 = models.CharField(max_length=20, choices=aligV, verbose_name="Alineacion vertical")
+  alineacion2 = models.CharField(max_length=20, choices=aligH, verbose_name="Alineacion horizontal")
   size1 = models.CharField(max_length=20, null=True, blank=True)
   size2 = models.CharField(max_length=20, null=True, blank=True)
   galeria = models.ForeignKey(GaleriasImagenes)
@@ -126,7 +126,7 @@ class GaleriasVideos(models.Model):
 
 class Promocion(models.Model):
   mensaje= models.TextField(max_length=60)
-  imagen = models.ImageField(upload_to='carga')
+  imagen = models.ImageField(upload_to='carga', verbose_name="imagen miniatura")
   pdf = models.FileField(upload_to='carga')
   class Meta:
         verbose_name = "Promocion"
