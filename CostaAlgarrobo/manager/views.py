@@ -36,7 +36,7 @@ def background(request,seccion):
 
 
 #      if sec == None:
-      sec = Background.objects.create(nombre=nombre,imagen=imagen,vertical=alineacion1,horizontal=alineacion2, orden=orden)
+      sec = Background.objects.create(nombre=nombre,imagen=imagen, ancho=1, alto=1, vertical=alineacion1,horizontal=alineacion2, orden=orden)
       for seccion in secciones:
         sec.seccion.add(seccion)
       sec.save()
