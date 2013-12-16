@@ -457,6 +457,7 @@ def video(request, id_video):
   return render_to_response('video.html', {'seccion': seccion.nombre, 'videos': videos, 'video': video, 'id': id, 'fondos': fondos}, context_instance=RequestContext(request))
 
 def contactanos(request):
+  mensaje=""
   seccion = ""
   texto = ""
   try:
@@ -475,11 +476,18 @@ def contactanos(request):
       contenido += 'Celular: ' + str(formulario.cleaned_data['celular']) + '\n'
       contenido += 'Email: ' + formulario.cleaned_data['email'] + '\n'
       contenido += 'Consulta: ' + formulario.cleaned_data['consulta'] + '\n'
-      correo = EmailMessage(titulo, contenido, to=['leonardogutierrezh@gmail.com'])
-      correo.send()
+      correo = EmailMessage(titulo, contenido, to=['costalgarrobonorte@stitchkin.com'], headers = {'Reply-To':  formulario.cleaned_data['email']})
+      correo2 = EmailMessage(titulo, contenido, to=['costaalgarrobonorte@gmail.com'], headers = {'Reply-To':  formulario.cleaned_data['email']})
+      try:
+        correo.send()
+        correo2.send()
+        mensaje = "Mensaje enviado!"
+      except:
+        mensaje = "Error al enviar el mensaje!"
+      return render_to_response('contactanos.html', {'formulario': formulario, 'seccion': seccion.nombre, 'fondos': fondos, 'mensaje': mensaje}, context_instance=RequestContext(request))
   else:
     formulario = ContactoForm()
-  return render_to_response('contactanos.html', {'formulario': formulario, 'seccion': seccion.nombre, 'fondos': fondos}, context_instance=RequestContext(request))
+  return render_to_response('contactanos.html', {'formulario': formulario, 'seccion': seccion.nombre, 'fondos': fondos, 'mensaje': mensaje}, context_instance=RequestContext(request))
 
 def etapa1(request):
   return render_to_response('etapa1.html',context_instance=RequestContext(request))
